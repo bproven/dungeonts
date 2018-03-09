@@ -17,44 +17,6 @@ public class LooterAgent : Agent
     public float rotation;
     public float cooldown1;
 
-    private Vector2 bestLootPos()
-    {
-        Vector2 bestLootPos = Vector2.zero;
-
-        GameObject[] loot = GameObject.FindGameObjectsWithTag("Gold");
-        // if there is no more loot left... you win? Reset.
-        // FIXME: Handle the case where there is no gold on the floor.
-        if (loot.Length == 0)
-        {
-            Debug.Log("Looter: Out of loot.");
-            done = true;
-            return Vector2.zero;
-        }
-
-        float valPerDistance = 0;
-        float bestVPD = 0;
-        foreach(GameObject gold in loot)
-        {
-            if (gold.transform.position != gameObject.transform.position)
-            {
-                valPerDistance = gold.GetComponent<Gold>().value /  (gold.transform.position - gameObject.transform.position).magnitude;
-            }
-            else
-            {
-                // We should really never have to be here. If we are, just ignore that loot, it will be in our inventory by next frame.
-                continue;
-            }
-            if (valPerDistance >= bestVPD)
-            {
-                bestLootPos = gold.transform.position;
-                bestVPD = valPerDistance;
-            }
-        }
-        lootPos = bestLootPos;
-        return bestLootPos;
-    }
-
-
     /// <summary>
     /// Use this method to initialize your agent. This method is called when the agent is created. 
     /// Do not use Awake(), Start() or OnEnable().
@@ -72,37 +34,7 @@ public class LooterAgent : Agent
     public override List<float> CollectState()
     {
         List<float> state = new List<float>();
-
-        // Old implementation, too many manual variables
-        /*
-        // Current velocity, for force-based implementations
-        state.Add(gameObject.GetComponent<Rigidbody2D>().velocity.x);
-        state.Add(gameObject.GetComponent<Rigidbody2D>().velocity.y);
-
-        // Where are the enemies that we need to avoid on the way to sick loot
-        Vector2 diff = enemy.transform.position - gameObject.transform.position;
-        // How far is this enemy?
-        state.Add(diff.magnitude / 6);
-        // In what direction is this enemy?
-        diff.Normalize();
-        state.Add(diff.x);
-        state.Add(diff.y);
-        // Combine diffs into one angle
-        //state.Add(Vector2.SignedAngle(Vector2.up, diff) / 180);
-
-        // Where is the sick loot
-        Vector2 bestLoot = bestLootPos();
-        Vector2 lootDiff = new Vector3(bestLoot.x, bestLoot.y) - gameObject.transform.position;
-        // How far is this enemy?
-        state.Add(lootDiff.magnitude / 6);
-        // In what direction is this enemy?
-        lootDiff.Normalize();
-        state.Add(lootDiff.x);
-        state.Add(lootDiff.y);
-        // Combine diffs into one angle
-        //state.Add(Vector2.SignedAngle(Vector2.up, lootDiff) / 180);
-        */
-
+        
         // New implementation, raycasts in 8 directions with information on what they hit
         RaycastHit2D[] rays = new RaycastHit2D[16];
         int counter = 0;
@@ -176,16 +108,8 @@ public class LooterAgent : Agent
         }
         else if (brain.brainParameters.actionSpaceType == StateType.continuous)
         {
-            // Give the AI more indirect control, apply force to the player to move them
-            // gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(act[0], act[1]));
-
             // Give the AI more direct control, directly affect the velocity of the player. Allows for more precise movement
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude(new Vector2(act[0], act[1]), maxSpeed);
-
-            // Give the AI a constantly moving player, but let them rotate the direction they move each frame
-            //Vector3 move = Quaternion.Euler(0, 0, act[0] * 180) * Vector2.up * maxSpeed;
-            //gameObject.GetComponent<Rigidbody2D>().velocity = move;
-            //rotation = act[0] * 180;
         }
 
         // Just in case it somehow breaks physics while it's training
