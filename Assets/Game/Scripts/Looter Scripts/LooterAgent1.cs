@@ -14,7 +14,7 @@ public class LooterAgent1 : Agent
 
     public float sightDistance;
 
-    private Vector2 lootPos;
+    //private Vector2 lootPos;
     private float lastLootCollection;
 
     public float rotation;
@@ -24,7 +24,7 @@ public class LooterAgent1 : Agent
     public float range;
 
     private float lastShot;
-    private float lastKill;
+    //private float lastKill;
 
     private void shuffleTarget(GameObject target)
     {
@@ -51,7 +51,7 @@ public class LooterAgent1 : Agent
             {
                 reward += 25;
                 shuffleTarget(hit.collider.gameObject);
-                lastKill = Time.time;
+                //lastKill = Time.time;
 
                 // Feed a reward into the Movement agent for allowing us to kill it
                 reward += 25;
@@ -99,7 +99,7 @@ public class LooterAgent1 : Agent
                 bestVPD = valPerDistance;
             }
         }
-        lootPos = bestLootPos;
+        //lootPos = bestLootPos;
         return bestLootPos;
     }
 
