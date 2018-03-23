@@ -5,75 +5,119 @@ using UnityEngine;
 public class ArcherAgent : Agent
 {
     [Header("Specific to ArchetTesting")]
-    public GameObject target;
     public Transform home;
     public GameObject arrow;
-    public int range;
+    public GameObject looter;
+    public GameObject enemy;
+    public float range;
     public float turnSpeed;
 	public float shotDistance;
+    public bool debug;
+    public bool spawnSafety;
 
     public float shotDelay;
     public float lastShot;
-    private float lastKill;
     private float startTime = 0;
     public float roundTime;
 
     public float currentAngle;
 
     public float x, y, fire;
+    public uint numRays;
+
+    public float spawnDelay;
+    private bool hasKilled;
+    private float lastKill;
 
     public override List<float> CollectState()
     {
         List<float> state = new List<float>();
-        //state.Add(gameObject.transform.rotation.z);
-        state.Add(Vector2.SignedAngle(gameObject.transform.up, target.transform.position - gameObject.transform.position) / 180);
-        state.Add((Time.time - lastShot) / shotDelay);
+        float cd = (Time.time - lastShot) / shotDelay;
+        // Keep the cooldown normalized
+        state.Add((cd > 1 ? 1 : 0));
+
+        // New implementation, raycasts in 8 directions with information on what they hit
+        RaycastHit2D[] rays = new RaycastHit2D[numRays];
+        // New loop
+        for (int i = 0; i < rays.Length; i++)
+        {
+            rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, shotDistance);
+            // Debug
+            if (debug)
+                if (rays[i])
+                    Debug.DrawLine(gameObject.transform.position, rays[i].point, rays[i].collider.tag == "Enemy" ? Color.green : Color.blue);
+                else
+                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up).normalized * shotDistance));
+        }
+        for (int i = 0; i < rays.Length; i++)
+        {
+            state.Add(rays[i].distance / shotDistance);
+            // Add information about what was hit
+            if (rays[i])
+            {
+                // We only need information about whether it's an enemy or not, really
+                if (rays[i].collider.tag == "Enemy")
+                {
+                    state.Add(1.0f);
+                    // Nudge it towards aiming correctly
+                    if (i == 0)
+                       reward += 0.01f;
+                }
+                else
+                    state.Add(0.0f);
+            }
+            else
+                state.Add(0.0f);
+        }
         return state;
     }
 
-    private void shuffleTarget()
+    private void shuffleTarget(GameObject target)
     {
-        target.transform.position = new Vector3(Random.Range(home.position.x - range, home.position.x + range), Random.Range(home.position.y - range, home.position.y + range), home.position.z);
+        // Generate a random position within the battleground for the enemy to spawn
+        Vector3 randV = new Vector3(Random.Range(-range, range), Random.Range(-range, range), 0);
+
+        // Push the random position to an outer radius
+        randV.Normalize();
+        randV.Scale(new Vector3(range, range, 0));
+
+        target.transform.position = home.position + randV;
+        if ((target.transform.position - gameObject.transform.position).magnitude < 1.0f && spawnSafety)
+            shuffleTarget(target);
     }
 
     private void punishMiss()
     {
-        reward -= 0.5f;
-        transform.parent.GetComponent<LooterAgent>().reward -= 0.5f;
+        reward -= 2f;
     }
 
     private void fireArrow()
     {
         if (Time.time - lastShot < shotDelay)
-        {
-            reward -= 0.5f;
             return;
-        }
         else
             lastShot = Time.time;
 
 		RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, gameObject.transform.up, shotDistance);
+        // Debug
 		Debug.DrawLine (gameObject.transform.position, gameObject.transform.position + gameObject.transform.up * shotDistance);
         //GameObject projectile = GameObject.Instantiate(arrow, gameObject.transform.position, gameObject.transform.rotation, null);
         if (hit.collider != null)
         {
-            Debug.DrawLine(gameObject.transform.position, hit.point);
-            if (hit.collider.gameObject == target)
+            if (hit.collider.tag == "Enemy")
             {
-                reward += 25;
-                shuffleTarget();
+                reward += 5;
+                GameObject.Destroy(hit.collider.gameObject);
+                hasKilled = true;
                 lastKill = Time.time;
-
-                // Feed a reward into the Movement agent for allowing us to kill it
-                gameObject.transform.parent.GetComponent<LooterAgent>().reward += 25;
+                if (looter.GetComponent<Agent>())
+                    looter.GetComponent<Agent>().reward += 5;
             }
             else
                 punishMiss();
         }
         else
-        {
             punishMiss();
-        }
     }
 
     // to be implemented by the developer
@@ -81,64 +125,59 @@ public class ArcherAgent : Agent
     {
         if (brain.brainParameters.actionSpaceType == StateType.discrete)
         {
-            switch ((int)act[0])
-            {
-                case 1:
-                    gameObject.transform.Rotate(new Vector3(0, 0, 1 * turnSpeed * Time.deltaTime));
-                    break;
-                case 2:
-                    gameObject.transform.Rotate(new Vector3(0, 0, -1 * turnSpeed * Time.deltaTime));
-                    break;
-                case 3:
-                    {
-                        fireArrow();
-                    }
-                    break;
-            }
-            
-            // Test case for out-of-bounds condition when implementing movement in the future
-            if ((Mathf.Abs(gameObject.transform.position.x - home.position.x) > range) || (Mathf.Abs(gameObject.transform.position.y - home.position.y) > range))
-            {
 
-            }
         }
         else if (brain.brainParameters.actionSpaceType == StateType.continuous)
         {
-
-            gameObject.transform.Rotate(new Vector3(0, 0, act[0] * turnSpeed * Time.deltaTime));
+            gameObject.transform.Rotate(new Vector3(0, 0, act[0] * turnSpeed));
+            // Debug
             x = act[0]; fire = act[1];
+            // Fire
             if (act[1] > 0)
             {
+                // Just leave it be, I need it to aim before it can shoot
                 fireArrow();
             }
         }
-        reward += (180 - Vector2.Angle(gameObject.transform.up, target.transform.position - gameObject.transform.position)) / 180;
-        currentAngle = 180 - Vector2.Angle(gameObject.transform.up, target.transform.position - gameObject.transform.position);
-        //else
-        //    reward += 2;
-
-        // punish the player for leaving enemies alive, rather than killing them
-        if (Time.time - lastKill > shotDelay)
-        {
-            transform.parent.GetComponent<LooterAgent>().reward -= 0.1f;
-            reward -= 0.1f;
-        }
-
         // Reset the round if necessary
         if (Time.time - startTime > roundTime)
         {
             done = true;
             return;
         }
+
+        // Spawn a new enemy if necessary
+        if (hasKilled && Time.time - lastKill > spawnDelay)
+            spawnEnemy();
+    }
+
+    private void spawnEnemy()
+    {
+        GameObject spawn = GameObject.Instantiate(enemy, transform.parent.parent);
+        spawn.GetComponent<AttackPlayer>().player = gameObject;
+        shuffleTarget(spawn);
+        hasKilled = false;
     }
 
     // to be implemented by the developer
     public override void AgentReset()
     {
         gameObject.transform.up = new Vector3(0, 1, 0);
-        shuffleTarget();
+        Transform[] targets = new Transform[transform.parent.parent.childCount];
+        for (int i = 0; i < transform.parent.parent.childCount; i++)
+        {
+            if (transform.parent.parent.GetChild(i).tag == "Enemy")
+                targets[i] = transform.parent.parent.GetChild(i);
+            else
+                targets[i] = null;
+        }
+        for (int i = 0; i < targets.Length; i++)
+            if (targets[i] != null)
+                Destroy(targets[i].gameObject);
+
         startTime = Time.time;
-        lastShot = Time.time;
-        lastKill = Time.time;
+        lastShot = Time.time - shotDelay;
+        hasKilled = true;
+        lastKill = Time.time - spawnDelay;
     }
 }
