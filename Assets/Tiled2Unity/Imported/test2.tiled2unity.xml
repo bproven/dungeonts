@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Tiled2Unity generated xml data-->
+<!--Do not modify by hand-->
+<!--Last exported: 3/2/2018 11:43:02 AM-->
+<Tiled2Unity version="1.0.13.2">
+  <Prefab name="test2" orientation="Orthogonal" staggerAxis="Y" staggerIndex="Odd" hexSideLength="0" numLayers="6" numTilesWide="20" numTilesHigh="15" tileWidth="32" tileHeight="32" exportScale="1" mapWidthInPixels="640" mapHeightInPixels="480" backgroundColor="#808080">
+    <GameObject name="Grass" x="0" y="0" z="0">
+      <TileLayer offsetX="0" offsetY="0" />
+    </GameObject>
+    <GameObject name="Path" x="0" y="0" z="0">
+      <TileLayer offsetX="0" offsetY="0" />
+    </GameObject>
+    <GameObject name="barrels" x="0" y="0" z="0">
+      <TileLayer offsetX="0" offsetY="0" />
+    </GameObject>
+    <GameObject name="tree trunks/rocks/water" x="0" y="0" z="0">
+      <TileLayer offsetX="0" offsetY="0" />
+    </GameObject>
+    <GameObject name="tree tops" x="0" y="0" z="0">
+      <TileLayer offsetX="0" offsetY="0" />
+    </GameObject>
+    <GameObject name="Collisions" x="0" y="0" z="0">
+      <TileLayer offsetX="0" offsetY="0" />
+    </GameObject>
+  </Prefab>
+</Tiled2Unity>
