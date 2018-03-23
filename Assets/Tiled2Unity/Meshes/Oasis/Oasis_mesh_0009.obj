@@ -2,10 +2,10 @@
 # Wavefront file for 'Oasis_mesh_0009.obj'
 
 # Vertices (Count = 4)
-v -288 -368 0
-v -304 -368 0
-v -304 -352 0
-v -288 -352 0
+v -5.76 -7.36 0
+v -6.08 -7.36 0
+v -6.08 -7.04 0
+v -5.76 -7.04 0
 
 # Texture cooridinates (Count = 4)
 vt 0.6666667 0
