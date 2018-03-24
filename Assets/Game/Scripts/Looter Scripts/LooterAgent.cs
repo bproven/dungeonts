@@ -107,8 +107,8 @@ public class LooterAgent : Agent
                 // Reward risk
                 if (rays[i].collider.tag == "Enemy")
                     reward += 0.1f * (1 - (rays[i].distance / sightDistance)) / numRays;
-                if (rays[i].collider.tag == "Wall")
-                    reward -= 0.06f * (1 - (rays[i].distance / sightDistance)) / numRays;
+                //if (rays[i].collider.tag == "Wall")
+                //    reward -= 0.06f * (1 - (rays[i].distance / sightDistance)) / numRays;
             }
         }
         if (Time.time - roundStart > roundTime)
@@ -130,10 +130,11 @@ public class LooterAgent : Agent
         gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         transform.parent.GetComponent<Gold>().value = 0;
         transform.up = Vector2.up;
-
-        GameObject oldLevel = transform.parent.parent.gameObject;
+        GameObject oldLevel = null;
+        if (transform.parent.parent != null)
+            oldLevel = transform.parent.parent.gameObject;
         GameObject newLevel = GameObject.Instantiate(OGLevel);
-        newLevel.transform.position = transform.parent.parent.position;
+        newLevel.transform.position = (oldLevel == null ? transform.parent.position : oldLevel.transform.position);
         newLevel.name = "Spawnable Objects";
         transform.parent.SetParent(newLevel.transform);
         transform.parent.position = newLevel.transform.GetChild(0).position;
@@ -149,7 +150,8 @@ public class LooterAgent : Agent
         }
         if (OGLevel == null)
             Debug.Log("Lost the OG Level");
-        Destroy(oldLevel);
+        if (oldLevel != null)
+            Destroy(oldLevel);
     }
 
     /// <summary>
