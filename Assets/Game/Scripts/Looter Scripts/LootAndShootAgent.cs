@@ -196,7 +196,7 @@ public class LootAndShootAgent: Agent
             lastShot = Time.time;
 
         RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, gameObject.transform.up * 30);
-        GameObject projectile = GameObject.Instantiate(arrow, gameObject.transform.position, gameObject.transform.rotation, null);
+        //GameObject projectile = GameObject.Instantiate(arrow, gameObject.transform.position, gameObject.transform.rotation, null);
         if (hit.collider != null)
         {
             Debug.DrawLine(gameObject.transform.position, hit.point);
