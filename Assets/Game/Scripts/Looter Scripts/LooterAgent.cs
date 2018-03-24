@@ -5,6 +5,7 @@ using UnityEngine;
 public class LooterAgent : Agent
 {
     public GameObject shooter;
+    public GameObject OGLevel;
     public int roundTime;
     private float roundStart;
     public float maxSpeed;
@@ -14,10 +15,9 @@ public class LooterAgent : Agent
     public uint numRays;
     public bool debug;
 
+    public float x, y;
     public float myReward;
-
     public float turnSpeed;
-
     /// <summary>
     /// Use this method to initialize your agent. This method is called when the agent is created. 
     /// Do not use Awake(), Start() or OnEnable().
@@ -86,9 +86,30 @@ public class LooterAgent : Agent
         }
         else if (brain.brainParameters.actionSpaceType == StateType.continuous)
         {
-            // Constantly move forward at moveSpeed, turn Left/Right according to act[0]
-            gameObject.transform.Rotate(new Vector3(0, 0, act[0] * turnSpeed));
-            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = transform.up * maxSpeed;
+            // Turn-based controls
+            //transform.Rotate(new Vector3(0, 0, act[0] * turnSpeed));
+            //gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = transform.up * maxSpeed;
+            // WASD movement
+            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(act[0], act[1]) * maxSpeed;
+        }
+        // Proximity Rewards
+        RaycastHit2D[] rays = new RaycastHit2D[numRays];
+        for (int i = 0; i < rays.Length; i++)
+            rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, sightDistance);
+        for (int i = 0; i < rays.Length; i++)
+        {
+            // Add information about what was hit
+            if (rays[i])
+            {
+                // Reward greed
+                if (rays[i].collider.tag == "Gold")
+                    reward += 0.1f * (1 - (rays[i].distance / sightDistance)) / numRays;
+                // Reward risk
+                if (rays[i].collider.tag == "Enemy")
+                    reward += 0.1f * (1 - (rays[i].distance / sightDistance)) / numRays;
+                if (rays[i].collider.tag == "Wall")
+                    reward -= 0.06f * (1 - (rays[i].distance / sightDistance)) / numRays;
+            }
         }
         if (Time.time - roundStart > roundTime)
         {
@@ -96,27 +117,6 @@ public class LooterAgent : Agent
             done = true;
         }
 
-
-        // Work in Progress
-        // Add rewards based on current situation
-        RaycastHit2D[] rays = new RaycastHit2D[numRays];
-        // New loop
-        for (int i = 0; i < rays.Length; i++)
-        {
-            rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, sightDistance);
-        }
-        for (int i = 0; i < rays.Length; i++)
-        {
-            if (rays[i])
-            {
-                // Reward risky behaviour
-                if (rays[i].collider.tag == "Enemy")
-                    reward += Mathf.Pow((1 - (rays[i].distance / sightDistance)), 3) / numRays;
-                // Reward greedy behaviour
-                if (rays[i].collider.tag == "Gold")
-                    reward += Mathf.Pow((1 - (rays[i].distance / sightDistance)), 3) / numRays;
-            }
-        }
         // Debug
         myReward = CumulativeReward;
     }
@@ -128,17 +128,28 @@ public class LooterAgent : Agent
     {
         roundStart = Time.time;
         gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        gameObject.transform.parent.position = transform.parent.parent.position;
+        transform.parent.GetComponent<Gold>().value = 0;
+        transform.up = Vector2.up;
 
-        // Shuffle the loot
-        GameObject[] loot = GameObject.FindGameObjectsWithTag("Gold");
-        foreach(GameObject gold in loot)
+        GameObject oldLevel = transform.parent.parent.gameObject;
+        GameObject newLevel = GameObject.Instantiate(OGLevel);
+        newLevel.transform.position = transform.parent.parent.position;
+        newLevel.name = "Spawnable Objects";
+        transform.parent.SetParent(newLevel.transform);
+        transform.parent.position = newLevel.transform.GetChild(0).position;
+        shooter.GetComponent<ArcherAgent>().home = transform.parent.parent;
+        Debug.Log(transform.parent.parent.childCount);
+        for (int i = 0; i < transform.parent.parent.childCount; i++)
         {
-            if (gold.transform.parent == transform.parent.parent)
+            if (transform.parent.parent.GetChild(i).tag == "Enemy")
             {
-                gold.GetComponent<Gold>().randomizeGold();
-            }
+                Debug.Log(i);
+                transform.parent.parent.GetChild(i).GetComponent<AttackPlayer>().player = transform.parent.gameObject;
+            } 
         }
+        if (OGLevel == null)
+            Debug.Log("Lost the OG Level");
+        Destroy(oldLevel);
     }
 
     /// <summary>

@@ -25,7 +25,7 @@ public class Gold : MonoBehaviour {
                                                     transform.parent.position.y + Random.Range(-respawnRange, respawnRange));
         // I know this is deterministic, but I'm dialing in the reward values.
         // In the future, the loot drops might scale differently
-        value = Random.Range(5, 5);
+        value = Random.Range(1, 1);
 
         GetComponent<Collider2D>().enabled = true;
         GetComponent<SpriteRenderer>().enabled = true;
