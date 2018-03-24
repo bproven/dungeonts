@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4975283506418016}
   - component: {fileID: 212167711776175282}
-  - component: {fileID: 114319830640910810}
   m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
@@ -135,42 +134,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 0
   respawnRange: 0
---- !u!114 &114319830640910810
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1293846269225738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b680e8e62e505b5479fb84cf250e35c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
-  observations: []
-  maxStep: 0
-  resetOnDone: 1
-  reward: 0
-  done: 0
-  value: 0
-  CumulativeReward: 0
-  stepCounter: 0
-  agentStoredAction: []
-  memory: []
-  id: 0
-  target: {fileID: 0}
-  home: {fileID: 0}
-  arrow: {fileID: 1036870743063012, guid: 9ede21f462feeb046b87d430c140d7ea, type: 2}
-  range: 2
-  turnSpeed: 360
-  shotDistance: 0.5
-  shotDelay: 0.5
-  lastShot: 0
-  roundTime: 20
-  currentAngle: 0
-  x: 0
-  y: 0
-  fire: 0
 --- !u!114 &114386835231245638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -195,11 +158,15 @@ MonoBehaviour:
   memory: []
   id: 0
   roundTime: 20
-  maxSpeed: 3
+  maxSpeed: 1
   enemy: {fileID: 0}
   sightDistance: 2
   rotation: 0
   cooldown1: 0
+  turnSpeed: 360
+  shotDelay: 0.5
+  lastShot: 0
+  meleeDistance: 0.5
 --- !u!212 &212017116942378226
 SpriteRenderer:
   m_ObjectHideFlags: 1

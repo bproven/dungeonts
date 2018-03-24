@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class LooterAgent : Agent
 {
+    public GameObject shooter;
     public int roundTime;
     private float roundStart;
     public float maxSpeed;
-    public GameObject enemy;
 
     public float sightDistance;
 
-    private Vector2 lootPos;
-    private float lastLootCollection;
+    public uint numRays;
+    public bool debug;
 
-    public float rotation;
-    public float cooldown1;
+    public float myReward;
+
+    public float turnSpeed;
 
     /// <summary>
     /// Use this method to initialize your agent. This method is called when the agent is created. 
@@ -34,67 +35,44 @@ public class LooterAgent : Agent
     public override List<float> CollectState()
     {
         List<float> state = new List<float>();
-        
+
         // New implementation, raycasts in 8 directions with information on what they hit
-        RaycastHit2D[] rays = new RaycastHit2D[16];
-        int counter = 0;
-        for (float i = -1; i <= 1; i += 0.5f)
+        RaycastHit2D[] rays = new RaycastHit2D[numRays];
+        // New loop
+        for (int i = 0; i < rays.Length; i++)
         {
-			for (float j = -1; j <= 1; j += 0.5f)
-            {
-                if ((j != 1 && j != -1) && (i < 1 && i > -1))
-                    continue;
-                rays[counter] = Physics2D.Raycast(gameObject.transform.position, new Vector2(i, j), sightDistance);
-                counter++;
-            }
-        }
-        counter = 0;
-        for (float i = -1; i <= 1; i += 0.5f)
-        {
-			for (float j = -1; j <= 1; j += 0.5f)
-            {
-                if ((j != 1 && j != -1) && (i < 1 && i > -1))
-                    continue;
-                // Add the raycast information into the state
-                // Add the distance
-                state.Add(rays[counter].distance / sightDistance);
-                // Add information about what was hit
-                if (rays[counter])
-                {
-                    if (rays[counter].collider.tag == "Gold")
-                        state.Add(1.0f);
-                    else
-                        state.Add(0.0f);
-
-                    if (rays[counter].collider.tag == "Enemy")
-                        state.Add(1.0f);
-                    else
-                        state.Add(0.0f);
-
-                    if (rays[counter].collider.tag == "Wall")
-                        state.Add(1.0f);
-                    else
-                        state.Add(0.0f);
-                }
+            rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, sightDistance);
+            // Debug
+            if (debug)
+                if (rays[i])
+                    Debug.DrawLine(gameObject.transform.position, rays[i].point, rays[i].collider.tag == "Gold" ? Color.green : Color.blue);
                 else
-                {
-                    // No gold
-                    state.Add(0.0f);
-                    // No enemy
-                    state.Add(0.0f);
-                    // No wall
-                    state.Add(0.0f);
-                }
-                counter++;
+                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up).normalized * sightDistance));
+        }
+        for (int i = 0; i < rays.Length; i++)
+        {
+            state.Add(rays[i].distance / sightDistance);
+            // Add information about what was hit
+            if (rays[i])
+            {
+                // Is it a Wall? Gold? Enemy?
+                state.Add(rays[i].collider.tag == "Enemy" ? 1.0f : 0.0f);
+                state.Add(rays[i].collider.tag == "Wall" ? 1.0f : 0.0f);
+                state.Add(rays[i].collider.tag == "Gold" ? 1.0f : 0.0f);
+            }
+            else
+            {
+                state.Add(0.0f);
+                state.Add(0.0f);
+                state.Add(0.0f);
             }
         }
-        // We should probably know what our cooldowns are when moving around the enemy
-        cooldown1 = (transform.GetChild(0).GetComponent<ArcherAgent>().shotDelay - (Time.time - transform.GetChild(0).GetComponent<ArcherAgent>().lastShot)) / transform.GetChild(0).GetComponent<ArcherAgent>().shotDelay;
-        state.Add(cooldown1);
-
+        // Could we attack if we needed to?
+        float cd = (Time.time - shooter.GetComponent<ArcherAgent>().lastShot) / shooter.GetComponent<ArcherAgent>().shotDelay;
+        state.Add(cd >= 1 ? 1 : 0);
         return state;
     }
-
+    
     /// <summary>
     /// This function will be called every frame, you must define what your agent will do given the input actions. 
     /// You must also specify the rewards and whether or not the agent is done. To do so, modify the public fields of the agent reward and done.
@@ -108,23 +86,39 @@ public class LooterAgent : Agent
         }
         else if (brain.brainParameters.actionSpaceType == StateType.continuous)
         {
-            // Give the AI more direct control, directly affect the velocity of the player. Allows for more precise movement
-            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude(new Vector2(act[0], act[1]), maxSpeed);
+            // Constantly move forward at moveSpeed, turn Left/Right according to act[0]
+            gameObject.transform.Rotate(new Vector3(0, 0, act[0] * turnSpeed));
+            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = transform.up * maxSpeed;
         }
-
-        // Just in case it somehow breaks physics while it's training
-        if ((Mathf.Abs(gameObject.transform.position.x - transform.parent.position.x) > 2) ||
-            (Mathf.Abs(gameObject.transform.position.y - transform.parent.position.y) > 2))
-        {
-            done = true;
-            Debug.Log("Looter: Out of bounds.");
-            reward -= 1000;
-        }
-        else if (Time.time - roundStart > roundTime)
+        if (Time.time - roundStart > roundTime)
         {
             Debug.Log("Looter: Out of time.");
             done = true;
         }
+
+
+        // Work in Progress
+        // Add rewards based on current situation
+        RaycastHit2D[] rays = new RaycastHit2D[numRays];
+        // New loop
+        for (int i = 0; i < rays.Length; i++)
+        {
+            rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, sightDistance);
+        }
+        for (int i = 0; i < rays.Length; i++)
+        {
+            if (rays[i])
+            {
+                // Reward risky behaviour
+                if (rays[i].collider.tag == "Enemy")
+                    reward += Mathf.Pow((1 - (rays[i].distance / sightDistance)), 3) / numRays;
+                // Reward greedy behaviour
+                if (rays[i].collider.tag == "Gold")
+                    reward += Mathf.Pow((1 - (rays[i].distance / sightDistance)), 3) / numRays;
+            }
+        }
+        // Debug
+        myReward = CumulativeReward;
     }
 
     /// <summary>
@@ -133,23 +127,18 @@ public class LooterAgent : Agent
     public override void AgentReset()
     {
         roundStart = Time.time;
-        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        gameObject.transform.position = transform.parent.position;
+        gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        gameObject.transform.parent.position = transform.parent.parent.position;
 
+        // Shuffle the loot
         GameObject[] loot = GameObject.FindGameObjectsWithTag("Gold");
         foreach(GameObject gold in loot)
         {
-            if (gold.transform.parent == transform.parent)
+            if (gold.transform.parent == transform.parent.parent)
             {
                 gold.GetComponent<Gold>().randomizeGold();
             }
-            shuffleEnemy();
         }
-    }
-
-    private void shuffleEnemy()
-    {
-        enemy.transform.position = new Vector3(Random.Range(transform.parent.position.x - 2, transform.parent.position.x + 2), Random.Range(transform.parent.position.y - 2, transform.parent.position.y + 2), transform.parent.position.z);
     }
 
     /// <summary>
@@ -158,6 +147,7 @@ public class LooterAgent : Agent
     /// </summary>
     public override void AgentOnDone()
     {
+
     }
 
 }
