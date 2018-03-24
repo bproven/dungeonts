@@ -45,7 +45,6 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-*.exe 
 *_Data/
 *.meta 
 *.assets
