@@ -31,7 +31,6 @@ public class AttackPlayer : MonoBehaviour {
             }
         }
         gameObject.GetComponent<Rigidbody2D>().velocity = newVelocity;
-
         if (health <= 0)
             die();
         if (health == 1)
@@ -42,6 +41,7 @@ public class AttackPlayer : MonoBehaviour {
     {
         health = maxHealth;
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     void die()

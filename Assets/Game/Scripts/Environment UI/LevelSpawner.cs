@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelSpawner : MonoBehaviour
 {
     private List<Vector3> myState = new List<Vector3>();
+    public GameObject TempSpawns;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,10 @@ public class LevelSpawner : MonoBehaviour
             transform.GetChild(i).gameObject.SetActive(true);
             if (transform.GetChild(i).GetComponent<AttackPlayer>())
                 transform.GetChild(i).GetComponent<AttackPlayer>().reset();
+        }
+        for (int i = 0; i < TempSpawns.transform.childCount; i++)
+        {
+            Destroy(TempSpawns.transform.GetChild(i).gameObject);
         }
     }
 

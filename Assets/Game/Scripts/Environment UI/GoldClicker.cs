@@ -18,6 +18,7 @@ public class GoldClicker : MonoBehaviour {
             GameObject newGold = GameObject.Instantiate(gold);
             Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1);
             newGold.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
+            newGold.transform.SetParent(transform);
         }
 	}
 }
