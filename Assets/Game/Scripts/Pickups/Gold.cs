@@ -33,8 +33,7 @@ public class Gold : MonoBehaviour {
 
     private void toggleGold()
     {
-        GetComponent<Collider2D>().enabled = !GetComponent<Collider2D>().enabled;
-        GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
+        gameObject.SetActive(!gameObject.activeInHierarchy);
     }
 
     private void pickupGold(GameObject looter)

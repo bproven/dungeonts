@@ -126,7 +126,6 @@ public class ArcherAgent : Agent
                 lastKill = Time.time;
                 if (looter.GetComponent<Agent>())
                 {
-                    Debug.Log("Reward increased!");
                     looter.GetComponent<Agent>().reward += 2;
                 }
             }

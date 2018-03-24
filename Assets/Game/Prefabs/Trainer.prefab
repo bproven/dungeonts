@@ -1921,7 +1921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114099473312513486
 MonoBehaviour:
@@ -1935,7 +1935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114162044319341048
 MonoBehaviour:
@@ -1963,7 +1963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114192642285155984
 MonoBehaviour:
@@ -1991,7 +1991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114244675080635560
 MonoBehaviour:
@@ -2005,7 +2005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114258197670713952
 MonoBehaviour:
@@ -2019,7 +2019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114333861011898074
 MonoBehaviour:
@@ -2047,7 +2047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114372078244433674
 MonoBehaviour:
@@ -2061,7 +2061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114427133777828284
 MonoBehaviour:
@@ -2075,7 +2075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114440384481058892
 MonoBehaviour:
@@ -2089,7 +2089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114483779462923576
 MonoBehaviour:
@@ -2145,7 +2145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114603187027802552
 MonoBehaviour:
@@ -2201,7 +2201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114734679452424574
 MonoBehaviour:
@@ -2215,7 +2215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114801575363279724
 MonoBehaviour:
@@ -2229,7 +2229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114842125954774046
 MonoBehaviour:
@@ -2243,7 +2243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114846655712640058
 MonoBehaviour:
@@ -2257,7 +2257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114849278449794566
 MonoBehaviour:
@@ -2285,7 +2285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!114 &114882827445306092
 MonoBehaviour:
@@ -2313,7 +2313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.2
   health: 2
 --- !u!212 &212046946318178674
 SpriteRenderer:

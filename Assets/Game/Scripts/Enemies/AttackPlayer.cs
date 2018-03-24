@@ -6,10 +6,11 @@ public class AttackPlayer : MonoBehaviour {
 
     public GameObject player;
     public float moveSpeed;
+    private int maxHealth;
     public int health;
 	// Use this for initialization
 	void Start () {
-		
+        maxHealth = health;
 	}
 	
 	// Update is called once per frame
@@ -32,15 +33,25 @@ public class AttackPlayer : MonoBehaviour {
         gameObject.GetComponent<Rigidbody2D>().velocity = newVelocity;
 
         if (health <= 0)
-            Destroy(gameObject);
+            die();
         if (health == 1)
             GetComponent<SpriteRenderer>().color = Color.red;
+    }
+
+    public void reset()
+    {
+        health = maxHealth;
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    void die()
+    {
+        gameObject.SetActive(false);
     }
 
     // Kill the player who we collided with
     void killPlayer(Collision2D coll)
     {
-        Debug.Log("Enemy: Player killed.");
         // Punish all brains involved in this disaster
         for (int i = 0; i < coll.transform.childCount; i++)
             if (coll.transform.GetChild(i).GetComponent<Agent>())

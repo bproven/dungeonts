@@ -10,6 +10,8 @@ public class LooterAgent : Agent
     private float roundStart;
     public float maxSpeed;
 
+    private Vector3[] transforms;
+
     public float sightDistance;
 
     public uint numRays;
@@ -18,6 +20,8 @@ public class LooterAgent : Agent
     public float x, y;
     public float myReward;
     public float turnSpeed;
+
+    public GameObject levelManager;
     /// <summary>
     /// Use this method to initialize your agent. This method is called when the agent is created. 
     /// Do not use Awake(), Start() or OnEnable().
@@ -90,7 +94,7 @@ public class LooterAgent : Agent
             //transform.Rotate(new Vector3(0, 0, act[0] * turnSpeed));
             //gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = transform.up * maxSpeed;
             // WASD movement
-            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(act[0], act[1]) * maxSpeed;
+            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * maxSpeed;
         }
         // Proximity Rewards
         RaycastHit2D[] rays = new RaycastHit2D[numRays];
@@ -107,8 +111,6 @@ public class LooterAgent : Agent
                 // Reward risk
                 if (rays[i].collider.tag == "Enemy")
                     reward += 0.1f * (1 - (rays[i].distance / sightDistance)) / numRays;
-                //if (rays[i].collider.tag == "Wall")
-                //    reward -= 0.06f * (1 - (rays[i].distance / sightDistance)) / numRays;
             }
         }
         if (Time.time - roundStart > roundTime)
@@ -130,28 +132,9 @@ public class LooterAgent : Agent
         gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         transform.parent.GetComponent<Gold>().value = 0;
         transform.up = Vector2.up;
-        GameObject oldLevel = null;
-        if (transform.parent.parent != null)
-            oldLevel = transform.parent.parent.gameObject;
-        GameObject newLevel = GameObject.Instantiate(OGLevel);
-        newLevel.transform.position = (oldLevel == null ? transform.parent.position : oldLevel.transform.position);
-        newLevel.name = "Spawnable Objects";
-        transform.parent.SetParent(newLevel.transform);
-        transform.parent.position = newLevel.transform.GetChild(0).position;
-        shooter.GetComponent<ArcherAgent>().home = transform.parent.parent;
-        Debug.Log(transform.parent.parent.childCount);
-        for (int i = 0; i < transform.parent.parent.childCount; i++)
-        {
-            if (transform.parent.parent.GetChild(i).tag == "Enemy")
-            {
-                Debug.Log(i);
-                transform.parent.parent.GetChild(i).GetComponent<AttackPlayer>().player = transform.parent.gameObject;
-            } 
-        }
-        if (OGLevel == null)
-            Debug.Log("Lost the OG Level");
-        if (oldLevel != null)
-            Destroy(oldLevel);
+        levelManager.GetComponent<LevelSpawner>().resetLevel();
+
+        transform.parent.position = levelManager.transform.GetChild(0).position;
     }
 
     /// <summary>
