@@ -14,6 +14,7 @@ public class LooterAgent : Agent
     public GameObject shooter;
     public GameObject OGLevel;
     private float roundStart;
+    private float lastDamage;
 
     public float sightDistance;
 
@@ -47,8 +48,16 @@ public class LooterAgent : Agent
         // New input, trying to add some kind of memory for confusing situations
         // Hey, past me, where did you want to go again?
         Vector2 dir = transform.parent.GetComponent<Rigidbody2D>().velocity;
-        state.Add(dir.x / mySpeed);
-        state.Add(dir.y / mySpeed);
+        if (mySpeed != 0)
+        {
+            state.Add(dir.x / mySpeed);
+            state.Add(dir.y / mySpeed);
+        }
+        else
+        {
+            state.Add(0.0f);
+            state.Add(0.0f);
+        }
 
         // What can I see?
         RaycastHit2D[] rays = new RaycastHit2D[numRays];
@@ -155,10 +164,31 @@ public class LooterAgent : Agent
         transform.parent.GetComponent<Gold>().value = 0;
         transform.up = Vector2.up;
         levelManager.GetComponent<LevelSpawner>().resetLevel();
+        lastDamage = Time.time - 0.5f;
         // PLAYER SETTINGS
         myHealth = HP;  mySpeed = DEX;
 
+        transform.parent.GetComponent<SpriteRenderer>().color = Color.green;
+
         transform.parent.position = levelManager.transform.GetChild(0).position;
+    }
+
+    public void looterTakeDamage(int damage)
+    {
+        if (Time.time - lastDamage > 0.5f)
+        {
+            Debug.Log("Taking Damage!");
+            myHealth -= damage;
+            if (debug)
+                transform.parent.GetComponent<SpriteRenderer>().color = Color.red;
+            if (myHealth <= 0)
+            {
+                done = true;
+                shooter.GetComponent<ArcherAgent>().done = true;
+            }
+            lastDamage = Time.time;
+        }
+
     }
 
     /// <summary>
