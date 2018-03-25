@@ -33,7 +33,7 @@ public class Gold : MonoBehaviour {
 
     private void toggleGold()
     {
-        gameObject.SetActive(!gameObject.activeInHierarchy);
+        gameObject.SetActive(false);
     }
 
     private void pickupGold(GameObject looter)

@@ -111,6 +111,8 @@ public class LooterAgent : Agent
                 // Reward risk
                 if (rays[i].collider.tag == "Enemy")
                     reward += 0.1f * (1 - (rays[i].distance / sightDistance)) / numRays;
+                if (rays[i].collider.tag == "Wall")
+                    reward -= 0.06f * (1 - (rays[i].distance / sightDistance)) / numRays;
             }
         }
         if (Time.time - roundStart > roundTime)

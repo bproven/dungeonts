@@ -15,17 +15,18 @@ public class LevelSpawner : MonoBehaviour
 	
     public void resetLevel()
     {
-        for (int i = 0; i < myState.Count; i++)
+        for (int i = 2; i < myState.Count; i++)
         {
+            // Reset all objects' positions, with a small randomness factor
             transform.GetChild(i).position = myState[i];
             transform.GetChild(i).gameObject.SetActive(true);
             if (transform.GetChild(i).GetComponent<AttackPlayer>())
                 transform.GetChild(i).GetComponent<AttackPlayer>().reset();
         }
-        for (int i = 0; i < TempSpawns.transform.childCount; i++)
+        /*for (int i = 0; i < TempSpawns.transform.childCount; i++)
         {
             Destroy(TempSpawns.transform.GetChild(i).gameObject);
-        }
+        }*/
     }
 
 	// Update is called once per frame

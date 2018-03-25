@@ -42,6 +42,14 @@ public class AttackPlayer : MonoBehaviour {
         health = maxHealth;
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        // Spawn Variance
+        Vector2 rand = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, GetComponent<CircleCollider2D>().radius, rand, rand.magnitude);
+        if (hit)
+            transform.position = hit.centroid;
+        else
+            transform.position += new Vector3(rand.x, rand.y);
     }
 
     void die()
