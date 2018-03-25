@@ -5,23 +5,23 @@ using UnityEngine;
 public class ArcherAgent : Agent
 {
     [Header("Specific to ArchetTesting")]
-    public Transform home;
-    public GameObject arrow;
+    // PLAYER SETTINGS
+    public static float RANGE = 0.35f, FIRERATE = 0.5f;
+    public static int STR = 1;
+    
     public GameObject looter;
     public GameObject enemy;
     public float range;
     public float turnSpeed;
 	public float shotDistance;
     public bool debug;
-    public bool spawnSafety;
 
     public float shotDelay;
+    public int myStrength;
     public float lastShot;
     private float startTime = 0;
     public float roundTime;
-
-    public float currentAngle;
-
+    
     public float x, y, fire;
     public uint numRays;
 
@@ -79,20 +79,6 @@ public class ArcherAgent : Agent
         return state;
     }
 
-    private void shuffleTarget(GameObject target)
-    {
-        // Generate a random position within the battleground for the enemy to spawn
-        Vector3 randV = new Vector3(Random.Range(-range, range), Random.Range(-range, range), 0);
-
-        // Push the random position to an outer radius
-        //randV.Normalize();
-        //randV.Scale(new Vector3(range, range, 0));
-
-        target.transform.position = home.position + randV;
-        if ((target.transform.position - gameObject.transform.position).magnitude < 2.0f && spawnSafety)
-            shuffleTarget(target);
-    }
-
     private void punishMiss()
     {
         reward -= 2f;
@@ -111,7 +97,7 @@ public class ArcherAgent : Agent
             if (hit.collider.tag == "Enemy")
             {
                 reward += 5;
-                hit.collider.GetComponent<AttackPlayer>().health -= 1;
+                hit.collider.GetComponent<AttackPlayer>().health -= myStrength;
                 if (looter.GetComponent<Agent>())
                     looter.GetComponent<Agent>().reward += 2;
             }
@@ -153,8 +139,13 @@ public class ArcherAgent : Agent
     public override void AgentReset()
     {
         gameObject.transform.up = new Vector3(0, 1, 0);
+        shotDelay = FIRERATE;
+        shotDistance = RANGE;
+        myStrength = STR;
 
+        roundTime = LooterAgent.TIME;
         startTime = Time.time;
         lastShot = Time.time - shotDelay;
+
     }
 }

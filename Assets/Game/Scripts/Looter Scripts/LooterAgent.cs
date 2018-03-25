@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class LooterAgent : Agent
 {
+    // PLAYER SETTINGS
+    public static int HP = 3, TIME = 60;
+    public static float DEX = 2;
+
+    // Local settings to be adjusted by items
+    public float mySpeed;
+    public int myHealth;
     public GameObject shooter;
     public GameObject OGLevel;
-    public int roundTime;
     private float roundStart;
-    public float maxSpeed;
-
-    private Vector3[] transforms;
 
     public float sightDistance;
 
     public uint numRays;
-    public bool debug;
 
-    public float x, y;
+    // Output debug
+    public bool debug;
     public float myReward;
-    public float turnSpeed;
+    public float x, y;
 
     public GameObject levelManager;
 
@@ -44,8 +47,8 @@ public class LooterAgent : Agent
         // New input, trying to add some kind of memory for confusing situations
         // Hey, past me, where did you want to go again?
         Vector2 dir = transform.parent.GetComponent<Rigidbody2D>().velocity;
-        state.Add(dir.x / maxSpeed);
-        state.Add(dir.y / maxSpeed);
+        state.Add(dir.x / mySpeed);
+        state.Add(dir.y / mySpeed);
 
         // What can I see?
         RaycastHit2D[] rays = new RaycastHit2D[numRays];
@@ -110,7 +113,7 @@ public class LooterAgent : Agent
             //transform.Rotate(new Vector3(0, 0, act[0] * turnSpeed));
             //gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = transform.up * maxSpeed;
             // WASD movement
-            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * maxSpeed;
+            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * mySpeed;
         }
         // Proximity Rewards, make the earlier runs more distinct in score before the late game
         RaycastHit2D[] rays = new RaycastHit2D[numRays];
@@ -132,7 +135,7 @@ public class LooterAgent : Agent
                     reward -= 0.05f * (Mathf.Pow(1 - (rays[i].distance / sightDistance), 2)) / numRays;
             }
         }
-        if (Time.time - roundStart > roundTime)
+        if (Time.time - roundStart > TIME)
         {
             Debug.Log("Looter: Out of time.");
             done = true;
@@ -152,6 +155,8 @@ public class LooterAgent : Agent
         transform.parent.GetComponent<Gold>().value = 0;
         transform.up = Vector2.up;
         levelManager.GetComponent<LevelSpawner>().resetLevel();
+        // PLAYER SETTINGS
+        myHealth = HP;  mySpeed = DEX;
 
         transform.parent.position = levelManager.transform.GetChild(0).position;
     }
