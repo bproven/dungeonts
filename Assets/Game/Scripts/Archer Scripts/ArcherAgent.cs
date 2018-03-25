@@ -25,12 +25,6 @@ public class ArcherAgent : Agent
     public float x, y, fire;
     public uint numRays;
 
-    public float spawnDelay;
-    private bool hasKilled;
-    private float lastKill;
-
-    private int numHits;
-
     public override List<float> CollectState()
     {
         List<float> state = new List<float>();
@@ -112,22 +106,14 @@ public class ArcherAgent : Agent
             lastShot = Time.time;
 
 		RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, gameObject.transform.up, shotDistance);
-        // Debug
-		Debug.DrawLine (gameObject.transform.position, gameObject.transform.position + gameObject.transform.up * shotDistance);
-        //GameObject projectile = GameObject.Instantiate(arrow, gameObject.transform.position, gameObject.transform.rotation, null);
         if (hit.collider != null)
         {
             if (hit.collider.tag == "Enemy")
             {
                 reward += 5;
-                numHits += 1;
                 hit.collider.GetComponent<AttackPlayer>().health -= 1;
-                hasKilled = true;
-                lastKill = Time.time;
                 if (looter.GetComponent<Agent>())
-                {
                     looter.GetComponent<Agent>().reward += 2;
-                }
             }
             else
                 punishMiss();
@@ -163,15 +149,6 @@ public class ArcherAgent : Agent
         }
     }
 
-    private void spawnEnemy()
-    {
-        GameObject spawn = GameObject.Instantiate(enemy, transform.parent.parent);
-        spawn.GetComponent<AttackPlayer>().player = gameObject;
-        shuffleTarget(spawn);
-        hasKilled = false;
-        spawn.GetComponent<AttackPlayer>().health = 2;
-    }
-
     // to be implemented by the developer
     public override void AgentReset()
     {
@@ -179,8 +156,5 @@ public class ArcherAgent : Agent
 
         startTime = Time.time;
         lastShot = Time.time - shotDelay;
-        hasKilled = true;
-        lastKill = Time.time - spawnDelay;
-        numHits = 0;
     }
 }
