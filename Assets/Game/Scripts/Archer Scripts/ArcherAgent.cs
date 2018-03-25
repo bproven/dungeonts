@@ -25,10 +25,6 @@ public class ArcherAgent : Agent
     public float x, y, fire;
     public uint numRays;
 
-    public float spawnDelay;
-    private bool hasKilled;
-    private float lastKill;
-
     public override List<float> CollectState()
     {
         List<float> state = new List<float>();
@@ -51,7 +47,18 @@ public class ArcherAgent : Agent
         }
         for (int i = 0; i < rays.Length; i++)
         {
-            state.Add(rays[i].distance / shotDistance);
+            // Pretend any data about walls/coins/etc isn't there. Just don't want to see enemies through walls, anything else is irrelevant
+            if (rays[i])
+            {
+                if (rays[i].collider.tag == "Enemy")
+                    state.Add(rays[i].distance / shotDistance);
+                else
+                    state.Add(0.0f);
+            }
+            else
+                state.Add(0.0f);
+
+
             // Add information about what was hit
             if (rays[i])
             {
@@ -61,7 +68,7 @@ public class ArcherAgent : Agent
                     state.Add(1.0f);
                     // Nudge it towards aiming correctly
                     if (i == 0)
-                       reward += 0.01f;
+                        reward += 0.01f;
                 }
                 else
                     state.Add(0.0f);
@@ -78,11 +85,11 @@ public class ArcherAgent : Agent
         Vector3 randV = new Vector3(Random.Range(-range, range), Random.Range(-range, range), 0);
 
         // Push the random position to an outer radius
-        randV.Normalize();
-        randV.Scale(new Vector3(range, range, 0));
+        //randV.Normalize();
+        //randV.Scale(new Vector3(range, range, 0));
 
         target.transform.position = home.position + randV;
-        if ((target.transform.position - gameObject.transform.position).magnitude < 1.0f && spawnSafety)
+        if ((target.transform.position - gameObject.transform.position).magnitude < 2.0f && spawnSafety)
             shuffleTarget(target);
     }
 
@@ -99,19 +106,14 @@ public class ArcherAgent : Agent
             lastShot = Time.time;
 
 		RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, gameObject.transform.up, shotDistance);
-        // Debug
-		Debug.DrawLine (gameObject.transform.position, gameObject.transform.position + gameObject.transform.up * shotDistance);
-        //GameObject projectile = GameObject.Instantiate(arrow, gameObject.transform.position, gameObject.transform.rotation, null);
         if (hit.collider != null)
         {
             if (hit.collider.tag == "Enemy")
             {
                 reward += 5;
-                GameObject.Destroy(hit.collider.gameObject);
-                hasKilled = true;
-                lastKill = Time.time;
+                hit.collider.GetComponent<AttackPlayer>().health -= 1;
                 if (looter.GetComponent<Agent>())
-                    looter.GetComponent<Agent>().reward += 5;
+                    looter.GetComponent<Agent>().reward += 2;
             }
             else
                 punishMiss();
@@ -145,39 +147,14 @@ public class ArcherAgent : Agent
             done = true;
             return;
         }
-
-        // Spawn a new enemy if necessary
-        if (hasKilled && Time.time - lastKill > spawnDelay)
-            spawnEnemy();
-    }
-
-    private void spawnEnemy()
-    {
-        GameObject spawn = GameObject.Instantiate(enemy, transform.parent.parent);
-        spawn.GetComponent<AttackPlayer>().player = gameObject;
-        shuffleTarget(spawn);
-        hasKilled = false;
     }
 
     // to be implemented by the developer
     public override void AgentReset()
     {
         gameObject.transform.up = new Vector3(0, 1, 0);
-        Transform[] targets = new Transform[transform.parent.parent.childCount];
-        for (int i = 0; i < transform.parent.parent.childCount; i++)
-        {
-            if (transform.parent.parent.GetChild(i).tag == "Enemy")
-                targets[i] = transform.parent.parent.GetChild(i);
-            else
-                targets[i] = null;
-        }
-        for (int i = 0; i < targets.Length; i++)
-            if (targets[i] != null)
-                Destroy(targets[i].gameObject);
 
         startTime = Time.time;
         lastShot = Time.time - shotDelay;
-        hasKilled = true;
-        lastKill = Time.time - spawnDelay;
     }
 }

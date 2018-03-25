@@ -5,19 +5,25 @@ using UnityEngine;
 public class LooterAgent : Agent
 {
     public GameObject shooter;
+    public GameObject OGLevel;
     public int roundTime;
     private float roundStart;
     public float maxSpeed;
+
+    private Vector3[] transforms;
 
     public float sightDistance;
 
     public uint numRays;
     public bool debug;
 
+    public float x, y;
     public float myReward;
-
     public float turnSpeed;
 
+    public GameObject levelManager;
+
+    public float wallPunishment;
     /// <summary>
     /// Use this method to initialize your agent. This method is called when the agent is created. 
     /// Do not use Awake(), Start() or OnEnable().
@@ -35,8 +41,13 @@ public class LooterAgent : Agent
     public override List<float> CollectState()
     {
         List<float> state = new List<float>();
+        // New input, trying to add some kind of memory for confusing situations
+        // Hey, past me, where did you want to go again?
+        Vector2 dir = transform.parent.GetComponent<Rigidbody2D>().velocity;
+        state.Add(dir.x / maxSpeed);
+        state.Add(dir.y / maxSpeed);
 
-        // New implementation, raycasts in 8 directions with information on what they hit
+        // What can I see?
         RaycastHit2D[] rays = new RaycastHit2D[numRays];
         // New loop
         for (int i = 0; i < rays.Length; i++)
@@ -44,10 +55,19 @@ public class LooterAgent : Agent
             rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, sightDistance);
             // Debug
             if (debug)
+            {
+                Color collisionColor = Color.white;
                 if (rays[i])
-                    Debug.DrawLine(gameObject.transform.position, rays[i].point, rays[i].collider.tag == "Gold" ? Color.green : Color.blue);
+                {
+                    if (rays[i].collider.tag == "Enemy") collisionColor = Color.red;
+                    else if (rays[i].collider.tag == "Gold") collisionColor = Color.yellow;
+                    else if (rays[i].collider.tag == "Wall") collisionColor = Color.blue;
+                    else collisionColor = Color.magenta;
+                    Debug.DrawLine(gameObject.transform.position, rays[i].point, collisionColor);
+                }
                 else
-                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up).normalized * sightDistance));
+                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up).normalized * sightDistance), collisionColor);
+            }
         }
         for (int i = 0; i < rays.Length; i++)
         {
@@ -86,9 +106,31 @@ public class LooterAgent : Agent
         }
         else if (brain.brainParameters.actionSpaceType == StateType.continuous)
         {
-            // Constantly move forward at moveSpeed, turn Left/Right according to act[0]
-            gameObject.transform.Rotate(new Vector3(0, 0, act[0] * turnSpeed));
-            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = transform.up * maxSpeed;
+            // Turn-based controls
+            //transform.Rotate(new Vector3(0, 0, act[0] * turnSpeed));
+            //gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = transform.up * maxSpeed;
+            // WASD movement
+            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * maxSpeed;
+        }
+        // Proximity Rewards, make the earlier runs more distinct in score before the late game
+        RaycastHit2D[] rays = new RaycastHit2D[numRays];
+        for (int i = 0; i < rays.Length; i++)
+            rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, sightDistance);
+        for (int i = 0; i < rays.Length; i++)
+        {
+            // Add information about what was hit
+            if (rays[i])
+            {
+                // Reward greed
+                if (rays[i].collider.tag == "Gold")
+                    reward += 0.1f * (1 - (rays[i].distance / sightDistance)) / numRays;
+                // Reward risk
+                if (rays[i].collider.tag == "Enemy")
+                    reward += 0.1f * (1 - (rays[i].distance / sightDistance)) / numRays;
+                // Quit it with the wall hugging
+                if (rays[i].collider.tag == "Wall")
+                    reward -= 0.05f * (Mathf.Pow(1 - (rays[i].distance / sightDistance), 2)) / numRays;
+            }
         }
         if (Time.time - roundStart > roundTime)
         {
@@ -96,27 +138,6 @@ public class LooterAgent : Agent
             done = true;
         }
 
-
-        // Work in Progress
-        // Add rewards based on current situation
-        RaycastHit2D[] rays = new RaycastHit2D[numRays];
-        // New loop
-        for (int i = 0; i < rays.Length; i++)
-        {
-            rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, sightDistance);
-        }
-        for (int i = 0; i < rays.Length; i++)
-        {
-            if (rays[i])
-            {
-                // Reward risky behaviour
-                if (rays[i].collider.tag == "Enemy")
-                    reward += Mathf.Pow((1 - (rays[i].distance / sightDistance)), 3) / numRays;
-                // Reward greedy behaviour
-                if (rays[i].collider.tag == "Gold")
-                    reward += Mathf.Pow((1 - (rays[i].distance / sightDistance)), 3) / numRays;
-            }
-        }
         // Debug
         myReward = CumulativeReward;
     }
@@ -128,17 +149,11 @@ public class LooterAgent : Agent
     {
         roundStart = Time.time;
         gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        gameObject.transform.parent.position = transform.parent.parent.position;
+        transform.parent.GetComponent<Gold>().value = 0;
+        transform.up = Vector2.up;
+        levelManager.GetComponent<LevelSpawner>().resetLevel();
 
-        // Shuffle the loot
-        GameObject[] loot = GameObject.FindGameObjectsWithTag("Gold");
-        foreach(GameObject gold in loot)
-        {
-            if (gold.transform.parent == transform.parent.parent)
-            {
-                gold.GetComponent<Gold>().randomizeGold();
-            }
-        }
+        transform.parent.position = levelManager.transform.GetChild(0).position;
     }
 
     /// <summary>
