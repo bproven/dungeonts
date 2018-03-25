@@ -5,24 +5,24 @@ using UnityEngine;
 public class SplitScreenGenerator : MonoBehaviour {
 
     public Camera[] cams;
-
-    public float w = 0, h = 0;
     
 	// Use this for initialization
-	void Start () {
+	public void splitScreens () {
         if (cams.Length == 0)
             return;
         int numRows = 0, numCols = 0;
         int numScreens = cams.Length;
         for (int i = 4; i >= 0; i--)
         {
-            if (Mathf.Pow(i, 2) <= numScreens)
+            if (Mathf.Pow(i, 2) < numScreens)
             {
-                numRows = i;    numCols = i;
+                numRows = i + 1;    numCols = i + 1;
                 break;
             }
         }
-        w = 1f / numRows; h = 1f / numCols;
+        Debug.Log(cams.Length);
+        Debug.Log(numRows);
+        float w = 1f / numRows, h = 1f / numCols;
         for (int i = 0; i < numRows; i++)
             for (int j = 0; j < numCols; j++)
             {

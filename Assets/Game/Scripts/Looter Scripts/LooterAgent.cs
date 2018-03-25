@@ -22,6 +22,8 @@ public class LooterAgent : Agent
     public float turnSpeed;
 
     public GameObject levelManager;
+
+    public float wallPunishment;
     /// <summary>
     /// Use this method to initialize your agent. This method is called when the agent is created. 
     /// Do not use Awake(), Start() or OnEnable().
@@ -53,10 +55,19 @@ public class LooterAgent : Agent
             rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, sightDistance);
             // Debug
             if (debug)
+            {
+                Color collisionColor = Color.white;
                 if (rays[i])
-                    Debug.DrawLine(gameObject.transform.position, rays[i].point, rays[i].collider.tag == "Gold" ? Color.green : Color.blue);
+                {
+                    if (rays[i].collider.tag == "Enemy") collisionColor = Color.red;
+                    else if (rays[i].collider.tag == "Gold") collisionColor = Color.yellow;
+                    else if (rays[i].collider.tag == "Wall") collisionColor = Color.blue;
+                    else collisionColor = Color.magenta;
+                    Debug.DrawLine(gameObject.transform.position, rays[i].point, collisionColor);
+                }
                 else
-                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up).normalized * sightDistance));
+                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up).normalized * sightDistance), collisionColor);
+            }
         }
         for (int i = 0; i < rays.Length; i++)
         {
@@ -101,7 +112,7 @@ public class LooterAgent : Agent
             // WASD movement
             gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * maxSpeed;
         }
-        // Proximity Rewards
+        // Proximity Rewards, make the earlier runs more distinct in score before the late game
         RaycastHit2D[] rays = new RaycastHit2D[numRays];
         for (int i = 0; i < rays.Length; i++)
             rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, sightDistance);
@@ -118,7 +129,7 @@ public class LooterAgent : Agent
                     reward += 0.1f * (1 - (rays[i].distance / sightDistance)) / numRays;
                 // Quit it with the wall hugging
                 if (rays[i].collider.tag == "Wall")
-                    reward -= 0.5f * (Mathf.Pow(1 - (rays[i].distance / sightDistance), 2)) / numRays;
+                    reward -= 0.05f * (Mathf.Pow(1 - (rays[i].distance / sightDistance), 2)) / numRays;
             }
         }
         if (Time.time - roundStart > roundTime)
