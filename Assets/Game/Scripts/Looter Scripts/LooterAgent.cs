@@ -39,8 +39,13 @@ public class LooterAgent : Agent
     public override List<float> CollectState()
     {
         List<float> state = new List<float>();
+        // New input, trying to add some kind of memory for confusing situations
+        // Hey, past me, where did you want to go again?
+        Vector2 dir = transform.parent.GetComponent<Rigidbody2D>().velocity;
+        state.Add(dir.x / maxSpeed);
+        state.Add(dir.y / maxSpeed);
 
-        // New implementation, raycasts in 8 directions with information on what they hit
+        // What can I see?
         RaycastHit2D[] rays = new RaycastHit2D[numRays];
         // New loop
         for (int i = 0; i < rays.Length; i++)
@@ -111,8 +116,9 @@ public class LooterAgent : Agent
                 // Reward risk
                 if (rays[i].collider.tag == "Enemy")
                     reward += 0.1f * (1 - (rays[i].distance / sightDistance)) / numRays;
+                // Quit it with the wall hugging
                 if (rays[i].collider.tag == "Wall")
-                    reward -= 0.06f * (1 - (rays[i].distance / sightDistance)) / numRays;
+                    reward -= 0.5f * (Mathf.Pow(1 - (rays[i].distance / sightDistance), 2)) / numRays;
             }
         }
         if (Time.time - roundStart > roundTime)
