@@ -24,7 +24,8 @@ ExportedObj/
 *.booproj
 *.svd
 *.pdb
-*.dll
+/*.dll
+*.exe
 *.a
 *.so
 *.bundle
@@ -43,3 +44,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+*_Data/
+*.meta 
+*.assets
+*.resS

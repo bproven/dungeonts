@@ -1,5 +1,6 @@
 # cs491-magents
 NJIT CS491 e-Team Magents
+Unity-ML (Machine Learning) Monster-Agents
 
 ## Getting Started
 
