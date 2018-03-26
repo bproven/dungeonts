@@ -21,4 +21,36 @@ public class MenuScript : MonoBehaviour {
         SceneManager.LoadScene("HybridLooterShooter");
     }
 
+    public void PlayMap1()
+    {
+        SceneManager.LoadScene("HybridLooterShooter");
+    }
+
+    public void PlayMap2()
+    {
+        SceneManager.LoadScene("HybridLooterShooter");
+    }
+
+    public void PlayMap3()
+    {
+        SceneManager.LoadScene("HybridLooterShooter");
+    }
+
+    public void selectSword()
+    {
+        ArcherAgent.STR = 2;
+    }
+
+    public void selectArmor()
+    {
+        LooterAgent.HP = 1;
+    }
+
+    public void selectBoots()
+    {
+        LooterAgent.DEX = 3;
+    }
+
+   
+
 }

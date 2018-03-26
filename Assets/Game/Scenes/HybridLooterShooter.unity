@@ -2729,6 +2729,16 @@ Prefab:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 23278830253716292, guid: 6005df00405d2bf40a233ecdcbb5ef33,
+        type: 2}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114328833933964310, guid: 6005df00405d2bf40a233ecdcbb5ef33,
+        type: 2}
+      propertyPath: Opacity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6005df00405d2bf40a233ecdcbb5ef33, type: 2}
   m_IsPrefabParent: 0
