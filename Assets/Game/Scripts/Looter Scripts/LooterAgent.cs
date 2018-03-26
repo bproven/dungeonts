@@ -4,29 +4,30 @@ using UnityEngine;
 
 public class LooterAgent : Agent
 {
-    // PLAYER SETTINGS
-    public static int HP = 3, TIME = 60;
-    public static float DEX = 2;
+    // PLAYER SETTINGS, used for default values on agent reset
+    public static int HP = 3, TIME = 60;    // Max health, level timer
+    public static float DEX = 2;            // Movement speed
 
     // Local settings to be adjusted by items
-    public float mySpeed;
-    public int myHealth;
-    public GameObject shooter;
-    public GameObject OGLevel;
-    private float roundStart;
+    public float mySpeed;   // Local Speed Stat
+    public int myHealth;    // Local Health Stat
 
+    // Set in scene
+    public GameObject shooter;      // GameObject that the ArcherAgent script is attached to
+    public GameObject levelManager; // GameObject that the LevelSpawner script is attached to
+
+    // Vision specific variables
     public float sightDistance;
-
     public uint numRays;
 
     // Output debug
     public bool debug;
-    public float myReward;
-    public float x, y;
+    public float myReward, x, y;    // Reward, output velocity components
 
-    public GameObject levelManager;
+    // Local timers
+    private float roundStart;
+    private float lastDamage;
 
-    public float wallPunishment;
     /// <summary>
     /// Use this method to initialize your agent. This method is called when the agent is created. 
     /// Do not use Awake(), Start() or OnEnable().
@@ -47,8 +48,16 @@ public class LooterAgent : Agent
         // New input, trying to add some kind of memory for confusing situations
         // Hey, past me, where did you want to go again?
         Vector2 dir = transform.parent.GetComponent<Rigidbody2D>().velocity;
-        state.Add(dir.x / mySpeed);
-        state.Add(dir.y / mySpeed);
+        if (mySpeed != 0)
+        {
+            state.Add(dir.x / mySpeed);
+            state.Add(dir.y / mySpeed);
+        }
+        else
+        {
+            state.Add(0.0f);
+            state.Add(0.0f);
+        }
 
         // What can I see?
         RaycastHit2D[] rays = new RaycastHit2D[numRays];
@@ -79,19 +88,20 @@ public class LooterAgent : Agent
             if (rays[i])
             {
                 // Is it a Wall? Gold? Enemy?
+                // 1.0f for yes, 0.0f for no
                 state.Add(rays[i].collider.tag == "Enemy" ? 1.0f : 0.0f);
                 state.Add(rays[i].collider.tag == "Wall" ? 1.0f : 0.0f);
                 state.Add(rays[i].collider.tag == "Gold" ? 1.0f : 0.0f);
             }
             else
             {
-                state.Add(0.0f);
-                state.Add(0.0f);
-                state.Add(0.0f);
+                state.Add(0.0f);    // NOT Enemy
+                state.Add(0.0f);    // NOT Wall
+                state.Add(0.0f);    // NOT Gold
             }
         }
         // Could we attack if we needed to?
-        float cd = (Time.time - shooter.GetComponent<ArcherAgent>().lastShot) / shooter.GetComponent<ArcherAgent>().shotDelay;
+        float cd = (Time.time - shooter.GetComponent<ArcherAgent>().lastShot) / shooter.GetComponent<ArcherAgent>().myFireRate;
         state.Add(cd >= 1 ? 1 : 0);
         return state;
     }
@@ -155,10 +165,31 @@ public class LooterAgent : Agent
         transform.parent.GetComponent<Gold>().value = 0;
         transform.up = Vector2.up;
         levelManager.GetComponent<LevelSpawner>().resetLevel();
+        lastDamage = Time.time - 0.5f;
         // PLAYER SETTINGS
         myHealth = HP;  mySpeed = DEX;
 
+        transform.parent.GetComponent<SpriteRenderer>().color = Color.green;
+
         transform.parent.position = levelManager.transform.GetChild(0).position;
+    }
+
+    public void looterTakeDamage(int damage)
+    {
+        if (Time.time - lastDamage > 0.5f)
+        {
+            Debug.Log("Taking Damage!");
+            myHealth -= damage;
+            if (debug)
+                transform.parent.GetComponent<SpriteRenderer>().color = Color.red;
+            if (myHealth <= 0)
+            {
+                done = true;
+                shooter.GetComponent<ArcherAgent>().done = true;
+            }
+            lastDamage = Time.time;
+        }
+
     }
 
     /// <summary>

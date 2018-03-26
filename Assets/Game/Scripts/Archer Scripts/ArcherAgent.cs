@@ -5,22 +5,23 @@ using UnityEngine;
 public class ArcherAgent : Agent
 {
     [Header("Specific to ArchetTesting")]
-    // PLAYER SETTINGS
+    // PLAYER SETTINGS, used for default values on agent reset
     public static float RANGE = 0.35f, FIRERATE = 0.5f;
     public static int STR = 1;
-    
-    public GameObject looter;
-    public GameObject enemy;
-    public float range;
-    public float turnSpeed;
-	public float shotDistance;
-    public bool debug;
 
-    public float shotDelay;
-    public int myStrength;
+    // Local settings to be adjusted by items
+    public float myFireRate, myRange;   // Local fire rate, range
+    public int myStrength;              // Local strength
+
+    // Public variables to be set in scene
+    public GameObject looter;
+    public float turnSpeed;
+
+    // Output debug
+    public bool debug;
     public float lastShot;
     private float startTime = 0;
-    public float roundTime;
+    private float roundTime;
     
     public float x, y, fire;
     public uint numRays;
@@ -28,7 +29,7 @@ public class ArcherAgent : Agent
     public override List<float> CollectState()
     {
         List<float> state = new List<float>();
-        float cd = (Time.time - lastShot) / shotDelay;
+        float cd = (Time.time - lastShot) / myFireRate;
         // Keep the cooldown normalized
         state.Add((cd > 1 ? 1 : 0));
 
@@ -37,13 +38,13 @@ public class ArcherAgent : Agent
         // New loop
         for (int i = 0; i < rays.Length; i++)
         {
-            rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, shotDistance);
+            rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, myRange);
             // Debug
             if (debug)
                 if (rays[i])
                     Debug.DrawLine(gameObject.transform.position, rays[i].point, rays[i].collider.tag == "Enemy" ? Color.green : Color.blue);
                 else
-                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up).normalized * shotDistance));
+                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up).normalized * myRange));
         }
         for (int i = 0; i < rays.Length; i++)
         {
@@ -51,14 +52,13 @@ public class ArcherAgent : Agent
             if (rays[i])
             {
                 if (rays[i].collider.tag == "Enemy")
-                    state.Add(rays[i].distance / shotDistance);
+                    state.Add(rays[i].distance / myRange);
                 else
                     state.Add(0.0f);
             }
             else
                 state.Add(0.0f);
-
-
+            
             // Add information about what was hit
             if (rays[i])
             {
@@ -86,12 +86,12 @@ public class ArcherAgent : Agent
 
     private void fireArrow()
     {
-        if (Time.time - lastShot < shotDelay)
+        if (Time.time - lastShot < myRange)
             return;
         else
             lastShot = Time.time;
 
-		RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, gameObject.transform.up, shotDistance);
+		RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, gameObject.transform.up, myRange);
         if (hit.collider != null)
         {
             if (hit.collider.tag == "Enemy")
@@ -139,13 +139,13 @@ public class ArcherAgent : Agent
     public override void AgentReset()
     {
         gameObject.transform.up = new Vector3(0, 1, 0);
-        shotDelay = FIRERATE;
-        shotDistance = RANGE;
+        myFireRate = FIRERATE;
+        myRange = RANGE;
         myStrength = STR;
 
         roundTime = LooterAgent.TIME;
         startTime = Time.time;
-        lastShot = Time.time - shotDelay;
+        lastShot = Time.time - myFireRate;
 
     }
 }

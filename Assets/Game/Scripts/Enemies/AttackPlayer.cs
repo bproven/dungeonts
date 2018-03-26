@@ -8,6 +8,7 @@ public class AttackPlayer : MonoBehaviour {
     public float moveSpeed;
     private int maxHealth;
     public int health;
+    public int strength = 1;
 	// Use this for initialization
 	void Start () {
         maxHealth = health;
@@ -60,13 +61,15 @@ public class AttackPlayer : MonoBehaviour {
     // Kill the player who we collided with
     void killPlayer(Collision2D coll)
     {
-        // Punish all brains involved in this disaster
         for (int i = 0; i < coll.transform.childCount; i++)
+        {
+            // Punish all brains involved in this disaster
             if (coll.transform.GetChild(i).GetComponent<Agent>())
-                coll.transform.GetChild(i).GetComponent<Agent>().done = true;
-
-        // Randomize my position so I can't spawn camp
-        //transform.position = new Vector3(Random.Range(transform.parent.position.x - 2, transform.parent.position.x + 2), Random.Range(transform.parent.position.y - 2, transform.parent.position.y + 2), transform.parent.position.z);
+                coll.transform.GetChild(i).GetComponent<Agent>().reward -= 5f;
+            // Apply damage
+            if (coll.transform.GetChild(i).GetComponent<LooterAgent>())
+                coll.transform.GetChild(i).GetComponent<LooterAgent>().looterTakeDamage(strength);
+        }
     }
 
     void OnCollisionEnter2D (Collision2D coll)
