@@ -27,7 +27,10 @@ namespace Assets.Game.Scripts.Pickups
         {
         }
 
-        public void Randomize()
+        /// <summary>
+        /// Do whatever Random Initialization
+        /// </summary>
+        public virtual void Randomize()
         {
             gameObject.transform.position = new Vector2(transform.parent.position.x + Random.Range(-RespawnRange, RespawnRange),
                                                         transform.parent.position.y + Random.Range(-RespawnRange, RespawnRange));
