@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cs491-magents", "cs491-magents.csproj", "{366F947F-F168-78FC-2CBC-94E47730E8B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cs491-magents.Editor", "cs491-magents.Editor.csproj", "{F5E202E4-6918-0232-F465-9F625DED4A7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{366F947F-F168-78FC-2CBC-94E47730E8B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{366F947F-F168-78FC-2CBC-94E47730E8B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{366F947F-F168-78FC-2CBC-94E47730E8B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{366F947F-F168-78FC-2CBC-94E47730E8B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5E202E4-6918-0232-F465-9F625DED4A7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5E202E4-6918-0232-F465-9F625DED4A7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5E202E4-6918-0232-F465-9F625DED4A7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5E202E4-6918-0232-F465-9F625DED4A7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
