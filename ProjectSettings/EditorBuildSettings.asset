@@ -5,12 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Game/Scenes/Menu2.unity
-    guid: a2acdeba71723df48b4cf7b2e85b04d9
+    guid: 0521b65f3dfb360459352b12e220035b
   - enabled: 1
     path: Assets/Game/Scenes/HybridLooterShooter.unity
     guid: 365cef27050a43a4db30bd3c0f716e74
@@ -29,6 +26,3 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Game/Scenes/Scene2.unity
     guid: a81aadefea213414aa200bc3a035219b
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
