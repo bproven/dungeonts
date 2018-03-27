@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackPlayer : MonoBehaviour {
 
-    public float myRespawnRange;    // Controls the variance in where this object spawns during reset
+    public float myRespawnRange = 1.0f;    // Controls the variance in where this object spawns during reset
 
     public GameObject player;
     public float moveSpeed;
@@ -22,7 +22,7 @@ public class AttackPlayer : MonoBehaviour {
 	void Update () {
         // Keep it simple
         Vector2 newVelocity = (player.transform.position - gameObject.transform.position);
-        if (newVelocity.magnitude > 2.5f)
+        if (newVelocity.magnitude > player.transform.GetChild(1).GetComponent<LooterAgent>().sightDistance)
             newVelocity = Vector2.zero;
         else
         {

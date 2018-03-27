@@ -5,7 +5,7 @@ using UnityEngine;
 public class LooterAgent : Agent
 {
     // PLAYER SETTINGS, used for default values on agent reset
-    public static int HP = 3, TIME = 60;    // Max health, level timer
+    public static int HP = 3, TIME = 30;    // Max health, level timer
     public static float DEX = 2;            // Movement speed
 
     // Local settings to be adjusted by items
@@ -48,16 +48,8 @@ public class LooterAgent : Agent
         // New input, trying to add some kind of memory for confusing situations
         // Hey, past me, where did you want to go again?
         Vector2 dir = transform.parent.GetComponent<Rigidbody2D>().velocity;
-        if (mySpeed != 0)
-        {
-            state.Add(dir.x / mySpeed);
-            state.Add(dir.y / mySpeed);
-        }
-        else
-        {
-            state.Add(0.0f);
-            state.Add(0.0f);
-        }
+        state.Add(mySpeed != 0 ? dir.x / mySpeed : 0.0f);
+        state.Add(mySpeed != 0 ? dir.x / mySpeed : 0.0f);
 
         // What can I see?
         RaycastHit2D[] rays = new RaycastHit2D[numRays];
@@ -178,18 +170,19 @@ public class LooterAgent : Agent
     {
         if (Time.time - lastDamage > 0.5f)
         {
+            shooter.GetComponent<ArcherAgent>().reward -= 3;
             Debug.Log("Taking Damage!");
             myHealth -= damage;
             if (debug)
                 transform.parent.GetComponent<SpriteRenderer>().color = Color.red;
             if (myHealth <= 0)
             {
-                done = true;
-                shooter.GetComponent<ArcherAgent>().done = true;
+                // I'm training the archer, and the variable lifespan is making learning more difficult than anticipated.
+                //done = true;
+                //shooter.GetComponent<ArcherAgent>().done = true;
             }
             lastDamage = Time.time;
         }
-
     }
 
     /// <summary>
