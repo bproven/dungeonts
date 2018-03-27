@@ -18,6 +18,7 @@ namespace Assets.Game.Scripts.Pickups
         /// </summary>
         void Start()
         {
+            Initialize();
         }
 
         /// <summary>
@@ -25,6 +26,13 @@ namespace Assets.Game.Scripts.Pickups
         /// </summary>
         void Update()
         {
+        }
+
+        public virtual void Initialize()
+        {
+            GetComponent<Collider2D>().enabled = true;
+            GetComponent<SpriteRenderer>().enabled = true;
+            Randomize();
         }
 
         /// <summary>
@@ -37,14 +45,16 @@ namespace Assets.Game.Scripts.Pickups
             // I know this is deterministic, but I'm dialing in the reward values.
             // In the future, the loot drops might scale differently
             Value = Random.Range(1, 1);
-
-            GetComponent<Collider2D>().enabled = true;
-            GetComponent<SpriteRenderer>().enabled = true;
         }
 
         private void Toggle()
         {
             gameObject.SetActive(false);
+        }
+
+        private void Destroy()
+        {
+            Destroy(gameObject);
         }
 
         private void Pickup(GameObject looter)
