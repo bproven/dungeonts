@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Game/Scenes/Menu2.unity
+    guid: 545484be0d16db046a1f3aa096ea1d57
+  - enabled: 1
     path: Assets/Game/Scenes/HybridLooterShooter.unity
     guid: 365cef27050a43a4db30bd3c0f716e74
   - enabled: 0
@@ -24,5 +27,5 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Scene2.unity
     guid: a81aadefea213414aa200bc3a035219b
   - enabled: 0
-    path: Assets/Game/Scenes/Main.unity
-    guid: ada377c7cfd25fb42ae53042d983b81a
+    path: 
+    guid: 00000000000000000000000000000000
