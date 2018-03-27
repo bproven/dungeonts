@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 using Assets.Game.Scripts.Pickups;
@@ -31,7 +32,46 @@ public class LooterAgent : Agent
     private float lastDamage;
 
     // list of items
-    public IList<Item> Items { get; } = new List<Item>();
+    private List<Item> Items { get; } = new List<Item>();
+
+    public Gold Gold
+    {
+        get
+        {
+            return Items.FirstOrDefault(i => i.GetType() == typeof(Gold)) as Gold;
+        }
+    }
+
+    public int GoldValue
+    {
+        get
+        {
+            return Gold?.value ?? 0;
+        }
+        set
+        {
+            Gold gold = Gold;
+            if (gold == null)
+            {
+                if (value > 0)
+                {
+                    gold = new Gold();
+                    Items.Add(gold);
+                }
+            }
+            else
+            {
+                if (value == 0)
+                {
+                    Items.Remove(gold);
+                }
+                else
+                {
+                    gold.value = value;
+                }
+            }
+        }
+    }
 
     /// <summary>
     /// Use this method to initialize your agent. This method is called when the agent is created. 
@@ -167,7 +207,7 @@ public class LooterAgent : Agent
     {
         roundStart = Time.time;
         gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        transform.parent.GetComponent<Gold>().value = 0;
+        GoldValue = 0;
         transform.up = Vector2.up;
         levelManager.GetComponent<LevelSpawner>().resetLevel();
         lastDamage = Time.time - 0.5f;
@@ -197,13 +237,35 @@ public class LooterAgent : Agent
 
     }
 
+    public void Pickup( Item item )
+    {
+        reward += item.value;
+        if ( item.IsCountable )
+        {
+            Item existingItem = Items.FirstOrDefault(i => i.GetType() == item.GetType());
+            if ( existingItem == null )
+            {
+                existingItem = item;
+                existingItem.Count = 1;
+                Items.Add(existingItem);
+            }
+            else
+            {
+                existingItem.Count++;
+            }
+        }
+        else
+        {
+            Items.Add(item);
+        }
+    }
+
     /// <summary>
     /// If Reset On Done is not checked, this function will be called when the agent is done. 
     /// Reset() will only be called when the Academy resets.
     /// </summary>
     public override void AgentOnDone()
     {
-
     }
 
 }

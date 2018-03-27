@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Assets.Game.Scripts.Pickups;
+
 // New Looter Agent which also has control over attacks.
 // Hoping the integration goes smoother than it did previously
 
@@ -265,7 +267,7 @@ public class LooterAgent1 : Agent
         foreach(GameObject gold in loot)
         {
             if (gold.transform.parent == transform.parent)
-                gold.GetComponent<Gold>().randomizeGold();
+                gold.GetComponent<Gold>().Randomize();
             shuffleEnemy();
         }
     }

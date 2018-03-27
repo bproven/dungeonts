@@ -6,12 +6,18 @@ using UnityEngine;
 namespace Assets.Game.Scripts.Pickups
 {
 
+    /// <summary>
+    /// Base class for Items
+    /// </summary>
     public class Item : MonoBehaviour
     {
 
-        public virtual int Value { get; set; } = 1;
-        public virtual float RespawnRange { get; set; } = 1;
-        public virtual bool IsRespawn { get; set; } = false;
+        public int value = 1;
+        public float respawnRange = 1.0f;
+        public bool respawn = false;
+
+        public bool IsCountable { get; set; } = false;
+        public virtual int Count { get; set; } = 1;
 
         /// <summary>
         /// Use this for initialization
@@ -28,6 +34,9 @@ namespace Assets.Game.Scripts.Pickups
         {
         }
 
+        /// <summary>
+        /// Initialize the Script Component
+        /// </summary>
         public virtual void Initialize()
         {
             GetComponent<Collider2D>().enabled = true;
@@ -40,49 +49,72 @@ namespace Assets.Game.Scripts.Pickups
         /// </summary>
         public virtual void Randomize()
         {
-            gameObject.transform.position = new Vector2(transform.parent.position.x + Random.Range(-RespawnRange, RespawnRange),
-                                                        transform.parent.position.y + Random.Range(-RespawnRange, RespawnRange));
+            gameObject.transform.position = new Vector2(transform.parent.position.x + Random.Range(-respawnRange, respawnRange),
+                                                        transform.parent.position.y + Random.Range(-respawnRange, respawnRange));
             // I know this is deterministic, but I'm dialing in the reward values.
             // In the future, the loot drops might scale differently
-            Value = Random.Range(1, 1);
+            value = Random.Range(1, 1);
         }
 
+        /// <summary>
+        /// Deactivate the gameObject
+        /// Used for items that are respawnable but won't respawn
+        /// </summary>
         private void Toggle()
         {
             gameObject.SetActive(false);
         }
 
+        /// <summary>
+        /// Destroy a gameObject
+        /// Used for non-respawnable loot (boots, shield, etc.)
+        /// </summary>
         private void Destroy()
         {
             Destroy(gameObject);
         }
 
+        /// <summary>
+        /// Pickup this game object
+        /// </summary>
+        /// <param name="looter">The looter that is picking up the game object.</param>
         private void Pickup(GameObject looter)
         {
-            looter.GetComponent<Gold>().value += Value;
             for (int i = 0; i < looter.transform.childCount; i++)
-                if (looter.transform.GetChild(i).GetComponent<LooterAgent>())
-                    looter.transform.GetChild(i).GetComponent<LooterAgent>().reward += Value;
-            if (IsRespawn)
+            {
+                LooterAgent looterAgent = looter.transform.GetChild(i).GetComponent<LooterAgent>();
+                looterAgent?.Pickup(this);
+            }
+            if (respawn)
+            {
                 Randomize();
+            }
             else
+            {
                 Toggle();
+            }
         }
 
+        /// <summary>
+        /// Sent when a Collider collides with this 
+        /// </summary>
+        /// <param name="coll">The other collider</param>
         void OnTriggerEnter2D(Collider2D coll)
         {
             if (coll.tag == "Player")
                 Pickup(coll.gameObject);
         }
 
+        /// <summary>
+        /// Sent when a Collider stays within this trigger collider
+        /// </summary>
+        /// <param name="coll">The other collider</param>
         void OnTriggerStay2D(Collider2D coll)
         {
             if (coll.tag == "Player")
                 Pickup(coll.gameObject);
         }
 
-
     }
-
 
 }
