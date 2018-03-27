@@ -54,7 +54,7 @@ public class LooterAgent : Agent
         // New loop
         for (int i = 0; i < numRays; i++)
         {
-            RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, sightDistance);
+            RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / numRays) * i, Vector3.forward) * transform.up, sightDistance);
             if (debug)
             {
                 Color collisionColor = Color.white; // Default

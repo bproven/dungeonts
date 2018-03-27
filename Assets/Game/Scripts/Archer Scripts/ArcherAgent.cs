@@ -29,29 +29,26 @@ public class ArcherAgent : Agent
     public override List<float> CollectState()
     {
         List<float> state = new List<float>();
-        float cd = (Time.time - lastShot) / myFireRate;
-        // Keep the cooldown normalized
-        state.Add((cd >= 1 ? 1 : 0));
-
-        // Cast numRays rays out in a circle of radius myRange
-        RaycastHit2D[] rays = new RaycastHit2D[numRays];
-        for (int i = 0; i < rays.Length; i++)
+        // Keep the cooldown binary
+        state.Add(((Time.time - lastShot) / myFireRate >= 1 ? 1 : 0));
+        
+        for (int i = 0; i < numRays; i++)
         {
-            rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, myRange);
+            RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / numRays) * i, Vector3.forward) * transform.up, myRange);
             // Debug
             if (debug)
-                if (rays[i])
-                    Debug.DrawLine(gameObject.transform.position, rays[i].point, rays[i].collider.tag == "Enemy" ? Color.green : Color.blue);
+                if (hit)
+                    Debug.DrawLine(gameObject.transform.position, hit.point, hit.collider.tag == "Enemy" ? Color.green : Color.blue);
                 else
-                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up).normalized * myRange));
+                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / numRays) * i, Vector3.forward) * transform.up).normalized * myRange));
             // Encode state data
-            if (rays[i] && rays[i].collider.tag == "Enemy")
+            if (hit && hit.collider.tag == "Enemy")
             {
-                state.Add(rays[i].distance / myRange);  // It's this far away
+                state.Add(hit.distance / myRange);  // It's this far away
                 state.Add(1.0f);                        // It's an enemy
                 // Reward aiming at nearby enemies
-                reward += (1.0f - rays[i].distance / myRange)
-                    * (Mathf.Pow(0.5f - (float)i / rays.Length, 2))
+                reward += (1.0f - hit.distance / myRange)
+                    * (Mathf.Pow(0.5f - (float)i / numRays, 2))
                     / numRays;
             }
             else
