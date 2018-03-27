@@ -1088,6 +1088,7 @@ GameObject:
   - component: {fileID: 50279241994322458}
   - component: {fileID: 58444598813323270}
   - component: {fileID: 95067302318816220}
+  - component: {fileID: 114536471748396614}
   m_Layer: 9
   m_Name: Target (3)
   m_TagString: Enemy
@@ -1394,6 +1395,7 @@ GameObject:
   - component: {fileID: 50636660777510028}
   - component: {fileID: 58563459451341252}
   - component: {fileID: 95915922242183118}
+  - component: {fileID: 114630904555088114}
   m_Layer: 9
   m_Name: Target (1)
   m_TagString: Enemy
@@ -1678,6 +1680,7 @@ GameObject:
   - component: {fileID: 50760024327993896}
   - component: {fileID: 58637489913731434}
   - component: {fileID: 95184590410956514}
+  - component: {fileID: 114282164672438770}
   m_Layer: 9
   m_Name: Target (4)
   m_TagString: Enemy
@@ -1698,6 +1701,7 @@ GameObject:
   - component: {fileID: 50709281151190742}
   - component: {fileID: 58919137773735658}
   - component: {fileID: 95447712243768426}
+  - component: {fileID: 114187495354315266}
   m_Layer: 9
   m_Name: Target (2)
   m_TagString: Enemy
@@ -2150,6 +2154,7 @@ GameObject:
   - component: {fileID: 50426768039728470}
   - component: {fileID: 58901910197223622}
   - component: {fileID: 95619513055200010}
+  - component: {fileID: 114955277239946484}
   m_Layer: 9
   m_Name: Target
   m_TagString: Enemy
@@ -8998,6 +9003,17 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+--- !u!114 &114187495354315266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654026830048976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad064425da1af34181902e43daf9142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114204966686699664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9110,6 +9126,17 @@ MonoBehaviour:
   value: 5
   respawnRange: 8
   respawn: 0
+--- !u!114 &114282164672438770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1648337647537858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad064425da1af34181902e43daf9142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114285094869536544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9626,6 +9653,17 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+--- !u!114 &114536471748396614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1469335567024900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad064425da1af34181902e43daf9142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114552200428008108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9780,6 +9818,17 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+--- !u!114 &114630904555088114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542671004169432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad064425da1af34181902e43daf9142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114631248869593622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10340,6 +10389,17 @@ MonoBehaviour:
   value: 5
   respawnRange: 8
   respawn: 0
+--- !u!114 &114955277239946484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1840058628979608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad064425da1af34181902e43daf9142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114961640716115804
 MonoBehaviour:
   m_ObjectHideFlags: 1
