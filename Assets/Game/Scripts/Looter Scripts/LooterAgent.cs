@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Assets.Game.Scripts.Pickups;
+
 public class LooterAgent : Agent
 {
     // PLAYER SETTINGS, used for default values on agent reset
@@ -27,6 +29,9 @@ public class LooterAgent : Agent
     // Local timers
     private float roundStart;
     private float lastDamage;
+
+    // list of items
+    public IList<Item> Items { get; } = new List<Item>();
 
     /// <summary>
     /// Use this method to initialize your agent. This method is called when the agent is created. 
