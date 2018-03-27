@@ -314,7 +314,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f20be317a94de47409f36ebdafeb577a,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 2544ed2978ce8484fbbf839f908c3c8f,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -488,7 +488,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7fe83343a15a14b47882fb9ca33bdd15, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 738f1352b76f9d344b6d4b2e30c18e84, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -516,7 +516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &372421423
 RectTransform:
   m_ObjectHideFlags: 0
@@ -625,7 +625,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 489900014}
+      - m_Target: {fileID: 489900015}
         m_MethodName: PlayMap2
         m_Mode: 1
         m_Arguments:
@@ -759,7 +759,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 489900014}
+      - m_Target: {fileID: 489900015}
         m_MethodName: PlayMap1
         m_Mode: 1
         m_Arguments:
@@ -817,6 +817,7 @@ GameObject:
   - component: {fileID: 489900011}
   - component: {fileID: 489900010}
   - component: {fileID: 489900014}
+  - component: {fileID: 489900015}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -910,9 +911,20 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 489900009}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 824ca8e418ebebb44a0dff4bf328ec4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &489900015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 489900009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37942812df65d9945b1ff4154d03c52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &494731355
@@ -1023,7 +1035,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f20be317a94de47409f36ebdafeb577a,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 2544ed2978ce8484fbbf839f908c3c8f,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -1177,7 +1189,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f20be317a94de47409f36ebdafeb577a,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 2544ed2978ce8484fbbf839f908c3c8f,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -1314,7 +1326,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: START
+  m_text: Enter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d62a573c923f5cb47b8ff65261033b90, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: d62a573c923f5cb47b8ff65261033b90, type: 2}
@@ -1331,7 +1343,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f20be317a94de47409f36ebdafeb577a,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 2544ed2978ce8484fbbf839f908c3c8f,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -1390,11 +1402,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -1485,7 +1497,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f20be317a94de47409f36ebdafeb577a,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 2544ed2978ce8484fbbf839f908c3c8f,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -1622,7 +1634,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 71fd60b4c3c7cac4e854f2dbdc7cab4d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a51abbcf3230c094891e1dec8458009c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1650,7 +1662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &888979963
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1725,7 +1737,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fb3328383bc232c4a8dd8a94aec579b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: feda79c6ee3e9ab4a9e0579bc050e9bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2011,7 +2023,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f20be317a94de47409f36ebdafeb577a,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 2544ed2978ce8484fbbf839f908c3c8f,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -2239,7 +2251,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 489900014}
+      - m_Target: {fileID: 489900015}
         m_MethodName: selectArmor
         m_Mode: 1
         m_Arguments:
@@ -2476,7 +2488,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 489900014}
+      - m_Target: {fileID: 489900015}
         m_MethodName: selectSword
         m_Mode: 1
         m_Arguments:
@@ -2604,7 +2616,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f20be317a94de47409f36ebdafeb577a,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 2544ed2978ce8484fbbf839f908c3c8f,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -2663,11 +2675,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -2758,7 +2770,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f20be317a94de47409f36ebdafeb577a,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 2544ed2978ce8484fbbf839f908c3c8f,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -2929,7 +2941,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 489900014}
+      - m_Target: {fileID: 489900015}
         m_MethodName: PlayMap3
         m_Mode: 1
         m_Arguments:
@@ -3052,7 +3064,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 489900014}
+      - m_Target: {fileID: 489900015}
         m_MethodName: selectBoots
         m_Mode: 1
         m_Arguments:
@@ -3191,7 +3203,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f20be317a94de47409f36ebdafeb577a,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 2544ed2978ce8484fbbf839f908c3c8f,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -3546,7 +3558,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f20be317a94de47409f36ebdafeb577a,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 2544ed2978ce8484fbbf839f908c3c8f,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -3700,7 +3712,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f20be317a94de47409f36ebdafeb577a,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 2544ed2978ce8484fbbf839f908c3c8f,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -3854,7 +3866,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: f20be317a94de47409f36ebdafeb577a,
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 2544ed2978ce8484fbbf839f908c3c8f,
     type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
