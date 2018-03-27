@@ -26,6 +26,8 @@ public class ArcherAgent : Agent
     public float x, y, fire;
     public uint numRays;
 
+    public int shotDelay;
+
     public override List<float> CollectState()
     {
         List<float> state = new List<float>();
