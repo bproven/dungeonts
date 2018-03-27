@@ -51,39 +51,34 @@ public class LooterAgent : Agent
         state.Add(mySpeed != 0 ? dir.x / mySpeed : 0.0f);
         state.Add(mySpeed != 0 ? dir.x / mySpeed : 0.0f);
 
-        // What can I see?
-        RaycastHit2D[] rays = new RaycastHit2D[numRays];
         // New loop
-        for (int i = 0; i < rays.Length; i++)
+        for (int i = 0; i < numRays; i++)
         {
-            rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, sightDistance);
-            // Debug
+            RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, sightDistance);
             if (debug)
             {
-                Color collisionColor = Color.white;
-                if (rays[i])
+                Color collisionColor = Color.white; // Default
+                if (hit)
                 {
-                    if (rays[i].collider.tag == "Enemy") collisionColor = Color.red;
-                    else if (rays[i].collider.tag == "Gold") collisionColor = Color.yellow;
-                    else if (rays[i].collider.tag == "Wall") collisionColor = Color.blue;
+                    if (hit.collider.tag == "Enemy") collisionColor = Color.red;
+                    else if (hit.collider.tag == "Gold") collisionColor = Color.yellow;
+                    else if (hit.collider.tag == "Wall") collisionColor = Color.blue;
                     else collisionColor = Color.magenta;
-                    Debug.DrawLine(gameObject.transform.position, rays[i].point, collisionColor);
+                    Debug.DrawLine(gameObject.transform.position, hit.point, collisionColor);
                 }
                 else
-                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up).normalized * sightDistance), collisionColor);
+                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / numRays) * i, Vector3.forward) * transform.up).normalized * sightDistance), collisionColor);
             }
-        }
-        for (int i = 0; i < rays.Length; i++)
-        {
-            state.Add(rays[i].distance / sightDistance);
+            state.Add(sightDistance != 0 ? hit.distance / sightDistance : 0.0f);
             // Add information about what was hit
-            if (rays[i])
+            if (hit)
             {
                 // Is it a Wall? Gold? Enemy?
                 // 1.0f for yes, 0.0f for no
-                state.Add(rays[i].collider.tag == "Enemy" ? 1.0f : 0.0f);
-                state.Add(rays[i].collider.tag == "Wall" ? 1.0f : 0.0f);
-                state.Add(rays[i].collider.tag == "Gold" ? 1.0f : 0.0f);
+                // FIXME: Do this through a loop based on a public array of strings. Hardcoded temporarily because it works.
+                state.Add(hit.collider.tag == "Enemy" ? 1.0f : 0.0f);
+                state.Add(hit.collider.tag == "Wall" ? 1.0f : 0.0f);
+                state.Add(hit.collider.tag == "Gold" ? 1.0f : 0.0f);
             }
             else
             {
@@ -109,14 +104,10 @@ public class LooterAgent : Agent
         {
 
         }
+        // Move
         else if (brain.brainParameters.actionSpaceType == StateType.continuous)
-        {
-            // Turn-based controls
-            //transform.Rotate(new Vector3(0, 0, act[0] * turnSpeed));
-            //gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = transform.up * maxSpeed;
-            // WASD movement
             gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * mySpeed;
-        }
+
         // Proximity Rewards, make the earlier runs more distinct in score before the late game
         RaycastHit2D[] rays = new RaycastHit2D[numRays];
         for (int i = 0; i < rays.Length; i++)
