@@ -9,16 +9,16 @@ public class LoadEnvironment : MonoBehaviour {
 
     public void LoadScene(string sceneName)
     {
-        loadingImage.SetActive(true);
-        SceneManager.LoadScene(sceneName);
         // PLAYER SETTINGS EXAMPLE
-        LooterAgent.DEX = 6;
+        LooterAgent.DEX = 3;
         LooterAgent.TIME = 60;
         LooterAgent.HP = 3;
 
-        ArcherAgent.RANGE = 0.35f;
+        ArcherAgent.RANGE = 4f;
         ArcherAgent.FIRERATE = 0.1f;
         ArcherAgent.STR = 1;
+        loadingImage.SetActive(true);
+        SceneManager.LoadScene(sceneName);
     }
 
 	// Use this for initialization

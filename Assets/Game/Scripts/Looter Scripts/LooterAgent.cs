@@ -8,12 +8,16 @@ using Assets.Game.Scripts.Pickups;
 public class LooterAgent : Agent
 {
     // PLAYER SETTINGS, used for default values on agent reset
-    public static int HP = 3, TIME = 60;    // Max health, level timer
+    public static int HP = 3, TIME = 30;    // Max health, level timer
     public static float DEX = 2;            // Movement speed
 
     // Local settings to be adjusted by items
     public float mySpeed;   // Local Speed Stat
     public int myHealth;    // Local Health Stat
+    private static string[] thingsICanSee ={
+        "Enemy",
+        "Wall",
+        "Gold" };  // What items is this agent allowed to recognize by tag?
 
     // Set in scene
     public GameObject shooter;      // GameObject that the ArcherAgent script is attached to
@@ -93,57 +97,31 @@ public class LooterAgent : Agent
         // New input, trying to add some kind of memory for confusing situations
         // Hey, past me, where did you want to go again?
         Vector2 dir = transform.parent.GetComponent<Rigidbody2D>().velocity;
-        if (mySpeed != 0)
-        {
-            state.Add(dir.x / mySpeed);
-            state.Add(dir.y / mySpeed);
-        }
-        else
-        {
-            state.Add(0.0f);
-            state.Add(0.0f);
-        }
+        state.Add(mySpeed != 0 ? dir.x / mySpeed : 0.0f);
+        state.Add(mySpeed != 0 ? dir.y / mySpeed : 0.0f);
 
-        // What can I see?
-        RaycastHit2D[] rays = new RaycastHit2D[numRays];
         // New loop
-        for (int i = 0; i < rays.Length; i++)
+        for (int i = 0; i < numRays; i++)
         {
-            rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, sightDistance);
-            // Debug
+            RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / numRays) * i, Vector3.forward) * transform.up, sightDistance);
             if (debug)
             {
-                Color collisionColor = Color.white;
-                if (rays[i])
+                Color collisionColor = Color.white; // Default
+                if (hit)
                 {
-                    if (rays[i].collider.tag == "Enemy") collisionColor = Color.red;
-                    else if (rays[i].collider.tag == "Gold") collisionColor = Color.yellow;
-                    else if (rays[i].collider.tag == "Wall") collisionColor = Color.blue;
+                    if (hit.collider.tag == "Enemy") collisionColor = Color.red;
+                    else if (hit.collider.tag == "Gold") collisionColor = Color.yellow;
+                    else if (hit.collider.tag == "Wall") collisionColor = Color.blue;
                     else collisionColor = Color.magenta;
-                    Debug.DrawLine(gameObject.transform.position, rays[i].point, collisionColor);
+                    Debug.DrawLine(gameObject.transform.position, hit.point, collisionColor);
                 }
                 else
-                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up).normalized * sightDistance), collisionColor);
+                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / numRays) * i, Vector3.forward) * transform.up).normalized * sightDistance), collisionColor);
             }
-        }
-        for (int i = 0; i < rays.Length; i++)
-        {
-            state.Add(rays[i].distance / sightDistance);
+            state.Add(sightDistance != 0 ? hit.distance / sightDistance : 0.0f);
             // Add information about what was hit
-            if (rays[i])
-            {
-                // Is it a Wall? Gold? Enemy?
-                // 1.0f for yes, 0.0f for no
-                state.Add(rays[i].collider.tag == "Enemy" ? 1.0f : 0.0f);
-                state.Add(rays[i].collider.tag == "Wall" ? 1.0f : 0.0f);
-                state.Add(rays[i].collider.tag == "Gold" ? 1.0f : 0.0f);
-            }
-            else
-            {
-                state.Add(0.0f);    // NOT Enemy
-                state.Add(0.0f);    // NOT Wall
-                state.Add(0.0f);    // NOT Gold
-            }
+            foreach (string tag in thingsICanSee)
+                state.Add(hit && hit.collider.tag == tag ? 1.0f : 0.0f);
         }
         // Could we attack if we needed to?
         float cd = (Time.time - shooter.GetComponent<ArcherAgent>().lastShot) / shooter.GetComponent<ArcherAgent>().myFireRate;
@@ -162,14 +140,10 @@ public class LooterAgent : Agent
         {
 
         }
+        // Move
         else if (brain.brainParameters.actionSpaceType == StateType.continuous)
-        {
-            // Turn-based controls
-            //transform.Rotate(new Vector3(0, 0, act[0] * turnSpeed));
-            //gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = transform.up * maxSpeed;
-            // WASD movement
             gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * mySpeed;
-        }
+
         // Proximity Rewards, make the earlier runs more distinct in score before the late game
         RaycastHit2D[] rays = new RaycastHit2D[numRays];
         for (int i = 0; i < rays.Length; i++)
@@ -223,6 +197,7 @@ public class LooterAgent : Agent
     {
         if (Time.time - lastDamage > 0.5f)
         {
+            shooter.GetComponent<ArcherAgent>().reward -= 3;
             Debug.Log("Taking Damage!");
             myHealth -= damage;
             if (debug)
@@ -234,7 +209,6 @@ public class LooterAgent : Agent
             }
             lastDamage = Time.time;
         }
-
     }
 
     public void Pickup( Item item )
