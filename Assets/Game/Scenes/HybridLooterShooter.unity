@@ -2344,7 +2344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 257952818}
   observations: []
-  maxStep: 1500
+  maxStep: 0
   resetOnDone: 1
   reward: 0
   done: 0
@@ -8032,6 +8032,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1185084388}
     m_Modifications:
+    - target: {fileID: 114431450998166616, guid: da868b73cc7086246a0cf8d3f8eea5f5,
+        type: 2}
+      propertyPath: thingsICanSee.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -8145,7 +8150,22 @@ Prefab:
     - target: {fileID: 114431450998166616, guid: da868b73cc7086246a0cf8d3f8eea5f5,
         type: 2}
       propertyPath: maxStep
-      value: 1500
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114431450998166616, guid: da868b73cc7086246a0cf8d3f8eea5f5,
+        type: 2}
+      propertyPath: thingsICanSee.Array.data[0]
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 114431450998166616, guid: da868b73cc7086246a0cf8d3f8eea5f5,
+        type: 2}
+      propertyPath: thingsICanSee.Array.data[1]
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 114431450998166616, guid: da868b73cc7086246a0cf8d3f8eea5f5,
+        type: 2}
+      propertyPath: thingsICanSee.Array.data[2]
+      value: Gold
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da868b73cc7086246a0cf8d3f8eea5f5, type: 2}
@@ -15014,9 +15034,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cams:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &1597719618
 GameObject:
   m_ObjectHideFlags: 0
@@ -15439,7 +15456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 1483345223}
   observations: []
-  maxStep: 1500
+  maxStep: 0
   resetOnDone: 1
   reward: 0
   done: 0
@@ -15457,9 +15474,6 @@ MonoBehaviour:
   arrow: {fileID: 1036870743063012, guid: 9ede21f462feeb046b87d430c140d7ea, type: 2}
   debug: 1
   lastShot: 0
-  x: 0
-  y: 0
-  fire: 0
   numRays: 72
 --- !u!212 &1610891661
 SpriteRenderer:

@@ -11,6 +11,10 @@ public class LooterAgent : Agent
     // Local settings to be adjusted by items
     public float mySpeed;   // Local Speed Stat
     public int myHealth;    // Local Health Stat
+    private static string[] thingsICanSee ={
+        "Enemy",
+        "Wall",
+        "Gold" };  // What items is this agent allowed to recognize by tag?
 
     // Set in scene
     public GameObject shooter;      // GameObject that the ArcherAgent script is attached to
@@ -71,12 +75,8 @@ public class LooterAgent : Agent
             }
             state.Add(sightDistance != 0 ? hit.distance / sightDistance : 0.0f);
             // Add information about what was hit
-            // Is it a Wall? Gold? Enemy?
-            // 1.0f for yes, 0.0f for no
-            // FIXME: Do this through a loop based on a public array of strings. Hardcoded temporarily because it works.
-            state.Add(hit && hit.collider.tag == "Enemy" ? 1.0f : 0.0f);
-            state.Add(hit && hit.collider.tag == "Wall" ? 1.0f : 0.0f);
-            state.Add(hit && hit.collider.tag == "Gold" ? 1.0f : 0.0f);
+            foreach (string tag in thingsICanSee)
+                state.Add(hit && hit.collider.tag == tag ? 1.0f : 0.0f);
         }
         // Could we attack if we needed to?
         float cd = (Time.time - shooter.GetComponent<ArcherAgent>().lastShot) / shooter.GetComponent<ArcherAgent>().myFireRate;
