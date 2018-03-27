@@ -49,7 +49,7 @@ public class LooterAgent : Agent
         // Hey, past me, where did you want to go again?
         Vector2 dir = transform.parent.GetComponent<Rigidbody2D>().velocity;
         state.Add(mySpeed != 0 ? dir.x / mySpeed : 0.0f);
-        state.Add(mySpeed != 0 ? dir.x / mySpeed : 0.0f);
+        state.Add(mySpeed != 0 ? dir.y / mySpeed : 0.0f);
 
         // New loop
         for (int i = 0; i < numRays; i++)
@@ -71,21 +71,12 @@ public class LooterAgent : Agent
             }
             state.Add(sightDistance != 0 ? hit.distance / sightDistance : 0.0f);
             // Add information about what was hit
-            if (hit)
-            {
-                // Is it a Wall? Gold? Enemy?
-                // 1.0f for yes, 0.0f for no
-                // FIXME: Do this through a loop based on a public array of strings. Hardcoded temporarily because it works.
-                state.Add(hit.collider.tag == "Enemy" ? 1.0f : 0.0f);
-                state.Add(hit.collider.tag == "Wall" ? 1.0f : 0.0f);
-                state.Add(hit.collider.tag == "Gold" ? 1.0f : 0.0f);
-            }
-            else
-            {
-                state.Add(0.0f);    // NOT Enemy
-                state.Add(0.0f);    // NOT Wall
-                state.Add(0.0f);    // NOT Gold
-            }
+            // Is it a Wall? Gold? Enemy?
+            // 1.0f for yes, 0.0f for no
+            // FIXME: Do this through a loop based on a public array of strings. Hardcoded temporarily because it works.
+            state.Add(hit && hit.collider.tag == "Enemy" ? 1.0f : 0.0f);
+            state.Add(hit && hit.collider.tag == "Wall" ? 1.0f : 0.0f);
+            state.Add(hit && hit.collider.tag == "Gold" ? 1.0f : 0.0f);
         }
         // Could we attack if we needed to?
         float cd = (Time.time - shooter.GetComponent<ArcherAgent>().lastShot) / shooter.GetComponent<ArcherAgent>().myFireRate;
