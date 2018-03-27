@@ -46,6 +46,3 @@ sysinfo.txt
 *.unitypackage
 
 *_Data/
-*.meta 
-*.assets
-*.resS
