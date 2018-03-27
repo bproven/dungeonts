@@ -177,9 +177,8 @@ public class LooterAgent : Agent
                 transform.parent.GetComponent<SpriteRenderer>().color = Color.red;
             if (myHealth <= 0)
             {
-                // I'm training the archer, and the variable lifespan is making learning more difficult than anticipated.
-                //done = true;
-                //shooter.GetComponent<ArcherAgent>().done = true;
+                done = true;
+                shooter.GetComponent<ArcherAgent>().done = true;
             }
             lastDamage = Time.time;
         }
