@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class AttackPlayer : MonoBehaviour {
 
+    public float myRespawnRange;    // Controls the variance in where this object spawns during reset
+
     public GameObject player;
     public float moveSpeed;
     private int maxHealth;
     public int health;
     public int strength = 1;
+
+
 	// Use this for initialization
 	void Start () {
         maxHealth = health;
@@ -38,19 +42,23 @@ public class AttackPlayer : MonoBehaviour {
             GetComponent<SpriteRenderer>().color = Color.red;
     }
 
-    public void reset()
+    void randomizePosition()
     {
-        health = maxHealth;
-        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
         // Spawn Variance
-        Vector2 rand = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
+        Vector2 rand = new Vector2(Random.Range(-myRespawnRange, myRespawnRange), Random.Range(-myRespawnRange, myRespawnRange));
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, GetComponent<CircleCollider2D>().radius, rand, rand.magnitude);
         if (hit)
             transform.position = hit.centroid;
         else
             transform.position += new Vector3(rand.x, rand.y);
+    }
+
+    public void reset()
+    {
+        health = maxHealth;
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        randomizePosition();
     }
 
     void die()
@@ -63,9 +71,9 @@ public class AttackPlayer : MonoBehaviour {
     {
         for (int i = 0; i < coll.transform.childCount; i++)
         {
-            // Punish all brains involved in this disaster
-            if (coll.transform.GetChild(i).GetComponent<Agent>())
-                coll.transform.GetChild(i).GetComponent<Agent>().reward -= 5f;
+            // Punish the looter brains involved in this disaster
+            if (coll.transform.GetChild(i).GetComponent<LooterAgent>())
+                coll.transform.GetChild(i).GetComponent<LooterAgent>().reward -= 5f;
             // Apply damage
             if (coll.transform.GetChild(i).GetComponent<LooterAgent>())
                 coll.transform.GetChild(i).GetComponent<LooterAgent>().looterTakeDamage(strength);
