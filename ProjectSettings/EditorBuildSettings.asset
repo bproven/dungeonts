@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/HybridLooterShooter.unity
     guid: 365cef27050a43a4db30bd3c0f716e74
+  - enabled: 1
+    path: Assets/Game/Scenes/HybridLooterShooter 1.unity
+    guid: 03370bdb5231cf14792f73273b83b6ef
   - enabled: 0
     path: Assets/Game/Scenes/ArcherTesting.unity
     guid: 215abe97b42d2a943abda3632eca8830
