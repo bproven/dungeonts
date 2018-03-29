@@ -7,6 +7,7 @@ TagManager:
   - Gold
   - Wall
   - Enemy
+  - Boots
   layers:
   - Default
   - TransparentFX

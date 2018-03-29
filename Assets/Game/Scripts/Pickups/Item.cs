@@ -12,7 +12,11 @@ namespace Assets.Game.Scripts.Pickups
     public class Item : MonoBehaviour
     {
 
+        public string itemName = string.Empty;
         public int value = 1;
+        public float speedBonus = 0.0f;     // straight add to speed
+        public float speedFactor = 1.0f;    // factor to multiply speed
+        public int healthBonus = 0;
         public float respawnRange = 1.0f;
         public bool respawn = false;
 

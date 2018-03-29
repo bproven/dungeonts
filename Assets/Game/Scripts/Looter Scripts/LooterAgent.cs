@@ -11,13 +11,27 @@ public class LooterAgent : Agent
     public static int HP = 3, TIME = 30;    // Max health, level timer
     public static float DEX = 2;            // Movement speed
 
-    // Local settings to be adjusted by items
+    // Base stats
     public float mySpeed;   // Local Speed Stat
     public int myHealth;    // Local Health Stat
-    private static string[] thingsICanSee ={
+
+    private static string[] thingsICanSee =
+    {
         "Enemy",
         "Wall",
-        "Gold" };  // What items is this agent allowed to recognize by tag?
+        "Gold",
+        "Boots"
+    };  // What items is this agent allowed to recognize by tag?
+
+    /// <summary>
+    /// The Agent's Speed as modified by Items
+    /// </summary>
+    private float Speed { get; set; }
+
+    /// <summary>
+    /// The Agent's Health as modified by Items
+    /// </summary>
+    private int Health { get; set; }
 
     // Set in scene
     public GameObject shooter;      // GameObject that the ArcherAgent script is attached to
@@ -97,8 +111,8 @@ public class LooterAgent : Agent
         // New input, trying to add some kind of memory for confusing situations
         // Hey, past me, where did you want to go again?
         Vector2 dir = transform.parent.GetComponent<Rigidbody2D>().velocity;
-        state.Add(mySpeed != 0 ? dir.x / mySpeed : 0.0f);
-        state.Add(mySpeed != 0 ? dir.y / mySpeed : 0.0f);
+        state.Add(Speed != 0 ? dir.x / Speed : 0.0f);
+        state.Add(Speed != 0 ? dir.y / Speed : 0.0f);
 
         // New loop
         for (int i = 0; i < numRays; i++)
@@ -142,7 +156,7 @@ public class LooterAgent : Agent
         }
         // Move
         else if (brain.brainParameters.actionSpaceType == StateType.continuous)
-            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * mySpeed;
+            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * Speed;
 
         // Proximity Rewards, make the earlier runs more distinct in score before the late game
         RaycastHit2D[] rays = new RaycastHit2D[numRays];
@@ -179,30 +193,40 @@ public class LooterAgent : Agent
     /// </summary>
     public override void AgentReset()
     {
+
         roundStart = Time.time;
         gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GoldValue = 0;
         transform.up = Vector2.up;
         levelManager.GetComponent<LevelSpawner>().resetLevel();
         lastDamage = Time.time - 0.5f;
+
         // PLAYER SETTINGS
-        myHealth = HP;  mySpeed = DEX;
+        myHealth = HP;
+        mySpeed = DEX;
+
+        Health = myHealth;
+        Speed = mySpeed;
 
         transform.parent.GetComponent<SpriteRenderer>().color = Color.green;
 
         transform.parent.position = levelManager.transform.GetChild(0).position;
     }
 
+    /// <summary>
+    /// Called to have the looter take some damage
+    /// </summary>
+    /// <param name="damage"></param>
     public void looterTakeDamage(int damage)
     {
         if (Time.time - lastDamage > 0.5f)
         {
             shooter.GetComponent<ArcherAgent>().reward -= 3;
             Debug.Log("Taking Damage!");
-            myHealth -= damage;
+            Health -= damage;
             if (debug)
                 transform.parent.GetComponent<SpriteRenderer>().color = Color.red;
-            if (myHealth <= 0)
+            if (Health <= 0)
             {
                 done = true;
                 shooter.GetComponent<ArcherAgent>().done = true;
@@ -211,8 +235,18 @@ public class LooterAgent : Agent
         }
     }
 
+    /// <summary>
+    /// Agent picks up an item and adds it to inventory
+    /// </summary>
+    /// <param name="item"></param>
     public void Pickup( Item item )
     {
+        string name = item.name;
+        if ( string.IsNullOrEmpty( name ) )
+        {
+            name = item.tag;
+        }
+        Debug.Log("Picked up " + name);
         reward += item.value;
         if ( item.IsCountable )
         {
@@ -231,6 +265,22 @@ public class LooterAgent : Agent
         else
         {
             Items.Add(item);
+            UpdateStats();
+        }
+    }
+
+    /// <summary>
+    /// Recalcs stats when an item is added or removed
+    /// </summary>
+    private void UpdateStats()
+    {
+        float speed = mySpeed;
+        foreach ( Item item in Items )
+        {
+            // add speed bonuses
+            float speedDif = (item.speedFactor - 1.0f) * mySpeed;            // factor is not cumulative, 2 20% items (1.2) adds 40%
+            speedDif += item.speedBonus;                                     // add bonus
+            speed += speedDif;
         }
     }
 
