@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuScript : MonoBehaviour {
+public class MainMenuScript : MonoBehaviour
+{
 
     // Use this for initialization
     //void Start () {
@@ -16,7 +17,7 @@ public class MenuScript : MonoBehaviour {
     //}
 
     int map = 0;
-    public void PlayGame ()
+    public void PlayGame()
     {
         SceneManager.LoadScene("HybridLooterShooter");
     }
@@ -28,7 +29,7 @@ public class MenuScript : MonoBehaviour {
 
     public void PlayMap2()
     {
-        SceneManager.LoadScene("HybridLooterShooter");
+        SceneManager.LoadScene("HybridLooterShooter 1");
     }
 
     public void PlayMap3()
@@ -51,6 +52,6 @@ public class MenuScript : MonoBehaviour {
         LooterAgent.DEX = 3;
     }
 
-   
+
 
 }
