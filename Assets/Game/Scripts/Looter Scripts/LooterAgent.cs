@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+
 using UnityEngine;
 
 using Assets.Game.Scripts.Pickups;
@@ -8,12 +8,14 @@ using Assets.Game.Scripts.Pickups;
 public class LooterAgent : Agent
 {
     // PLAYER SETTINGS, used for default values on agent reset
-    public static int HP = 3, TIME = 30;    // Max health, level timer
+    public static int HP = 5, TIME = 30;    // Max health, level timer
     public static float DEX = 2;            // Movement speed
+    public static int DEFLECTION = 0;       // without armor
 
     // Base stats
-    public float mySpeed;   // Local Speed Stat
-    public int myHealth;    // Local Health Stat
+    public float mySpeed;               // Local Speed Stat
+    public int myHealth;                // Local Health Stat
+    public int myDamageDeflection;
 
     private static string[] thingsICanSee =
     {
@@ -33,9 +35,22 @@ public class LooterAgent : Agent
     /// </summary>
     private int Health { get; set; }
 
+    /// <summary>
+    /// The Agent's damage deflection as modified by Items
+    /// </summary>
+    public int DamageDeflection { get; set; }
+
     // Set in scene
     public GameObject shooter;      // GameObject that the ArcherAgent script is attached to
     public GameObject levelManager; // GameObject that the LevelSpawner script is attached to
+
+    public ArcherAgent Archer
+    {
+        get
+        {
+            return shooter.GetComponent<ArcherAgent>();
+        }
+    }
 
     // Vision specific variables
     public float sightDistance;
@@ -204,13 +219,19 @@ public class LooterAgent : Agent
         // PLAYER SETTINGS
         myHealth = HP;
         mySpeed = DEX;
+        myDamageDeflection = DEFLECTION;
 
         Health = myHealth;
         Speed = mySpeed;
 
+        Items.Clear();  // TODO: what about starting items?
+
+        Archer.Reset();
+
         transform.parent.GetComponent<SpriteRenderer>().color = Color.green;
 
         transform.parent.position = levelManager.transform.GetChild(0).position;
+
     }
 
     /// <summary>
@@ -223,7 +244,7 @@ public class LooterAgent : Agent
         {
             shooter.GetComponent<ArcherAgent>().reward -= 3;
             Debug.Log("Taking Damage!");
-            Health -= damage;
+            Health -= Mathf.Max(0, damage - DamageDeflection);
             if (debug)
                 transform.parent.GetComponent<SpriteRenderer>().color = Color.red;
             if (Health <= 0)
@@ -275,13 +296,24 @@ public class LooterAgent : Agent
     private void UpdateStats()
     {
         float speed = mySpeed;
+        int health = myHealth;
+        int damageDeflection = myDamageDeflection;
+        int strength = Archer.myStrength;
+        float range = Archer.myRange;
         foreach ( Item item in Items )
         {
-            // add speed bonuses
-            float speedDif = (item.speedFactor - 1.0f) * mySpeed;            // factor is not cumulative, 2 20% items (1.2) adds 40%
-            speedDif += item.speedBonus;                                     // add bonus
-            speed += speedDif;
+            // add bonuses
+            speed += (item.speedFactor - 1.0f) * mySpeed;            // factor is not cumulative, 2 20% items (1.2) adds 40%
+            health += item.healthBonus;
+            strength += item.damageBonus;
+            damageDeflection = item.damageDeflection;
+            range = item.rangeBonus;
         }
+        Speed = speed;
+        Health = health;
+        DamageDeflection = damageDeflection;
+        Archer.Strength = strength;
+        Archer.Range = range;
     }
 
     /// <summary>

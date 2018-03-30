@@ -145,7 +145,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 83
+  m_RootOrder: 82
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &27011003
 CircleCollider2D:
@@ -305,7 +305,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 46
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &56926020
 CircleCollider2D:
@@ -499,7 +499,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -591,9 +591,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &89056374
@@ -628,7 +630,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 34
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &89056376
 CircleCollider2D:
@@ -760,7 +762,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 101
+  m_RootOrder: 100
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -852,9 +854,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &120226553
@@ -889,7 +893,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 55
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &120226555
 CircleCollider2D:
@@ -1021,7 +1025,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1113,9 +1117,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &152730168
@@ -1283,7 +1289,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 81
+  m_RootOrder: 80
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &155435675
 CircleCollider2D:
@@ -1416,7 +1422,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 68
+  m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &157195030
 CircleCollider2D:
@@ -1549,7 +1555,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 65
+  m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &173611622
 CircleCollider2D:
@@ -1814,7 +1820,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 141
+  m_RootOrder: 140
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1906,9 +1912,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &180768997
@@ -1943,7 +1951,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 92
+  m_RootOrder: 91
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &180768999
 CircleCollider2D:
@@ -2076,7 +2084,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 67
+  m_RootOrder: 66
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &191719359
 CircleCollider2D:
@@ -2209,7 +2217,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 50
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &198927374
 CircleCollider2D:
@@ -2372,6 +2380,7 @@ MonoBehaviour:
   id: 0
   mySpeed: 0
   myHealth: 0
+  myDamageDeflection: 0
   shooter: {fileID: 1610891659}
   levelManager: {fileID: 1094268801}
   sightDistance: 4
@@ -2469,7 +2478,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 91
+  m_RootOrder: 90
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &273586591
 CircleCollider2D:
@@ -2602,7 +2611,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 79
+  m_RootOrder: 78
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &291859265
 CircleCollider2D:
@@ -2843,7 +2852,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 38
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &304201848
 CircleCollider2D:
@@ -3108,7 +3117,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 134
+  m_RootOrder: 133
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3200,9 +3209,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &329941681
@@ -3236,7 +3247,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 130
+  m_RootOrder: 129
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3328,9 +3339,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &336060345
@@ -3365,7 +3378,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 86
+  m_RootOrder: 85
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &336060347
 CircleCollider2D:
@@ -3631,7 +3644,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 94
+  m_RootOrder: 93
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &379124291
 CircleCollider2D:
@@ -3763,7 +3776,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 108
+  m_RootOrder: 107
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3855,9 +3868,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &395470806
@@ -3892,7 +3907,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 63
+  m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &395470808
 CircleCollider2D:
@@ -4025,7 +4040,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 88
+  m_RootOrder: 87
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &407238647
 CircleCollider2D:
@@ -4170,7 +4185,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 135
+  m_RootOrder: 134
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4262,9 +4277,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &467369144
@@ -4299,7 +4316,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 76
+  m_RootOrder: 75
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &467369146
 CircleCollider2D:
@@ -4463,7 +4480,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 54
+  m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &501579751
 CircleCollider2D:
@@ -4595,7 +4612,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 115
+  m_RootOrder: 114
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4687,9 +4704,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &521053493
@@ -4857,7 +4876,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 89
+  m_RootOrder: 88
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &549243521
 CircleCollider2D:
@@ -4990,7 +5009,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 61
+  m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &556325058
 CircleCollider2D:
@@ -5123,7 +5142,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 75
+  m_RootOrder: 74
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &559792241
 CircleCollider2D:
@@ -5255,7 +5274,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5347,9 +5366,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &588640105
@@ -5383,7 +5404,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 120
+  m_RootOrder: 119
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5475,9 +5496,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &613317474
@@ -5511,7 +5534,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 137
+  m_RootOrder: 136
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5603,9 +5626,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &657638224
@@ -5640,7 +5665,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 37
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &657638226
 CircleCollider2D:
@@ -5773,7 +5798,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 58
+  m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &668446787
 CircleCollider2D:
@@ -5932,7 +5957,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 53
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &689581410
 CircleCollider2D:
@@ -6065,7 +6090,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 32
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &723837691
 CircleCollider2D:
@@ -6197,7 +6222,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 99
+  m_RootOrder: 98
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6289,9 +6314,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &734841380
@@ -6326,7 +6353,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 82
+  m_RootOrder: 81
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &734841382
 CircleCollider2D:
@@ -6458,7 +6485,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 109
+  m_RootOrder: 108
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6550,9 +6577,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &752645383
@@ -6586,7 +6615,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 131
+  m_RootOrder: 130
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6678,9 +6707,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &753044143
@@ -6695,6 +6726,135 @@ MonoBehaviour:
   m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   brain: {fileID: 257952818}
+--- !u!1 &755522082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1890209350660088, guid: b023f71ef3f4dc24f8fc9389a43233c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 755522083}
+  - component: {fileID: 755522086}
+  - component: {fileID: 755522085}
+  - component: {fileID: 755522084}
+  m_Layer: 0
+  m_Name: Bow
+  m_TagString: Boots
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &755522083
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 224020572997590030, guid: b023f71ef3f4dc24f8fc9389a43233c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 755522082}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.04598923}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1094268803}
+  m_RootOrder: 143
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1, y: 1.1999996}
+  m_SizeDelta: {x: 0.24, y: 0.24}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!61 &755522084
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 61341138984032496, guid: b023f71ef3f4dc24f8fc9389a43233c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 755522082}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.24, y: 0.24}
+    newSize: {x: 0.24, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 0.18}
+  m_EdgeRadius: 0
+--- !u!212 &755522085
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 212436702950917990, guid: b023f71ef3f4dc24f8fc9389a43233c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 755522082}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: c577c48535756ed4c8f9b1e0764c9cfe, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.24, y: 0.24}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!114 &755522086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 755522082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a247ce51b86afe42a9332a4626fcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Bow
+  value: 2
+  speedFactor: 1
+  healthBonus: 0
+  damageBonus: 1
+  damageDeflection: 0
+  rangeBonus: 1
+  respawnRange: 0
+  respawn: 0
 --- !u!1 &770322321
 GameObject:
   m_ObjectHideFlags: 0
@@ -6726,7 +6886,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 107
+  m_RootOrder: 106
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6818,9 +6978,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &803814530
@@ -6854,7 +7016,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6946,9 +7108,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &806010531
@@ -7115,7 +7279,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7207,9 +7371,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &840543322
@@ -7243,7 +7409,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 103
+  m_RootOrder: 102
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7335,9 +7501,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &842180030
@@ -7504,7 +7672,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 98
+  m_RootOrder: 97
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7596,9 +7764,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &856058188
@@ -7632,7 +7802,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7724,9 +7894,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &879818034
@@ -7760,7 +7932,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 136
+  m_RootOrder: 135
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7852,9 +8024,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &880283585
@@ -7889,7 +8063,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 66
+  m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &880283587
 CircleCollider2D:
@@ -8022,7 +8196,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 73
+  m_RootOrder: 72
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &884494356
 CircleCollider2D:
@@ -8300,7 +8474,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 95
+  m_RootOrder: 94
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &918919916
 CircleCollider2D:
@@ -8432,7 +8606,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 106
+  m_RootOrder: 105
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8524,9 +8698,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &951516223
@@ -8693,7 +8869,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 122
+  m_RootOrder: 121
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8785,9 +8961,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &977005112
@@ -8821,7 +8999,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 127
+  m_RootOrder: 126
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8913,9 +9091,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &992700996
@@ -8949,7 +9129,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 124
+  m_RootOrder: 123
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9041,9 +9221,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &995572942
@@ -9078,7 +9260,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 71
+  m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &995572944
 CircleCollider2D:
@@ -9445,6 +9627,135 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1015313995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1890209350660088, guid: b023f71ef3f4dc24f8fc9389a43233c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1015313996}
+  - component: {fileID: 1015313999}
+  - component: {fileID: 1015313998}
+  - component: {fileID: 1015313997}
+  m_Layer: 0
+  m_Name: Sword
+  m_TagString: Boots
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1015313996
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 224020572997590030, guid: b023f71ef3f4dc24f8fc9389a43233c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015313995}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.04598923}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1094268803}
+  m_RootOrder: 144
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1, y: 1.1999996}
+  m_SizeDelta: {x: 0.24, y: 0.24}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!61 &1015313997
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 61341138984032496, guid: b023f71ef3f4dc24f8fc9389a43233c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015313995}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.24, y: 0.24}
+    newSize: {x: 0.24, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 0.18}
+  m_EdgeRadius: 0
+--- !u!212 &1015313998
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 212436702950917990, guid: b023f71ef3f4dc24f8fc9389a43233c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015313995}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: c577c48535756ed4c8f9b1e0764c9cfe, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.24, y: 0.24}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!114 &1015313999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015313995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a247ce51b86afe42a9332a4626fcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Bow
+  value: 2
+  speedFactor: 1
+  healthBonus: 0
+  damageBonus: 2
+  damageDeflection: 0
+  rangeBonus: 0
+  respawnRange: 0
+  respawn: 0
 --- !u!1 &1026573122
 GameObject:
   m_ObjectHideFlags: 0
@@ -9477,7 +9788,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 70
+  m_RootOrder: 69
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1026573124
 CircleCollider2D:
@@ -9743,7 +10054,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 51
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1039609346
 CircleCollider2D:
@@ -9875,7 +10186,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 139
+  m_RootOrder: 138
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9967,9 +10278,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1088324259
@@ -10004,7 +10317,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 57
+  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1088324261
 CircleCollider2D:
@@ -10165,7 +10478,6 @@ Transform:
   - {fileID: 315850294}
   - {fileID: 1036513196}
   - {fileID: 1873810637}
-  - {fileID: 1746105610}
   - {fileID: 811574861}
   - {fileID: 146490307}
   - {fileID: 856058189}
@@ -10288,6 +10600,10 @@ Transform:
   - {fileID: 1065485993}
   - {fileID: 1846529062}
   - {fileID: 177936669}
+  - {fileID: 1499503259}
+  - {fileID: 1746105610}
+  - {fileID: 755522083}
+  - {fileID: 1015313996}
   m_Father: {fileID: 1403208738}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10323,7 +10639,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 90
+  m_RootOrder: 89
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1104487209
 CircleCollider2D:
@@ -10468,7 +10784,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 105
+  m_RootOrder: 104
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10560,9 +10876,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1120247211
@@ -10597,7 +10915,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 96
+  m_RootOrder: 95
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1120247213
 CircleCollider2D:
@@ -10729,7 +11047,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 121
+  m_RootOrder: 120
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10821,9 +11139,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1138288723
@@ -10858,7 +11178,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 60
+  m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1138288725
 CircleCollider2D:
@@ -10991,7 +11311,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 56
+  m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1145073821
 CircleCollider2D:
@@ -11123,7 +11443,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 133
+  m_RootOrder: 132
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11215,9 +11535,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1185084387
@@ -11314,9 +11636,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 0
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 0
   respawn: 0
 --- !u!212 &1185084392
@@ -11409,7 +11733,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 59
+  m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1198557995
 CircleCollider2D:
@@ -11541,7 +11865,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 110
+  m_RootOrder: 109
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11633,9 +11957,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1219907805
@@ -11669,7 +11995,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 125
+  m_RootOrder: 124
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11761,9 +12087,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1230622591
@@ -11797,7 +12125,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 114
+  m_RootOrder: 113
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11889,9 +12217,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1239831997
@@ -12090,7 +12420,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 39
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1245960414
 CircleCollider2D:
@@ -12223,7 +12553,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 69
+  m_RootOrder: 68
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1266592824
 CircleCollider2D:
@@ -12356,7 +12686,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 77
+  m_RootOrder: 76
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1274370250
 CircleCollider2D:
@@ -12562,7 +12892,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 104
+  m_RootOrder: 103
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12654,9 +12984,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1332656555
@@ -12690,7 +13022,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 111
+  m_RootOrder: 110
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12782,9 +13114,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1348279780
@@ -12818,7 +13152,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12910,9 +13244,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1353685971
@@ -12947,7 +13283,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 44
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1353685973
 CircleCollider2D:
@@ -13080,7 +13416,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 41
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1373413207
 CircleCollider2D:
@@ -13213,7 +13549,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 85
+  m_RootOrder: 84
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1378750582
 CircleCollider2D:
@@ -13346,7 +13682,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 33
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1384937135
 CircleCollider2D:
@@ -13479,7 +13815,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 47
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1397713445
 CircleCollider2D:
@@ -13611,7 +13947,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 112
+  m_RootOrder: 111
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13703,9 +14039,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!4 &1403208738 stripped
@@ -13744,7 +14082,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 100
+  m_RootOrder: 99
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13836,9 +14174,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1430342234
@@ -13872,7 +14212,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13964,9 +14304,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1441423743
@@ -14001,7 +14343,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 74
+  m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1441423745
 CircleCollider2D:
@@ -14134,7 +14476,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 36
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1442638865
 CircleCollider2D:
@@ -14267,7 +14609,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 48
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1464654310
 CircleCollider2D:
@@ -14399,7 +14741,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 118
+  m_RootOrder: 117
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14491,9 +14833,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1483273187
@@ -14647,6 +14991,135 @@ MonoBehaviour:
   - {fileID: 1851714587}
   - {fileID: 672410226}
   instanceID: 373390
+--- !u!1 &1499503258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1890209350660088, guid: b023f71ef3f4dc24f8fc9389a43233c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1499503259}
+  - component: {fileID: 1499503262}
+  - component: {fileID: 1499503261}
+  - component: {fileID: 1499503260}
+  m_Layer: 0
+  m_Name: Armor
+  m_TagString: Boots
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1499503259
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 224020572997590030, guid: b023f71ef3f4dc24f8fc9389a43233c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1499503258}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.04598923}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1094268803}
+  m_RootOrder: 141
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1, y: 1.1999998}
+  m_SizeDelta: {x: 0.24, y: 0.24}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!61 &1499503260
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 61341138984032496, guid: b023f71ef3f4dc24f8fc9389a43233c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1499503258}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.24, y: 0.24}
+    newSize: {x: 0.24, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 0.18}
+  m_EdgeRadius: 0
+--- !u!212 &1499503261
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 212436702950917990, guid: b023f71ef3f4dc24f8fc9389a43233c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1499503258}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: c577c48535756ed4c8f9b1e0764c9cfe, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.24, y: 0.24}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!114 &1499503262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1499503258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a247ce51b86afe42a9332a4626fcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Armor
+  value: 1
+  speedFactor: 1
+  healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 1
+  rangeBonus: 0
+  respawnRange: 0
+  respawn: 0
 --- !u!1 &1533148108
 GameObject:
   m_ObjectHideFlags: 0
@@ -14678,7 +15151,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14770,9 +15243,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1546097565
@@ -14806,7 +15281,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 119
+  m_RootOrder: 118
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14898,9 +15373,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1546981085
@@ -14935,7 +15412,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 78
+  m_RootOrder: 77
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1546981087
 CircleCollider2D:
@@ -15067,7 +15544,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 123
+  m_RootOrder: 122
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15159,9 +15636,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1593690688
@@ -15252,7 +15731,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 31
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15344,9 +15823,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1604379465
@@ -15381,7 +15862,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 42
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1604379467
 CircleCollider2D:
@@ -15758,7 +16239,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 35
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1623579561
 CircleCollider2D:
@@ -16007,7 +16488,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 45
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1637744127
 CircleCollider2D:
@@ -16139,7 +16620,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16231,9 +16712,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1675654370
@@ -16268,7 +16751,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 62
+  m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1675654372
 CircleCollider2D:
@@ -16400,7 +16883,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16492,9 +16975,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1686151451
@@ -16529,7 +17014,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 93
+  m_RootOrder: 92
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1686151453
 CircleCollider2D:
@@ -16662,7 +17147,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 84
+  m_RootOrder: 83
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1701035933
 CircleCollider2D:
@@ -16794,7 +17279,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 19
+  m_RootOrder: 142
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16883,11 +17368,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a247ce51b86afe42a9332a4626fcd44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Boots of Speed
-  value: 1
-  speedBonus: 0
+  itemName: Boots
+  value: 2
   speedFactor: 1.25
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 0
   respawn: 0
 --- !u!1 &1777558330
@@ -16922,7 +17409,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 97
+  m_RootOrder: 96
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1777558332
 CircleCollider2D:
@@ -17054,7 +17541,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 129
+  m_RootOrder: 128
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17146,9 +17633,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1846529061
@@ -17182,7 +17671,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 140
+  m_RootOrder: 139
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17274,9 +17763,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1847149680
@@ -17311,7 +17802,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 52
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1847149682
 CircleCollider2D:
@@ -17455,7 +17946,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 102
+  m_RootOrder: 101
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17547,9 +18038,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1873810636
@@ -17717,7 +18210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 80
+  m_RootOrder: 79
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1898195791
 CircleCollider2D:
@@ -17982,7 +18475,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 113
+  m_RootOrder: 112
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18074,9 +18567,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1924744533
@@ -18110,7 +18605,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 117
+  m_RootOrder: 116
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18202,9 +18697,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1934768442
@@ -18239,7 +18736,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 49
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1934768444
 CircleCollider2D:
@@ -18372,7 +18869,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 72
+  m_RootOrder: 71
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1959183491
 CircleCollider2D:
@@ -18504,7 +19001,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 128
+  m_RootOrder: 127
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18596,9 +19093,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1972853947
@@ -18748,7 +19247,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 138
+  m_RootOrder: 137
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18840,9 +19339,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &1994586197
@@ -19015,7 +19516,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 64
+  m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1998763522
 CircleCollider2D:
@@ -19147,7 +19648,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 132
+  m_RootOrder: 131
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19239,9 +19740,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &2023357847
@@ -19276,7 +19779,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 43
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &2023357849
 CircleCollider2D:
@@ -19542,7 +20045,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 87
+  m_RootOrder: 86
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &2091063059
 CircleCollider2D:
@@ -19674,7 +20177,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 126
+  m_RootOrder: 125
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19766,9 +20269,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!1 &2105669566
@@ -19803,7 +20308,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 40
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &2105669568
 CircleCollider2D:
@@ -20068,7 +20573,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1094268803}
-  m_RootOrder: 116
+  m_RootOrder: 115
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20160,8 +20665,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   value: 5
-  speedBonus: 0
   speedFactor: 1
   healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 8
   respawn: 0
