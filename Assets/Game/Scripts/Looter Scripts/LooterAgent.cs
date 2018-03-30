@@ -21,7 +21,11 @@ public class LooterAgent : Agent
     {
         "Enemy",
         "Wall",
-        "Gold"
+        "Gold",
+        "Boots",
+        "Armor",
+        "Bow",
+        "Sword"
     };  // What items is this agent allowed to recognize by tag?
 
     /// <summary>
