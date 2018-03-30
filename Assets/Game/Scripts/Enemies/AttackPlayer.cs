@@ -8,9 +8,9 @@ public class AttackPlayer : MonoBehaviour {
 
     public GameObject player;
     public float moveSpeed;
-    private int maxHealth;
-    public int health;
-    public int strength = 1;
+    private float maxHealth;
+    public float health;
+    public float strength = 1;
 
 
 	// Use this for initialization

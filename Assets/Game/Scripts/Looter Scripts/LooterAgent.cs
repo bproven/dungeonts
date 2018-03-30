@@ -8,21 +8,20 @@ using Assets.Game.Scripts.Pickups;
 public class LooterAgent : Agent
 {
     // PLAYER SETTINGS, used for default values on agent reset
-    public static int HP = 5, TIME = 30;    // Max health, level timer
+    public static float HP = 5, TIME = 30;    // Max health, level timer
     public static float DEX = 2;            // Movement speed
-    public static int DEFLECTION = 0;       // without armor
+    public static float DEFLECTION = 0;       // without armor
 
     // Base stats
     public float mySpeed;               // Local Speed Stat
-    public int myHealth;                // Local Health Stat
-    public int myDamageDeflection;
+    public float myHealth;                // Local Health Stat
+    public float myDamageDeflection;
 
     private static string[] thingsICanSee =
     {
         "Enemy",
         "Wall",
-        "Gold",
-        "Boots"
+        "Gold"
     };  // What items is this agent allowed to recognize by tag?
 
     /// <summary>
@@ -33,12 +32,12 @@ public class LooterAgent : Agent
     /// <summary>
     /// The Agent's Health as modified by Items
     /// </summary>
-    private int Health { get; set; }
+    private float Health { get; set; }
 
     /// <summary>
     /// The Agent's damage deflection as modified by Items
     /// </summary>
-    public int DamageDeflection { get; set; }
+    public float DamageDeflection { get; set; }
 
     // Set in scene
     public GameObject shooter;      // GameObject that the ArcherAgent script is attached to
@@ -238,7 +237,7 @@ public class LooterAgent : Agent
     /// Called to have the looter take some damage
     /// </summary>
     /// <param name="damage"></param>
-    public void looterTakeDamage(int damage)
+    public void looterTakeDamage(float damage)
     {
         if (Time.time - lastDamage > 0.5f)
         {
@@ -296,9 +295,9 @@ public class LooterAgent : Agent
     private void UpdateStats()
     {
         float speed = mySpeed;
-        int health = myHealth;
-        int damageDeflection = myDamageDeflection;
-        int strength = Archer.myStrength;
+        float health = myHealth;
+        float damageDeflection = myDamageDeflection;
+        float strength = Archer.myStrength;
         float range = Archer.myRange;
         foreach ( Item item in Items )
         {

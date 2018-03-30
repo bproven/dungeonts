@@ -7,16 +7,16 @@ public class ArcherAgent : Agent
     [Header("Specific to ArcherTesting")]
     // PLAYER SETTINGS, used for default values on agent reset
     public static float RANGE = 0.6f, FIRERATE = 0.6f;
-    public static int STR = 2;              // without weapons
+    public static float STR = 2;              // without weapons
 
     // Local settings to be adjusted by items
     public float myFireRate, myRange;   // Local fire rate, range
-    public int myStrength;              // Local strength
+    public float myStrength;              // Local strength
 
     /// <summary>
     /// The Agen't strength as modified by Items
     /// </summary>
-    public int Strength { get; set; }
+    public float Strength { get; set; }
 
     /// <summary>
     /// The Agent's range as modified by items

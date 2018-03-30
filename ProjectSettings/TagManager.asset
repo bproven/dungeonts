@@ -8,6 +8,9 @@ TagManager:
   - Wall
   - Enemy
   - Boots
+  - Sword
+  - Bow
+  - Armor
   layers:
   - Default
   - TransparentFX
