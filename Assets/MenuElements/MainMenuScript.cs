@@ -37,6 +37,14 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene("HybridLooterShooter");
     }
 
+    public LooterAgent Looter
+    {
+        get
+        {
+            return GameObject.FindObjectOfType<LooterAgent>();
+        }
+    }
+
     public void selectSword()
     {
         ArcherAgent.STR = 2;
