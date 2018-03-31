@@ -22,7 +22,7 @@ public class AttackPlayer : MonoBehaviour {
 	void Update () {
         // Keep it simple
         Vector2 newVelocity = (player.transform.position - gameObject.transform.position);
-        if (newVelocity.magnitude > player.transform.GetChild(1).GetComponent<LooterAgent>().sightDistance)
+        if (newVelocity.magnitude > 3f)
             newVelocity = Vector2.zero;
         else
         {

@@ -9,7 +9,7 @@ using Assets.Game.Scripts.Pickups;
 public class LooterAgent : Agent
 {
     // PLAYER SETTINGS, used for default values on agent reset
-    public static float HP = 5, TIME = 120;    // Max health, level timer
+    public static float HP = 3, TIME = 120;    // Max health, level timer
     public static float DEX = 1;            // Movement speed
     public static float DEFLECTION = 0;       // without armor
 
@@ -329,7 +329,7 @@ public class LooterAgent : Agent
             strength += Archer.myStrength * item.damageBonus;
             //damageDeflection = myDamageDeflection * item.damageDeflection;
             damageDeflection = myDamageDeflection + item.damageDeflection;
-            range = Archer.myRange * item.rangeBonus;
+            range += Archer.myRange * item.rangeBonus;
         }
         Speed = speed;
         Health = health;
