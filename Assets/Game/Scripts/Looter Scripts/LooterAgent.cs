@@ -132,6 +132,12 @@ public class LooterAgent : Agent
         state.Add(Speed != 0 ? dir.x / Speed : 0.0f);
         state.Add(Speed != 0 ? dir.y / Speed : 0.0f);
 
+        // Stats states
+        state.Add(myHealth / HP);   // Health stat
+        state.Add(mySpeed / 5.0f);  // Realistically our max speed shouldn't be over 5, though this could change in time
+        state.Add(myDamageDeflection);  //  Armor stat, should be 0f-1f
+        state.Add(Archer.Range / sightDistance);    // How far can we kill things
+
         // New loop
         for (int i = 0; i < numRays; i++)
         {
