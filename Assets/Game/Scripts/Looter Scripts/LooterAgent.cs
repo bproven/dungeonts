@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
@@ -267,12 +268,17 @@ public class LooterAgent : Agent
     /// <param name="item"></param>
     public void Pickup( Item item )
     {
+        if ( item == null )
+        {
+            throw new ArgumentNullException("item");
+        }
         string name = item.name;
+        string tag = item.tag;
         if ( string.IsNullOrEmpty( name ) )
         {
-            name = item.tag;
+            name = tag;
         }
-        Debug.Log("Picked up " + name);
+        Debug.Log("Picking up " + name);
         reward += item.value;
         if ( item.IsCountable )
         {
@@ -290,8 +296,16 @@ public class LooterAgent : Agent
         }
         else
         {
-            Items.Add(item);
-            UpdateStats();
+            if (!Items.Any(i => i.tag == tag)) // TODO: just make the collection a set
+            {
+                Debug.Log("Picking up " + tag);
+                Items.Add(item);
+                UpdateStats();
+            }
+            else
+            {
+                Debug.LogWarningFormat("LooterAgent already has a {0}", tag);
+            }
         }
     }
 
@@ -308,11 +322,11 @@ public class LooterAgent : Agent
         foreach ( Item item in Items )
         {
             // add bonuses
-            speed += (item.speedFactor - 1.0f) * mySpeed;            // factor is not cumulative, 2 20% items (1.2) adds 40%
-            health += item.healthBonus;
-            strength += item.damageBonus;
-            damageDeflection = item.damageDeflection;
-            range = item.rangeBonus;
+            speed += mySpeed * item.speedFactor;
+            health += myHealth * item.healthBonus;
+            strength += Archer.myStrength * item.damageBonus;
+            damageDeflection = myDamageDeflection * item.damageDeflection;
+            range = Archer.myRange * item.rangeBonus;
         }
         Speed = speed;
         Health = health;

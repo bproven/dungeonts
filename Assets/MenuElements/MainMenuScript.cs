@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+
+using Assets.Game.Scripts.Pickups;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -16,42 +16,76 @@ public class MainMenuScript : MonoBehaviour
     //	
     //}
 
-    int map = 0;
+    public void PlayScene( string name )
+    {
+        Debug.LogFormat("Playing {0}", name);
+        SceneManager.LoadScene(name);
+        Looter?.Pickup(SelectedItem);
+    }
+
     public void PlayGame()
     {
-        SceneManager.LoadScene("HybridLooterShooter");
+        PlayScene("HybridLooterShooter");
     }
 
     public void PlayMap1()
     {
-        SceneManager.LoadScene("HybridLooterShooter");
+        PlayScene("HybridLooterShooter");
     }
 
     public void PlayMap2()
     {
-        SceneManager.LoadScene("HybridLooterShooter 1");
+        PlayScene("HybridLooterShooter 1");
     }
 
     public void PlayMap3()
     {
-        SceneManager.LoadScene("HybridLooterShooter");
+        PlayScene("HybridLooterShooter");
+    }
+
+    public LooterAgent Looter
+    {
+        get
+        {
+            return GameObject.FindObjectOfType<LooterAgent>();
+        }
+    }
+
+    public Item SelectedItem { get; set; }
+
+    private Item GetNewItem( string tag )
+    {
+        Item item = GameObject.FindGameObjectWithTag(tag).GetComponent<Item>();
+        if (item == null)
+        {
+            Debug.LogErrorFormat( "No {0} Object defined in Scene", tag );
+        }
+        return item;
+    }
+
+    public void SelectItem( string tag )
+    {
+        Debug.LogFormat("Selecting {0}", tag);
+        Item item = GetNewItem(tag);
+        if ( item != null )
+        {
+            SelectedItem = item;
+        }
     }
 
     public void selectSword()
     {
-        ArcherAgent.STR = 2;
+        SelectItem("Sword");
     }
 
     public void selectArmor()
     {
-        LooterAgent.HP = 1;
+        SelectItem("Armor");
     }
 
     public void selectBoots()
     {
-        LooterAgent.DEX = 3;
+        SelectItem("Boots");
     }
-
-
 
 }

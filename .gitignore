@@ -42,6 +42,7 @@ Android.meta
 sysinfo.txt
 
 # Builds
+bin/
 *.apk
 *.unitypackage
 

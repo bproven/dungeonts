@@ -15,11 +15,11 @@ namespace Assets.Game.Scripts.Pickups
         public string itemName = string.Empty;
         public int value = 1;
 
-        public float speedFactor = 1.0f;    // factor to multiply speed
-        public int healthBonus = 0;
-        public int damageBonus = 0;
-        public int damageDeflection = 0;
-        public int rangeBonus = 0;
+        public float speedFactor = 0.0f;    // factor to add speed
+        public float healthBonus = 0.0f;
+        public float damageBonus = 0.0f;
+        public float damageDeflection = 0.0f;
+        public float rangeBonus = 0.0f;
 
         public float respawnRange = 1.0f;
         public bool respawn = false;
