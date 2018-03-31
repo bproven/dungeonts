@@ -196,9 +196,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &27011006
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -327,9 +329,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &56926023
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -644,9 +648,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &89056379
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -899,9 +905,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &120226558
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1071,137 +1079,11 @@ MonoBehaviour:
   value: 5
   respawnRange: 8
   respawn: 0
---- !u!1 &152730168
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1260654091840170, guid: b023f71ef3f4dc24f8fc9389a43233c7,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 152730169}
-  - component: {fileID: 152730173}
-  - component: {fileID: 152730172}
-  - component: {fileID: 152730171}
-  - component: {fileID: 152730170}
-  m_Layer: 9
-  m_Name: Target
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &152730169
+--- !u!4 &152730169 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4926005122010602, guid: b023f71ef3f4dc24f8fc9389a43233c7,
+  m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
     type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 152730168}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.34, y: 6.86, z: -0.8966109}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1094268803}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &152730170
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 58806715912887466, guid: b023f71ef3f4dc24f8fc9389a43233c7,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 152730168}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
---- !u!50 &152730171
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 50997005748169842, guid: b023f71ef3f4dc24f8fc9389a43233c7,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 152730168}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &152730172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114812204084748706, guid: b023f71ef3f4dc24f8fc9389a43233c7,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 152730168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1185084387}
-  moveSpeed: 0.5
-  health: 2
---- !u!212 &152730173
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 212197205700541332, guid: b023f71ef3f4dc24f8fc9389a43233c7,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 152730168}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 10
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.28, y: 1.28}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_PrefabInternal: {fileID: 244920942}
 --- !u!1 &155435673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,9 +1167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &155435678
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1416,9 +1300,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &157195033
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1547,9 +1433,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &173611625
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1678,9 +1566,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &177290499
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1933,9 +1823,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &180769002
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2064,9 +1956,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &191719362
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2195,9 +2089,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &198927377
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2243,78 +2139,53 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &199029248
-GameObject:
+--- !u!1001 &244920942
+Prefab:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1153869070975824, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 897131262}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 199029249}
-  - component: {fileID: 199029250}
-  m_Layer: 8
-  m_Name: Looter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &199029249
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 897131262}
-  m_GameObject: {fileID: 199029248}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1185084388}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000035762787, y: -0.0000011920929}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &199029250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114431450998166616, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 897131262}
-  m_GameObject: {fileID: 199029248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 289079c7951e3844495d1b8e464d73fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brain: {fileID: 257952818}
-  observations: []
-  maxStep: 0
-  resetOnDone: 1
-  reward: 0
-  done: 0
-  value: 0
-  CumulativeReward: 0
-  stepCounter: 0
-  agentStoredAction: []
-  memory: []
-  id: 0
-  mySpeed: 0
-  myHealth: 0
-  shooter: {fileID: 1610891659}
-  OGLevel: {fileID: 1993189931571008, guid: b023f71ef3f4dc24f8fc9389a43233c7, type: 2}
-  sightDistance: 4
-  numRays: 72
-  debug: 1
-  myReward: 0
-  x: 0
-  y: 0
-  levelManager: {fileID: 1094268801}
-  wallPunishment: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1094268803}
+    m_Modifications:
+    - target: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -7.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.8966109
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775387253268366, guid: 790656b9f9ecea345858151394b13f61,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1185084387}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 790656b9f9ecea345858151394b13f61, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &257952817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2455,9 +2326,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &273586594
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2586,9 +2459,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &291859268
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2717,9 +2592,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &304201851
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2848,9 +2725,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &315850298
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3227,9 +3106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &336060350
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3358,9 +3239,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &347386005
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3489,9 +3372,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &379124294
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3744,9 +3629,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &395470811
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3999,9 +3886,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &407238650
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4285,9 +4174,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &467369149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4416,9 +4307,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &501579754
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4671,9 +4564,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &521053498
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4802,9 +4697,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &549243524
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4933,9 +4830,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &556325061
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5064,9 +4963,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &559792244
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5759,9 +5660,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &657638229
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5890,9 +5793,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &668446790
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6033,9 +5938,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &689581413
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6288,9 +6195,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &723837694
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6543,9 +6452,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &734841385
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7170,9 +7081,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &806010536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7673,9 +7586,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &842180035
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8203,9 +8118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &880283590
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8334,9 +8251,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &884494359
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8382,121 +8301,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1001 &897131262
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1185084388}
-    m_Modifications:
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00000035762787
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.0000011920929
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224839749697675874, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114431450998166616, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: brain
-      value: 
-      objectReference: {fileID: 257952818}
-    - target: {fileID: 114431450998166616, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: shooter
-      value: 
-      objectReference: {fileID: 1610891659}
-    - target: {fileID: 114431450998166616, guid: da868b73cc7086246a0cf8d3f8eea5f5,
-        type: 2}
-      propertyPath: levelManager
-      value: 
-      objectReference: {fileID: 1094268801}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: da868b73cc7086246a0cf8d3f8eea5f5, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &918919914
 GameObject:
   m_ObjectHideFlags: 0
@@ -8580,9 +8384,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &918919919
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8866,9 +8672,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &951516228
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9369,9 +9177,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &995572947
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9500,9 +9310,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &999304465
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9631,9 +9443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &999905056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9762,9 +9576,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1026573127
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9893,9 +9709,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1036513200
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10024,9 +9842,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1039609349
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10279,9 +10099,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1088324264
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10601,9 +10423,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1104487212
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10856,9 +10680,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1120247216
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11111,9 +10937,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1138288728
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11242,9 +11070,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1145073824
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11414,159 +11244,11 @@ MonoBehaviour:
   value: 5
   respawnRange: 8
   respawn: 0
---- !u!1 &1185084387
+--- !u!1 &1185084387 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1944188776439712, guid: b3f5653166901a642a595bccaebf1f2d,
+  m_PrefabParentObject: {fileID: 1161708171385462, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
     type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1185084388}
-  - component: {fileID: 1185084392}
-  - component: {fileID: 1185084391}
-  - component: {fileID: 1185084390}
-  - component: {fileID: 1185084389}
-  - component: {fileID: 1185084393}
-  m_Layer: 8
-  m_Name: Player
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1185084388
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 224500146980889752, guid: b3f5653166901a642a595bccaebf1f2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1185084387}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1610891662}
-  - {fileID: 199029249}
-  - {fileID: 1973199960}
-  m_Father: {fileID: 1401193724}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.897434, y: -6.8851776}
-  m_SizeDelta: {x: 0.16, y: 0.16}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!58 &1185084389
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 58167318844195244, guid: b3f5653166901a642a595bccaebf1f2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1185084387}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.08
---- !u!50 &1185084390
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 50910239467568728, guid: b3f5653166901a642a595bccaebf1f2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1185084387}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!114 &1185084391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114297526273705930, guid: b3f5653166901a642a595bccaebf1f2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1185084387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 0
-  respawnRange: 0
-  respawn: 0
---- !u!212 &1185084392
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 212558063045713612, guid: b3f5653166901a642a595bccaebf1f2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1185084387}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 6
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.07586217, g: 1, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
---- !u!114 &1185084393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1185084387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 410ed1cb182de214dbf279286dda3dfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  looter: {fileID: 199029248}
-  punishmentValue: 0.1
+  m_PrefabInternal: {fileID: 1872612103}
 --- !u!1 &1198557993
 GameObject:
   m_ObjectHideFlags: 0
@@ -11650,9 +11332,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1198557998
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12153,9 +11837,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1239832002
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12284,9 +11970,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1245960417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12427,9 +12115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1266592827
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12558,9 +12248,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1274370253
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13148,9 +12840,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1353685976
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13279,9 +12973,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1373413210
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13410,9 +13106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1378750585
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13541,9 +13239,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1384937138
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13672,9 +13372,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1397713448
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14180,9 +13882,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1441423748
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14311,9 +14015,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1442638868
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14442,9 +14148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1464654313
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15096,9 +14804,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1546981090
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15697,9 +15407,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1604379470
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15828,9 +15540,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1609816042
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15876,121 +15590,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &1610891659
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1526592350144886, guid: b3f5653166901a642a595bccaebf1f2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1610891662}
-  - component: {fileID: 1610891661}
-  - component: {fileID: 1610891660}
-  m_Layer: 8
-  m_Name: Shooter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1610891660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114336364322652512, guid: b3f5653166901a642a595bccaebf1f2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1610891659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b680e8e62e505b5479fb84cf250e35c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brain: {fileID: 1483345223}
-  observations: []
-  maxStep: 0
-  resetOnDone: 1
-  reward: 0
-  done: 0
-  value: 0
-  CumulativeReward: 0
-  stepCounter: 0
-  agentStoredAction: []
-  memory: []
-  id: 0
-  looter: {fileID: 199029248}
-  enemy: {fileID: 1189430617306322, guid: 790656b9f9ecea345858151394b13f61, type: 2}
-  range: 8
-  turnSpeed: 18
-  shotDistance: 0.35
-  debug: 0
-  shotDelay: 0.5
-  myStrength: 0
-  lastShot: 0
-  roundTime: 120
-  x: 0
-  y: 0
-  fire: 0
-  numRays: 18
---- !u!212 &1610891661
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 212840548764248296, guid: b3f5653166901a642a595bccaebf1f2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1610891659}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 1
-  m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
---- !u!4 &1610891662
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4002004493762174, guid: b3f5653166901a642a595bccaebf1f2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1610891659}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.001, y: 0, z: 0}
-  m_LocalScale: {x: 1.0668864, y: 1.0668857, z: 1.0668857}
-  m_Children: []
-  m_Father: {fileID: 1185084388}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1623579559
 GameObject:
   m_ObjectHideFlags: 0
@@ -16074,9 +15673,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1623579564
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16321,9 +15922,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1637744130
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16576,9 +16179,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1675654375
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16831,9 +16436,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1686151456
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16962,9 +16569,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1701035936
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17217,9 +16826,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1777558335
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17596,9 +17207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1847149685
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17768,6 +17381,121 @@ MonoBehaviour:
   value: 5
   respawnRange: 8
   respawn: 0
+--- !u!1001 &1872612103
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1401193724}
+    m_Modifications:
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 7.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -6.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665892505167952, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648061138334000, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: brain
+      value: 
+      objectReference: {fileID: 257952818}
+    - target: {fileID: 114648061138334000, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1094268801}
+    - target: {fileID: 114960085653890272, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: brain
+      value: 
+      objectReference: {fileID: 1483345223}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4f260e577054c5b4abd0fcd3ae34ccaf, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1873810636
 GameObject:
   m_ObjectHideFlags: 0
@@ -17851,9 +17579,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1873810641
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17982,9 +17712,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1898195794
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18113,9 +17845,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1906431183
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18492,9 +18226,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1934768447
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18623,9 +18359,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1959183494
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18824,92 +18562,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1094268803}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1973199956
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1350820304519730, guid: b3f5653166901a642a595bccaebf1f2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1973199960}
-  - component: {fileID: 1973199959}
-  - component: {fileID: 1973199958}
-  - component: {fileID: 1973199957}
-  m_Layer: 0
-  m_Name: Main Cam
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!81 &1973199957
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 81022688445370970, guid: b3f5653166901a642a595bccaebf1f2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1973199956}
-  m_Enabled: 1
---- !u!124 &1973199958
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 124842060919886578, guid: b3f5653166901a642a595bccaebf1f2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1973199956}
-  m_Enabled: 1
---- !u!20 &1973199959
-Camera:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 20247559504892656, guid: b3f5653166901a642a595bccaebf1f2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1973199956}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.72312933, g: 0.7731401, b: 0.9191176, a: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0.6666667
-    y: 0.6666667
-    width: 0.33333334
-    height: 0.33333334
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 1
-  orthographic size: 2.34
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &1973199960
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4569449250750460, guid: b3f5653166901a642a595bccaebf1f2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1973199956}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.010000229, y: 0.14999962, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1185084388}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1980747590
 GameObject:
@@ -19256,9 +18908,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &1998763525
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19511,9 +19165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &2023357852
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19642,9 +19298,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &2048193399
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19773,9 +19431,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &2091063062
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20028,9 +19688,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &2105669571
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20159,9 +19821,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 1185084387}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &2121893955
 SpriteRenderer:
   m_ObjectHideFlags: 0

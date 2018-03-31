@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 50444629742752884}
   - component: {fileID: 58671724878631094}
   - component: {fileID: 114088617991730016}
+  - component: {fileID: 114456818897672764}
+  - component: {fileID: 95703565870024624}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -186,6 +188,23 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1597926376634802}
   m_Enabled: 1
+--- !u!95 &95703565870024624
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161708171385462}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6510e9002f1c634d86870cd2f4d45eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114088617991730016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -197,6 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 410ed1cb182de214dbf279286dda3dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  looter: {fileID: 1937213057610758}
+  punishmentValue: 0.1
 --- !u!114 &114280394021713922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,6 +231,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 0
   respawnRange: 0
+  respawn: 0
+--- !u!114 &114456818897672764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161708171385462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669ef323ea4d59a4a83ecd8bcc44b42d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114648061138334000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,6 +254,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 289079c7951e3844495d1b8e464d73fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+  observations: []
+  maxStep: 0
+  resetOnDone: 1
+  reward: 0
+  done: 0
+  value: 0
+  CumulativeReward: 0
+  stepCounter: 0
+  agentStoredAction: []
+  memory: []
+  id: 0
+  mySpeed: 0
+  myHealth: 0
+  shooter: {fileID: 1514351459063420}
+  levelManager: {fileID: 0}
+  sightDistance: 4
+  numRays: 72
+  debug: 1
+  myReward: 0
+  x: 0
+  y: 0
 --- !u!114 &114960085653890272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,6 +287,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b680e8e62e505b5479fb84cf250e35c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+  observations: []
+  maxStep: 0
+  resetOnDone: 1
+  reward: 0
+  done: 0
+  value: 0
+  CumulativeReward: 0
+  stepCounter: 0
+  agentStoredAction: []
+  memory: []
+  id: 0
+  myFireRate: 0
+  myRange: 0
+  myStrength: 0
+  looter: {fileID: 1937213057610758}
+  turnSpeed: 18
+  arrow: {fileID: 0}
+  debug: 0
+  lastShot: 0
+  numRays: 18
+  shotDelay: 0
 --- !u!124 &124632661026093008
 Behaviour:
   m_ObjectHideFlags: 1
@@ -273,7 +350,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300018, guid: b651f69e87b555b468d7c24bdc8d3664, type: 3}
+  m_Sprite: {fileID: 21300018, guid: d500dc78081297343a72f36a9171eabd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -345,7 +422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.917421, y: -9.011125}
+  m_AnchoredPosition: {x: 7.6, y: -6.99}
   m_SizeDelta: {x: 0.16, y: 0.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224993099417744470
