@@ -102,7 +102,7 @@ public class ArcherAgent : Agent
             reward += 15f;  // Reward kills
             hit.collider.GetComponent<AttackPlayer>().health -= Strength; // FIXME: Make an enemy TakeDamage(int damage) function, we shouldn't be responsible for this
             if (looter.GetComponent<Agent>())
-                looter.GetComponent<Agent>().reward += 2;   // Thanks for moving me into position
+                looter.GetComponent<Agent>().reward += 15f;   // Thanks for moving me into position
 
         }
         else
