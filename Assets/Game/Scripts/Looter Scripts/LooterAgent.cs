@@ -237,8 +237,6 @@ public class LooterAgent : Agent
 
         Archer.Reset();
 
-        transform.parent.GetComponent<SpriteRenderer>().color = Color.green;
-
         transform.parent.position = levelManager.transform.GetChild(0).position;
 
     }
@@ -254,8 +252,6 @@ public class LooterAgent : Agent
             shooter.GetComponent<ArcherAgent>().reward -= 3;
             Debug.Log("Taking Damage!");
             Health -= Mathf.Max(0, damage - DamageDeflection);
-            if (debug)
-                transform.parent.GetComponent<SpriteRenderer>().color = Color.red;
             if (Health <= 0)
             {
                 done = true;
