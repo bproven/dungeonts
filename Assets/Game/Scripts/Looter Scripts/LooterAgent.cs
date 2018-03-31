@@ -200,7 +200,7 @@ public class LooterAgent : Agent
                     reward += 0.1f * (1 - (rays[i].distance / sightDistance)) / numRays;
                 // Quit it with the wall hugging
                 if (rays[i].collider.tag == "Wall")
-                    reward -= 0.2f * (Mathf.Pow(1 - (rays[i].distance / sightDistance), 2)) / numRays;
+                    reward -= 0.3f * (Mathf.Pow(1 - (rays[i].distance / sightDistance), 2)) / numRays;
             }
         }
         if (Time.time - roundStart > TIME)

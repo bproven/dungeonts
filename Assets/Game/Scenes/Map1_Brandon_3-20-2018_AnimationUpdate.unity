@@ -12445,7 +12445,7 @@ Prefab:
     - target: {fileID: 114088617991730016, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
         type: 2}
       propertyPath: punishmentValue
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 114960085653890272, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
         type: 2}
