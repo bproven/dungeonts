@@ -9,8 +9,8 @@ using Assets.Game.Scripts.Pickups;
 public class LooterAgent : Agent
 {
     // PLAYER SETTINGS, used for default values on agent reset
-    public static float HP = 5, TIME = 30;    // Max health, level timer
-    public static float DEX = 2;            // Movement speed
+    public static float HP = 5, TIME = 120;    // Max health, level timer
+    public static float DEX = 1;            // Movement speed
     public static float DEFLECTION = 0;       // without armor
 
     // Base stats
@@ -182,7 +182,7 @@ public class LooterAgent : Agent
         // Move
         else if (brain.brainParameters.actionSpaceType == StateType.continuous)
             gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * Speed;
-
+        
         // Proximity Rewards, make the earlier runs more distinct in score before the late game
         RaycastHit2D[] rays = new RaycastHit2D[numRays];
         for (int i = 0; i < rays.Length; i++)
@@ -200,7 +200,7 @@ public class LooterAgent : Agent
                     reward += 0.1f * (1 - (rays[i].distance / sightDistance)) / numRays;
                 // Quit it with the wall hugging
                 if (rays[i].collider.tag == "Wall")
-                    reward -= 0.05f * (Mathf.Pow(1 - (rays[i].distance / sightDistance), 2)) / numRays;
+                    reward -= 0.2f * (Mathf.Pow(1 - (rays[i].distance / sightDistance), 2)) / numRays;
             }
         }
         if (Time.time - roundStart > TIME)
@@ -230,7 +230,8 @@ public class LooterAgent : Agent
         myHealth = HP;
         mySpeed = DEX;
         myDamageDeflection = DEFLECTION;
-
+        
+        DamageDeflection = myDamageDeflection;
         Health = myHealth;
         Speed = mySpeed;
 
@@ -250,9 +251,10 @@ public class LooterAgent : Agent
     {
         if (Time.time - lastDamage > 0.5f)
         {
+            reward -= 40.0f;
             shooter.GetComponent<ArcherAgent>().reward -= 3;
-            Debug.Log("Taking Damage!");
-            Health -= Mathf.Max(0, damage - DamageDeflection);
+            Debug.Log("Taking Damage! Original: " + damage + " Deflection: " + DamageDeflection + " Outcome: " + (damage * (1 - DamageDeflection)));
+            Health -= damage * (1 - DamageDeflection);
             if (Health <= 0)
             {
                 done = true;
@@ -325,7 +327,8 @@ public class LooterAgent : Agent
             speed += mySpeed * item.speedFactor;
             health += myHealth * item.healthBonus;
             strength += Archer.myStrength * item.damageBonus;
-            damageDeflection = myDamageDeflection * item.damageDeflection;
+            //damageDeflection = myDamageDeflection * item.damageDeflection;
+            damageDeflection = myDamageDeflection + item.damageDeflection;
             range = Archer.myRange * item.rangeBonus;
         }
         Speed = speed;

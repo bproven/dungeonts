@@ -49,7 +49,7 @@ namespace Assets.Game.Scripts.Pickups
         {
             GetComponent<Collider2D>().enabled = true;
             GetComponent<SpriteRenderer>().enabled = true;
-            Randomize();
+            //Randomize();
         }
 
         /// <summary>
