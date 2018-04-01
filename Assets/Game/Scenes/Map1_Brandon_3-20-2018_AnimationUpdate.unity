@@ -13499,7 +13499,7 @@ Prefab:
     - target: {fileID: 114648061138334000, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
         type: 2}
       propertyPath: resetOnDone
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 50444629742752884, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
         type: 2}
@@ -13516,6 +13516,11 @@ Prefab:
       propertyPath: timerDisplay
       value: 
       objectReference: {fileID: 1084358654}
+    - target: {fileID: 114960085653890272, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: resetOnDone
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f260e577054c5b4abd0fcd3ae34ccaf, type: 2}
   m_IsPrefabParent: 0
