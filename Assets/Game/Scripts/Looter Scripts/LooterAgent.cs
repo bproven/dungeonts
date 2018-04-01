@@ -10,7 +10,7 @@ public class LooterAgent : Agent
 {
     // PLAYER SETTINGS, used for default values on agent reset
     public static float HP = 3, TIME = 120;    // Max health, level timer
-    public static float DEX = 1f;            // Movement speed
+    public static float DEX = 1.25f;            // Movement speed
     public static float DEFLECTION = 0;       // without armor
 
     // Base stats
@@ -203,11 +203,12 @@ public class LooterAgent : Agent
                     reward -= 0.3f * (Mathf.Pow(1 - (rays[i].distance / sightDistance), 2)) / numRays;
             }
         }
+        /*
         if (Time.time - roundStart > TIME)
         {
             Debug.Log("Looter: Out of time.");
             done = true;
-        }
+        }*/
 
         // Debug
         myReward = CumulativeReward;

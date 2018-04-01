@@ -22,7 +22,7 @@ public class AttackPlayer : MonoBehaviour {
 	void Update () {
         // Keep it simple
         Vector2 newVelocity = (player.transform.position - gameObject.transform.position);
-        if (newVelocity.magnitude > 2.5f)
+        if (newVelocity.sqrMagnitude > 6.25f)
             newVelocity = Vector2.zero;
         else
         {

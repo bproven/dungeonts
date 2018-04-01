@@ -123,11 +123,12 @@ public class ArcherAgent : Agent
         }
 
         // Reset the round if necessary
+        /*
         if (Time.time - startTime > roundTime)
         {
             done = true;
             return;
-        }
+        }*/
     }
 
     // to be implemented by the developer

@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRespawnRange: 1
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 1
   health: 2
   strength: 1
 --- !u!212 &212743769278773800
