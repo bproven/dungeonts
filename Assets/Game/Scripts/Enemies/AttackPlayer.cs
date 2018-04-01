@@ -38,8 +38,6 @@ public class AttackPlayer : MonoBehaviour {
         gameObject.GetComponent<Rigidbody2D>().velocity = newVelocity;
         if (health <= 0)
             die();
-        if (health == 1)
-            GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     void randomizePosition()
