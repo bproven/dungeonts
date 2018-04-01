@@ -20,4 +20,8 @@ public class MagentsAcademy : Academy
         base.AcademyStep();
 	}
 
+    public void Continue()
+    {
+        GetComponent<Academy>().Reset();
+    }
 }
