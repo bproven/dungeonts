@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 using Assets.Game.Scripts.Pickups;
 
 public class LooterAgent : Agent
 {
+    public GameObject resultsWindow;
+
     // PLAYER SETTINGS, used for default values on agent reset
     public static int HP = 3, TIME = 30;    // Max health, level timer
     public static float DEX = 2;            // Movement speed
@@ -240,6 +243,7 @@ public class LooterAgent : Agent
     /// </summary>
     public override void AgentOnDone()
     {
+        resultsWindow.SetActive(true);   
     }
 
 }
