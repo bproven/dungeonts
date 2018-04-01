@@ -13,7 +13,7 @@ public class LooterAgent : Agent
 
     // PLAYER SETTINGS, used for default values on agent reset
     public static float HP = 3, TIME = 120;    // Max health, level timer
-    public static float DEX = 1.25f;            // Movement speed
+    public static float DEX = 1.5f;            // Movement speed
     public static float DEFLECTION = 0;       // without armor
 
     // Base stats
