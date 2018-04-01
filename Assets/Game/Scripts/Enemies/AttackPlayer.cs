@@ -64,6 +64,7 @@ public class AttackPlayer : MonoBehaviour {
     void die()
     {
         gameObject.SetActive(false);
+        ResultsWindow.Score_EnemyKilled();
     }
 
     // Kill the player who we collided with

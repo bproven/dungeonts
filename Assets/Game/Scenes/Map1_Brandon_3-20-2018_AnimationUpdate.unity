@@ -4760,11 +4760,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 751700083}
-  score: 0
-  monstersKilled: 0
-  treasuresFound: 0
-  itemsFound: 0
-  damageTaken: 0
   scoreText: {fileID: 717801846}
   monstersKilledText: {fileID: 1659753136}
   treasuresFoundText: {fileID: 1286212588}
@@ -6308,7 +6303,6 @@ GameObject:
   m_Component:
   - component: {fileID: 999378916}
   - component: {fileID: 999378917}
-  - component: {fileID: 999378918}
   m_Layer: 0
   m_Name: MAgents Academy
   m_TagString: Untagged
@@ -6362,17 +6356,6 @@ MonoBehaviour:
   done: 0
   episodeCount: 1
   currentStep: 0
---- !u!114 &999378918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 999378915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f3a7655c1369bf459ce99483eb78242, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1011944292
 MonoBehaviour:
   m_ObjectHideFlags: 0

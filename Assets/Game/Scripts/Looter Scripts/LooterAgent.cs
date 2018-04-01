@@ -255,10 +255,14 @@ public class LooterAgent : Agent
     {
         if (Time.time - lastDamage > 0.5f)
         {
+            // Score reduction
+            damage = damage * (1 - DamageDeflection);
+            ResultsWindow.Score_DamageTaken(damage);
+
             reward -= 40.0f;
             shooter.GetComponent<ArcherAgent>().reward -= 3;
-            Debug.Log("Taking Damage! Original: " + damage + " Deflection: " + DamageDeflection + " Outcome: " + (damage * (1 - DamageDeflection)));
-            Health -= damage * (1 - DamageDeflection);
+            Debug.Log("Taking Damage! Original: " + damage + " Deflection: " + DamageDeflection + " Outcome: " + damage);
+            Health -= damage;
             if (Health <= 0)
             {
                 done = true;
@@ -286,6 +290,7 @@ public class LooterAgent : Agent
         }
         Debug.Log("Picking up " + name);
         reward += item.value;
+        ResultsWindow.Score_GatheredLoot(item.value);
         if ( item.IsCountable )
         {
             Item existingItem = Items.FirstOrDefault(i => i.GetType() == item.GetType());
@@ -307,6 +312,8 @@ public class LooterAgent : Agent
                 Debug.Log("Picking up " + tag);
                 Items.Add(item);
                 UpdateStats();
+
+                ResultsWindow.Score_ObtainedItem();
             }
             else
             {
@@ -348,7 +355,7 @@ public class LooterAgent : Agent
     /// </summary>
     public override void AgentOnDone()
     {
-        resultsWindow.SetActive(true);   
+        resultsWindow.GetComponent<ResultsWindow>().Show();   
     }
 
 }
