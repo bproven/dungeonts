@@ -8,9 +8,9 @@ public class AttackPlayer : MonoBehaviour {
 
     public GameObject player;
     public float moveSpeed;
-    private int maxHealth;
-    public int health;
-    public int strength = 1;
+    private float maxHealth;
+    public float health;
+    public float strength = 1;
 
 
 	// Use this for initialization
@@ -22,7 +22,7 @@ public class AttackPlayer : MonoBehaviour {
 	void Update () {
         // Keep it simple
         Vector2 newVelocity = (player.transform.position - gameObject.transform.position);
-        if (newVelocity.magnitude > player.transform.GetChild(1).GetComponent<LooterAgent>().sightDistance)
+        if (newVelocity.sqrMagnitude > 6.25f)
             newVelocity = Vector2.zero;
         else
         {
@@ -38,8 +38,6 @@ public class AttackPlayer : MonoBehaviour {
         gameObject.GetComponent<Rigidbody2D>().velocity = newVelocity;
         if (health <= 0)
             die();
-        if (health == 1)
-            GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     void randomizePosition()
@@ -64,6 +62,7 @@ public class AttackPlayer : MonoBehaviour {
     void die()
     {
         gameObject.SetActive(false);
+        ResultsWindow.Score_EnemyKilled();
     }
 
     // Kill the player who we collided with

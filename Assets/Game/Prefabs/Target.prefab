@@ -64,7 +64,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58635000830002414
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -89,7 +89,7 @@ Animator:
   m_GameObject: {fileID: 1189430617306322}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9a1e3ff8d49c0dc428ffd82dd1dd5fdb, type: 2}
+  m_Controller: {fileID: 9100000, guid: e583a3a53c33e744c96d8bc602840aae, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRespawnRange: 1
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 1
   health: 2
   strength: 1
 --- !u!212 &212743769278773800

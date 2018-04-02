@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,22 +10,55 @@ using Assets.Game.Scripts.Pickups;
 public class LooterAgent : Agent
 {
     public GameObject resultsWindow;
+    public GameObject timerDisplay;
 
     // PLAYER SETTINGS, used for default values on agent reset
-    public static int HP = 3, TIME = 30;    // Max health, level timer
-    public static float DEX = 2;            // Movement speed
+    public static float HP = 3, TIME = 120;    // Max health, level timer
+    public static float DEX = 1.5f;            // Movement speed
+    public static float DEFLECTION = 0;       // without armor
 
-    // Local settings to be adjusted by items
-    public float mySpeed;   // Local Speed Stat
-    public int myHealth;    // Local Health Stat
-    private static string[] thingsICanSee ={
+    // Base stats
+    public float mySpeed;               // Local Speed Stat
+    public float myHealth;                // Local Health Stat
+    public float myDamageDeflection;
+
+    private static string[] thingsICanSee =
+    {
         "Enemy",
         "Wall",
-        "Gold" };  // What items is this agent allowed to recognize by tag?
+        "Gold",
+        "Boots",
+        "Armor",
+        "Bow",
+        "Sword"
+    };  // What items is this agent allowed to recognize by tag?
+
+    /// <summary>
+    /// The Agent's Speed as modified by Items
+    /// </summary>
+    private float Speed { get; set; }
+
+    /// <summary>
+    /// The Agent's Health as modified by Items
+    /// </summary>
+    private float Health { get; set; }
+
+    /// <summary>
+    /// The Agent's damage deflection as modified by Items
+    /// </summary>
+    public float DamageDeflection { get; set; }
 
     // Set in scene
     public GameObject shooter;      // GameObject that the ArcherAgent script is attached to
     public GameObject levelManager; // GameObject that the LevelSpawner script is attached to
+
+    public ArcherAgent Archer
+    {
+        get
+        {
+            return shooter.GetComponent<ArcherAgent>();
+        }
+    }
 
     // Vision specific variables
     public float sightDistance;
@@ -100,8 +134,14 @@ public class LooterAgent : Agent
         // New input, trying to add some kind of memory for confusing situations
         // Hey, past me, where did you want to go again?
         Vector2 dir = transform.parent.GetComponent<Rigidbody2D>().velocity;
-        state.Add(mySpeed != 0 ? dir.x / mySpeed : 0.0f);
-        state.Add(mySpeed != 0 ? dir.y / mySpeed : 0.0f);
+        state.Add(Speed != 0 ? dir.x / Speed : 0.0f);
+        state.Add(Speed != 0 ? dir.y / Speed : 0.0f);
+
+        // Stats states
+        state.Add(Health / HP);   // Health stat
+        state.Add(Speed / 5.0f);  // Realistically our max speed shouldn't be over 5, though this could change in time
+        state.Add(DamageDeflection);  //  Armor stat, should be 0f-1f
+        state.Add(Archer.Range / sightDistance);    // How far can we kill things
 
         // New loop
         for (int i = 0; i < numRays; i++)
@@ -145,8 +185,8 @@ public class LooterAgent : Agent
         }
         // Move
         else if (brain.brainParameters.actionSpaceType == StateType.continuous)
-            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * mySpeed;
-
+            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * Speed;
+        
         // Proximity Rewards, make the earlier runs more distinct in score before the late game
         RaycastHit2D[] rays = new RaycastHit2D[numRays];
         for (int i = 0; i < rays.Length; i++)
@@ -164,9 +204,10 @@ public class LooterAgent : Agent
                     reward += 0.1f * (1 - (rays[i].distance / sightDistance)) / numRays;
                 // Quit it with the wall hugging
                 if (rays[i].collider.tag == "Wall")
-                    reward -= 0.05f * (Mathf.Pow(1 - (rays[i].distance / sightDistance), 2)) / numRays;
+                    reward -= 0.3f * (Mathf.Pow(1 - (rays[i].distance / sightDistance), 2)) / numRays;
             }
         }
+        timerDisplay.GetComponent<Text>().text = (TIME - (Time.time - roundStart)).ToString();
         if (Time.time - roundStart > TIME)
         {
             Debug.Log("Looter: Out of time.");
@@ -182,30 +223,48 @@ public class LooterAgent : Agent
     /// </summary>
     public override void AgentReset()
     {
+
         roundStart = Time.time;
         gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GoldValue = 0;
         transform.up = Vector2.up;
         levelManager.GetComponent<LevelSpawner>().resetLevel();
         lastDamage = Time.time - 0.5f;
-        // PLAYER SETTINGS
-        myHealth = HP;  mySpeed = DEX;
 
-        transform.parent.GetComponent<SpriteRenderer>().color = Color.green;
+        // PLAYER SETTINGS
+        myHealth = HP;
+        mySpeed = DEX;
+        myDamageDeflection = DEFLECTION;
+        
+        DamageDeflection = myDamageDeflection;
+        Health = myHealth;
+        Speed = mySpeed;
+
+        Items.Clear();  // TODO: what about starting items?
+
+        Archer.Reset();
 
         transform.parent.position = levelManager.transform.GetChild(0).position;
+
     }
 
-    public void looterTakeDamage(int damage)
+    /// <summary>
+    /// Called to have the looter take some damage
+    /// </summary>
+    /// <param name="damage"></param>
+    public void looterTakeDamage(float damage)
     {
         if (Time.time - lastDamage > 0.5f)
         {
+            // Score reduction
+            damage = damage * (1 - DamageDeflection);
+            ResultsWindow.Score_DamageTaken(damage);
+
+            reward -= 40.0f;
             shooter.GetComponent<ArcherAgent>().reward -= 3;
-            Debug.Log("Taking Damage!");
-            myHealth -= damage;
-            if (debug)
-                transform.parent.GetComponent<SpriteRenderer>().color = Color.red;
-            if (myHealth <= 0)
+            Debug.Log("Taking Damage! Original: " + damage + " Deflection: " + DamageDeflection + " Outcome: " + damage);
+            Health -= damage;
+            if (Health <= 0)
             {
                 done = true;
                 shooter.GetComponent<ArcherAgent>().done = true;
@@ -214,9 +273,25 @@ public class LooterAgent : Agent
         }
     }
 
+    /// <summary>
+    /// Agent picks up an item and adds it to inventory
+    /// </summary>
+    /// <param name="item"></param>
     public void Pickup( Item item )
     {
+        if ( item == null )
+        {
+            throw new ArgumentNullException("item");
+        }
+        string name = item.name;
+        string tag = item.tag;
+        if ( string.IsNullOrEmpty( name ) )
+        {
+            name = tag;
+        }
+        Debug.Log("Picking up " + name);
         reward += item.value;
+        ResultsWindow.Score_GatheredLoot(item.value);
         if ( item.IsCountable )
         {
             Item existingItem = Items.FirstOrDefault(i => i.GetType() == item.GetType());
@@ -233,8 +308,46 @@ public class LooterAgent : Agent
         }
         else
         {
-            Items.Add(item);
+            if (!Items.Any(i => i.tag == tag)) // TODO: just make the collection a set
+            {
+                Debug.Log("Picking up " + tag);
+                Items.Add(item);
+                UpdateStats();
+
+                ResultsWindow.Score_ObtainedItem();
+            }
+            else
+            {
+                Debug.LogWarningFormat("LooterAgent already has a {0}", tag);
+            }
         }
+    }
+
+    /// <summary>
+    /// Recalcs stats when an item is added or removed
+    /// </summary>
+    private void UpdateStats()
+    {
+        float speed = mySpeed;
+        float health = myHealth;
+        float damageDeflection = myDamageDeflection;
+        float strength = Archer.myStrength;
+        float range = Archer.myRange;
+        foreach ( Item item in Items )
+        {
+            // add bonuses
+            speed += mySpeed * item.speedFactor;
+            health += myHealth * item.healthBonus;
+            strength += Archer.myStrength * item.damageBonus;
+            //damageDeflection = myDamageDeflection * item.damageDeflection;
+            damageDeflection = myDamageDeflection + item.damageDeflection;
+            range += Archer.myRange * item.rangeBonus;
+        }
+        Speed = speed;
+        Health = health;
+        DamageDeflection = damageDeflection;
+        Archer.Strength = strength;
+        Archer.Range = range;
     }
 
     /// <summary>
@@ -243,7 +356,7 @@ public class LooterAgent : Agent
     /// </summary>
     public override void AgentOnDone()
     {
-        resultsWindow.SetActive(true);   
+        resultsWindow.GetComponent<ResultsWindow>().Show();   
     }
 
 }

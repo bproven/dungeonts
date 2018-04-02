@@ -12,7 +12,15 @@ namespace Assets.Game.Scripts.Pickups
     public class Item : MonoBehaviour
     {
 
+        public string itemName = string.Empty;
         public int value = 1;
+
+        public float speedFactor = 0.0f;    // factor to add speed
+        public float healthBonus = 0.0f;
+        public float damageBonus = 0.0f;
+        public float damageDeflection = 0.0f;
+        public float rangeBonus = 0.0f;
+
         public float respawnRange = 1.0f;
         public bool respawn = false;
 
@@ -41,7 +49,7 @@ namespace Assets.Game.Scripts.Pickups
         {
             GetComponent<Collider2D>().enabled = true;
             GetComponent<SpriteRenderer>().enabled = true;
-            Randomize();
+            //Randomize();
         }
 
         /// <summary>

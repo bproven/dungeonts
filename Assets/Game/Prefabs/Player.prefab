@@ -229,7 +229,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: Gold
   value: 0
+  speedFactor: 1
+  healthBonus: 0
+  damageBonus: 0
+  damageDeflection: 0
+  rangeBonus: 0
   respawnRange: 0
   respawn: 0
 --- !u!114 &114456818897672764
@@ -268,6 +274,7 @@ MonoBehaviour:
   id: 0
   mySpeed: 0
   myHealth: 0
+  myDamageDeflection: 0
   shooter: {fileID: 1514351459063420}
   levelManager: {fileID: 0}
   sightDistance: 4
@@ -307,7 +314,7 @@ MonoBehaviour:
   arrow: {fileID: 0}
   debug: 0
   lastShot: 0
-  numRays: 18
+  numRays: 72
   shotDelay: 0
 --- !u!124 &124632661026093008
 Behaviour:

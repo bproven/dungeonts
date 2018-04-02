@@ -2565,9 +2565,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114019837805054438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2579,9 +2581,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114028961485230210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2593,7 +2597,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114066067359012528
@@ -2619,7 +2627,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114089155151324518
@@ -2633,9 +2645,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114095807537120040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2647,7 +2661,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114113576379556798
@@ -2661,7 +2679,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114138915234147022
@@ -2675,9 +2697,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114141064537828252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2689,9 +2713,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114144209281084320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2703,9 +2729,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114198487269732260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2717,7 +2745,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114198784803255922
@@ -2731,7 +2763,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114222380114218284
@@ -2745,7 +2781,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114236069337280818
@@ -2759,7 +2799,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114319985831565560
@@ -2773,9 +2817,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114372078244433674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2787,9 +2833,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114486930279502782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2801,9 +2849,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114496702848100836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2815,9 +2865,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114510715335264452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2829,9 +2881,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114512791754862328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2843,9 +2897,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114522199583497662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2857,7 +2913,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114536354821058230
@@ -2871,7 +2931,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114538554533346246
@@ -2885,7 +2949,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114543652556438430
@@ -2899,9 +2967,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114552398532328690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2913,9 +2983,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114560176637439842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2927,9 +2999,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114581755472672560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2941,7 +3015,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114583725859210074
@@ -2955,7 +3033,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114668537249018606
@@ -2969,9 +3051,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114685925315878240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2983,9 +3067,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114730349736643442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2997,9 +3083,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114736647301584720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3011,7 +3099,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114812204084748706
@@ -3025,9 +3117,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114845865078786872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3039,7 +3133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114857671005352362
@@ -3053,7 +3151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: Gold
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114863355691814162
@@ -3067,7 +3169,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114888307469684040
@@ -3081,7 +3187,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114888687424373114
@@ -3095,7 +3205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114893153455040604
@@ -3109,9 +3223,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!114 &114948369368500042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3123,7 +3239,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114978578150943860
@@ -3137,7 +3257,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   value: 500
+  speedBonus: 0
+  speedFactor: 1
+  healthBonus: 0
   respawnRange: 8
   respawn: 0
 --- !u!114 &114996014110189832
@@ -3151,9 +3275,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3df4ecc52cd104bb2c6bb7e5dd6c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRespawnRange: 1
   player: {fileID: 0}
   moveSpeed: 0.5
   health: 2
+  strength: 1
 --- !u!212 &212000775598609874
 SpriteRenderer:
   m_ObjectHideFlags: 1

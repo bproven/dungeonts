@@ -23,5 +23,6 @@ public class MagentsAcademy : Academy
     public void Continue()
     {
         GetComponent<Academy>().Reset();
+        ResultsWindow.ResetScore();
     }
 }
