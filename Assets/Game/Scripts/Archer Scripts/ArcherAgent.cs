@@ -46,6 +46,8 @@ public class ArcherAgent : Agent
 
     public int shotDelay;
 
+    public float stateReward;
+
     public override List<float> CollectState()
     {
         List<float> state = new List<float>();
@@ -67,7 +69,7 @@ public class ArcherAgent : Agent
                 state.Add(hit.distance / Range);  // It's this far away
                 state.Add(1.0f);                        // It's an enemy
                 // Reward aiming at nearby enemies
-                reward += (1.0f - hit.distance / Range)
+                stateReward += (1.0f - hit.distance / Range)
                     * (Mathf.Pow(0.5f - (float)i / numRays, 2))
                     / numRays;
             }
@@ -82,7 +84,7 @@ public class ArcherAgent : Agent
 
     private void punishMiss()
     {
-        reward -= 5f;   // Don't miss
+        stateReward -= 5f;   // Don't miss
     }
 
     private void fireArrow()
@@ -99,10 +101,10 @@ public class ArcherAgent : Agent
 
         if (hit && hit.collider.tag == "Enemy")
         {
-            reward += 15f;  // Reward kills
+            stateReward += 15f;  // Reward kills
             hit.collider.GetComponent<AttackPlayer>().health -= Strength; // FIXME: Make an enemy TakeDamage(int damage) function, we shouldn't be responsible for this
-            if (looter.GetComponent<Agent>())
-                looter.GetComponent<Agent>().reward += 15f;   // Thanks for moving me into position
+            if (looter.GetComponent<LooterAgent>())
+                looter.GetComponent<LooterAgent>().stateReward += 15f;   // Thanks for moving me into position
 
         }
         else
@@ -121,6 +123,8 @@ public class ArcherAgent : Agent
                 fireArrow();    // Attack
             gameObject.transform.Rotate(new Vector3(0, 0, (Mathf.Round(act[0] * 2) * turnSpeed)));  // Turn
         }
+        reward += stateReward;
+        stateReward = 0;
 
         // Reset the round if necessary
         /*

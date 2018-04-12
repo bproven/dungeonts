@@ -21,6 +21,11 @@ public class AttackPlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // Keep it simple
+        if (player.transform.GetChild(0).GetComponent<Agent>().done)
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            return;
+        }
         Vector2 newVelocity = (player.transform.position - gameObject.transform.position);
         if (newVelocity.sqrMagnitude > 6.25f)
             newVelocity = Vector2.zero;
@@ -72,7 +77,7 @@ public class AttackPlayer : MonoBehaviour {
         {
             // Punish the looter brains involved in this disaster
             if (coll.transform.GetChild(i).GetComponent<LooterAgent>())
-                coll.transform.GetChild(i).GetComponent<LooterAgent>().reward -= 5f;
+                coll.transform.GetChild(i).GetComponent<LooterAgent>().stateReward -= RewardSettings.collide_enemy;
             // Apply damage
             if (coll.transform.GetChild(i).GetComponent<LooterAgent>())
                 coll.transform.GetChild(i).GetComponent<LooterAgent>().looterTakeDamage(strength);

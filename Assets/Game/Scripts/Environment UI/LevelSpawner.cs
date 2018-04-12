@@ -7,11 +7,18 @@ public class LevelSpawner : MonoBehaviour
     private List<Vector3> myState = new List<Vector3>();
     public GameObject TempSpawns;
 
+    private static List<Dictionary<string, float>> rewardSettings;
+
 	// Use this for initialization
 	void Start () {
         for (int i = 0; i < transform.childCount; i++)
             myState.Add(transform.GetChild(i).position);
 	}
+
+    public static Dictionary<string, float> GetRewardSettings()
+    {
+        return rewardSettings[0];
+    }
 	
     public void resetLevel()
     {
@@ -23,10 +30,10 @@ public class LevelSpawner : MonoBehaviour
             if (transform.GetChild(i).GetComponent<AttackPlayer>())
                 transform.GetChild(i).GetComponent<AttackPlayer>().reset();
         }
-        /*for (int i = 0; i < TempSpawns.transform.childCount; i++)
+        for (int i = 0; i < TempSpawns.transform.childCount; i++)
         {
             Destroy(TempSpawns.transform.GetChild(i).gameObject);
-        }*/
+        }
     }
 
 	// Update is called once per frame

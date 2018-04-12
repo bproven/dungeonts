@@ -19,7 +19,7 @@ public class WallAvoidance : MonoBehaviour {
 
     void punishCollision()
     {
-        looter.GetComponent<LooterAgent>().reward -= punishmentValue;
+        looter.GetComponent<LooterAgent>().stateReward -= RewardSettings.collide_wall;
     }
 
     void OnCollisionEnter2D (Collision2D coll)
