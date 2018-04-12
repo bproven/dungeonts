@@ -12,15 +12,22 @@ public class AttackPlayer : MonoBehaviour {
     public float health;
     public float strength = 1;
 
+    private float HealthBar_Length;
 
 	// Use this for initialization
 	void Start () {
         maxHealth = health;
+        HealthBar_Length = transform.GetChild(0).lossyScale.x;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         // Keep it simple
+        if (player.transform.GetChild(0).GetComponent<Agent>().done)
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            return;
+        }
         Vector2 newVelocity = (player.transform.position - gameObject.transform.position);
         if (newVelocity.sqrMagnitude > 6.25f)
             newVelocity = Vector2.zero;
@@ -36,6 +43,8 @@ public class AttackPlayer : MonoBehaviour {
             }
         }
         gameObject.GetComponent<Rigidbody2D>().velocity = newVelocity;
+        transform.GetChild(0).localScale = new Vector3((health / maxHealth) * HealthBar_Length, transform.GetChild(0).localScale.y, transform.GetChild(0).localScale.z);
+
         if (health <= 0)
             die();
     }
@@ -72,7 +81,7 @@ public class AttackPlayer : MonoBehaviour {
         {
             // Punish the looter brains involved in this disaster
             if (coll.transform.GetChild(i).GetComponent<LooterAgent>())
-                coll.transform.GetChild(i).GetComponent<LooterAgent>().reward -= 5f;
+                coll.transform.GetChild(i).GetComponent<LooterAgent>().stateReward -= RewardSettings.collide_enemy;
             // Apply damage
             if (coll.transform.GetChild(i).GetComponent<LooterAgent>())
                 coll.transform.GetChild(i).GetComponent<LooterAgent>().looterTakeDamage(strength);

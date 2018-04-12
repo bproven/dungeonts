@@ -22,6 +22,8 @@ public class LooterAgent : Agent
     public float myHealth;                // Local Health Stat
     public float myDamageDeflection;
 
+    public float stateReward;
+
     private static string[] thingsICanSee =
     {
         "Enemy",
@@ -147,10 +149,19 @@ public class LooterAgent : Agent
         for (int i = 0; i < numRays; i++)
         {
             RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / numRays) * i, Vector3.forward) * transform.up, sightDistance);
-            if (debug)
+            Color collisionColor = Color.white; // Default
+            if (hit)
             {
-                Color collisionColor = Color.white; // Default
-                if (hit)
+                if (hit.collider.tag == "Gold")
+                    stateReward += RewardSettings.prox_gold * (1 - (hit.distance / sightDistance)) / numRays;
+                // Reward risk
+                if (hit.collider.tag == "Enemy")
+                    stateReward += RewardSettings.prox_enemy * (1 - (hit.distance / sightDistance)) / numRays;
+                // Quit it with the wall hugging
+                if (hit.collider.tag == "Wall")
+                    stateReward -= RewardSettings.prox_wall * (Mathf.Pow(1 - (hit.distance / sightDistance), 2)) / numRays;
+
+                if (debug)
                 {
                     if (hit.collider.tag == "Enemy") collisionColor = Color.red;
                     else if (hit.collider.tag == "Gold") collisionColor = Color.yellow;
@@ -158,9 +169,9 @@ public class LooterAgent : Agent
                     else collisionColor = Color.magenta;
                     Debug.DrawLine(gameObject.transform.position, hit.point, collisionColor);
                 }
-                else
-                    Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / numRays) * i, Vector3.forward) * transform.up).normalized * sightDistance), collisionColor);
             }
+            else if (debug)
+                Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / numRays) * i, Vector3.forward) * transform.up).normalized * sightDistance), collisionColor);
             state.Add(sightDistance != 0 ? hit.distance / sightDistance : 0.0f);
             // Add information about what was hit
             foreach (string tag in thingsICanSee)
@@ -186,34 +197,15 @@ public class LooterAgent : Agent
         // Move
         else if (brain.brainParameters.actionSpaceType == StateType.continuous)
             gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * Speed;
-        
-        // Proximity Rewards, make the earlier runs more distinct in score before the late game
-        RaycastHit2D[] rays = new RaycastHit2D[numRays];
-        for (int i = 0; i < rays.Length; i++)
-            rays[i] = Physics2D.Raycast(gameObject.transform.position, Quaternion.AngleAxis((360f / rays.Length) * i, Vector3.forward) * transform.up, sightDistance);
-        for (int i = 0; i < rays.Length; i++)
-        {
-            // Add information about what was hit
-            if (rays[i])
-            {
-                // Reward greed
-                if (rays[i].collider.tag == "Gold")
-                    reward += 0.1f * (1 - (rays[i].distance / sightDistance)) / numRays;
-                // Reward risk
-                if (rays[i].collider.tag == "Enemy")
-                    reward += 0.1f * (1 - (rays[i].distance / sightDistance)) / numRays;
-                // Quit it with the wall hugging
-                if (rays[i].collider.tag == "Wall")
-                    reward -= 0.3f * (Mathf.Pow(1 - (rays[i].distance / sightDistance), 2)) / numRays;
-            }
-        }
+
         timerDisplay.GetComponent<Text>().text = (TIME - (Time.time - roundStart)).ToString();
         if (Time.time - roundStart > TIME)
         {
             Debug.Log("Looter: Out of time.");
             done = true;
         }
-
+        reward += stateReward;
+        stateReward = 0;
         // Debug
         myReward = CumulativeReward;
     }
@@ -248,6 +240,13 @@ public class LooterAgent : Agent
 
     }
 
+    void die()
+    {
+        done = true;
+        shooter.GetComponent<ArcherAgent>().done = true;
+        transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
     /// <summary>
     /// Called to have the looter take some damage
     /// </summary>
@@ -260,15 +259,12 @@ public class LooterAgent : Agent
             damage = damage * (1 - DamageDeflection);
             ResultsWindow.Score_DamageTaken(damage);
 
-            reward -= 40.0f;
-            shooter.GetComponent<ArcherAgent>().reward -= 3;
+            stateReward -= RewardSettings.take_damage;
+            shooter.GetComponent<ArcherAgent>().stateReward -= RewardSettings.take_damage;
             Debug.Log("Taking Damage! Original: " + damage + " Deflection: " + DamageDeflection + " Outcome: " + damage);
             Health -= damage;
             if (Health <= 0)
-            {
-                done = true;
-                shooter.GetComponent<ArcherAgent>().done = true;
-            }
+                die();
             lastDamage = Time.time;
         }
     }
@@ -290,7 +286,7 @@ public class LooterAgent : Agent
             name = tag;
         }
         Debug.Log("Picking up " + name);
-        reward += item.value;
+        stateReward += item.value;
         ResultsWindow.Score_GatheredLoot(item.value);
         if ( item.IsCountable )
         {
@@ -341,7 +337,7 @@ public class LooterAgent : Agent
             strength += Archer.myStrength * item.damageBonus;
             //damageDeflection = myDamageDeflection * item.damageDeflection;
             damageDeflection = myDamageDeflection + item.damageDeflection;
-            range += Archer.myRange * item.rangeBonus;
+            range = item.rangeBonus != 0 ? item.rangeBonus : Archer.Range;
         }
         Speed = speed;
         Health = health;

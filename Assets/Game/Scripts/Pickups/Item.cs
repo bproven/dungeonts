@@ -49,6 +49,8 @@ namespace Assets.Game.Scripts.Pickups
         {
             GetComponent<Collider2D>().enabled = true;
             GetComponent<SpriteRenderer>().enabled = true;
+            if (RewardSettings.item_values.ContainsKey(tag))
+                value = RewardSettings.item_values[tag];
             //Randomize();
         }
 
@@ -59,9 +61,6 @@ namespace Assets.Game.Scripts.Pickups
         {
             gameObject.transform.position = new Vector2(transform.parent.position.x + Random.Range(-respawnRange, respawnRange),
                                                         transform.parent.position.y + Random.Range(-respawnRange, respawnRange));
-            // I know this is deterministic, but I'm dialing in the reward values.
-            // In the future, the loot drops might scale differently
-            value = Random.Range(1, 1);
         }
 
         /// <summary>

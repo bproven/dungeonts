@@ -5,18 +5,10 @@ using Assets.Game.Scripts.Pickups;
 
 public class MainMenuScript : MonoBehaviour
 {
+    public int[] mapIndex = new int[3];
+    public string[] maps = new string[3];
 
-    // Use this for initialization
-    //void Start () {
-    //	
-    //}
-    //
-    // Update is called once per frame
-    //void Update () {
-    //	
-    //}
-
-    public void PlayScene( string name )
+    public void PlayScene( string name)
     {
         Debug.LogFormat("Playing {0}", name);
         SceneManager.LoadScene(name);
@@ -25,22 +17,22 @@ public class MainMenuScript : MonoBehaviour
 
     public void PlayGame()
     {
-        PlayScene("HybridLooterShooter");
+        PlayScene(maps[0]);
     }
 
     public void PlayMap1()
     {
-        PlayScene("HybridLooterShooter");
+        PlayScene(maps[0]);
     }
 
     public void PlayMap2()
     {
-        PlayScene("HybridLooterShooter 1");
+        PlayScene(maps[1]);
     }
 
     public void PlayMap3()
     {
-        PlayScene("HybridLooterShooter");
+        PlayScene(maps[0]);
     }
 
     public LooterAgent Looter
