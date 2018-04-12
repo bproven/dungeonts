@@ -32,7 +32,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void PlayMap3()
     {
-        PlayScene(maps[2]);
+        PlayScene(maps[0]);
     }
 
     public LooterAgent Looter

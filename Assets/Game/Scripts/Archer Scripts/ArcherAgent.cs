@@ -69,7 +69,7 @@ public class ArcherAgent : Agent
                 state.Add(hit.distance / Range);  // It's this far away
                 state.Add(1.0f);                        // It's an enemy
                 // Reward aiming at nearby enemies
-                stateReward += (1.0f - hit.distance / Range)
+                stateReward += RewardSettings.aim * (1.0f - hit.distance / Range)
                     * (Mathf.Pow(0.5f - (float)i / numRays, 2))
                     / numRays;
             }
@@ -84,7 +84,7 @@ public class ArcherAgent : Agent
 
     private void punishMiss()
     {
-        stateReward -= 5f;   // Don't miss
+        stateReward -= RewardSettings.attack_miss;   // Don't miss
     }
 
     private void fireArrow()
@@ -101,10 +101,10 @@ public class ArcherAgent : Agent
 
         if (hit && hit.collider.tag == "Enemy")
         {
-            stateReward += 15f;  // Reward kills
+            stateReward += RewardSettings.attack_enemy;  // Reward kills
             hit.collider.GetComponent<AttackPlayer>().health -= Strength; // FIXME: Make an enemy TakeDamage(int damage) function, we shouldn't be responsible for this
             if (looter.GetComponent<LooterAgent>())
-                looter.GetComponent<LooterAgent>().stateReward += 15f;   // Thanks for moving me into position
+                looter.GetComponent<LooterAgent>().stateReward += RewardSettings.attack_enemy;   // Thanks for moving me into position
 
         }
         else
