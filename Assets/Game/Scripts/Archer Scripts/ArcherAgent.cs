@@ -138,7 +138,7 @@ public class ArcherAgent : Agent
     // to be implemented by the developer
     public override void AgentReset()
     {
-
+        stateReward = 0;
         gameObject.transform.up = new Vector3(0, 1, 0);
 
         myFireRate = FIRERATE;
