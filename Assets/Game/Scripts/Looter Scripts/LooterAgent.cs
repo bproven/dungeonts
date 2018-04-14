@@ -215,7 +215,7 @@ public class LooterAgent : Agent
     /// </summary>
     public override void AgentReset()
     {
-
+        stateReward = 0;
         roundStart = Time.time;
         gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GoldValue = 0;

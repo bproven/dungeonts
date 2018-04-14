@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RewardSettings : MonoBehaviour {
-    public static float prox_gold,
-        prox_enemy,
-        prox_wall,
+    public static float prox_gold = 0.1f,
+        prox_enemy = 0.1f,
+        prox_wall = 0.3f,
 
-        attack_enemy,
-        attack_miss,
-        aim,
-        take_damage,
-        collide_enemy,
-        collide_wall;
+        attack_enemy = 15,
+        attack_miss = 5,
+        aim = 1,
+        take_damage = 40,
+        collide_enemy = 5,
+        collide_wall = 0.6f;
 
     public static Dictionary<string, int> item_values = new Dictionary<string, int>();
-
 
     public void AdjustProxGold(float newProx_gold)
     {
