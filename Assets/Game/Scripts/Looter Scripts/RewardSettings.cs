@@ -16,9 +16,9 @@ public class RewardSettings : MonoBehaviour {
 
     public static Dictionary<string, int> item_values = new Dictionary<string, int>();
 
-    public void AdjustProxGold(float newProx_gold)
+    public void AdjustGold(float newItemValue_gold)
     {
-        prox_gold = newProx_gold;
+        item_values["Gold"] = (int)newItemValue_gold;
     }
 
     public void AdjustAttackEnemy(float newAttack_enemy)
