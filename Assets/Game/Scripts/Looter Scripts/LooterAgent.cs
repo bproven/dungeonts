@@ -9,8 +9,8 @@ using Assets.Game.Scripts.Pickups;
 
 public class LooterAgent : Agent
 {
-    public GameObject resultsWindow;
-    public GameObject timerDisplay;
+    // UI references
+    private GameObject resultsWindow;
 
     // PLAYER SETTINGS, used for default values on agent reset
     public static float HP = 3, TIME = 120;    // Max health, level timer
@@ -43,7 +43,7 @@ public class LooterAgent : Agent
     /// <summary>
     /// The Agent's Health as modified by Items
     /// </summary>
-    private float Health { get; set; }
+    public float Health { get; private set; }
 
     /// <summary>
     /// The Agent's damage deflection as modified by Items
@@ -197,8 +197,7 @@ public class LooterAgent : Agent
         // Move
         else if (brain.brainParameters.actionSpaceType == StateType.continuous)
             gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * Speed;
-
-        timerDisplay.GetComponent<Text>().text = (TIME - (Time.time - roundStart)).ToString();
+        
         if (Time.time - roundStart > TIME)
         {
             Debug.Log("Looter: Out of time.");
@@ -208,6 +207,14 @@ public class LooterAgent : Agent
         stateReward = 0;
         // Debug
         myReward = CumulativeReward;
+        SendHUDUpdate();
+    }
+
+    private void SendHUDUpdate()
+    {
+        // UI
+        PlayerHUD.time = (int)(TIME - (Time.time - roundStart));
+        PlayerHUD.health = Mathf.Max(0, Health / HP);
     }
 
     /// <summary>
@@ -245,6 +252,7 @@ public class LooterAgent : Agent
         done = true;
         shooter.GetComponent<ArcherAgent>().done = true;
         transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        SendHUDUpdate();
     }
 
     /// <summary>
@@ -353,6 +361,11 @@ public class LooterAgent : Agent
     public override void AgentOnDone()
     {
         resultsWindow.GetComponent<ResultsWindow>().Show();   
+    }
+
+    private void Start()
+    {
+        resultsWindow = GameObject.Find("ResultsWindow");
     }
 
 }

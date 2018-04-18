@@ -55,6 +55,7 @@ public class ResultsWindow : MonoBehaviour
             treasuresFound * 5 +
             itemsFound * 25
             - (int)(damageTaken * 5f);
+        PlayerHUD.score = score;
     }
 
     public static void Score_EnemyKilled()
