@@ -213,7 +213,7 @@ public class LooterAgent : Agent
     private void SendHUDUpdate()
     {
         // UI
-        PlayerHUD.time = (int)(TIME - (Time.time - roundStart));
+        PlayerHUD.time = (TIME - (Time.time - roundStart));
         PlayerHUD.health = Mathf.Max(0, Health / HP);
     }
 
