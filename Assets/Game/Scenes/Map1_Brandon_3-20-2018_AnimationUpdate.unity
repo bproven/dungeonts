@@ -7973,7 +7973,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 949643018}
   scoreText: {fileID: 32101529}
-  fillAmount: 0
   HPBarFill: {fileID: 1494863076}
   deb_Score: 0
   deb_Time: 0
@@ -11235,7 +11234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21946357, g: 0.11624135, b: 0.63235295, a: 1}
+  m_Color: {r: 0.0588776, g: 0.8897059, b: 0.30526114, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

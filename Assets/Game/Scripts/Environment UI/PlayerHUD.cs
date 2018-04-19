@@ -12,7 +12,7 @@ public class PlayerHUD : MonoBehaviour {
     public Text timeText;
     public Text scoreText;
 
-    public float fillAmount;
+    //public float fillAmount;
     public Image HPBarFill;
 
     public int deb_Score;
@@ -36,6 +36,16 @@ public class PlayerHUD : MonoBehaviour {
     private void updateHealthBar()
     {
         HPBarFill.fillAmount = health;
+        //Debug.Log(health.ToString());
+
+        if(health < 0.7 && health > 0.4 && health != 0)
+        {
+            HPBarFill.color = Color.yellow;
+        }
+        else if (health < 0.4 && health != 0)
+        {
+            HPBarFill.color = Color.red;
+        }
     }
 
     // Update the score
