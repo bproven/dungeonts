@@ -35,3 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/Map2_Brandon_4-12-2018.unity
     guid: cf945e0331af19942afb51f4a4fe14b6
+  - enabled: 1
+    path: Assets/Game/Scenes/Map3_CastleHalls_4-25-2018.unity
+    guid: 2c58868d426aecd4ba7683dce2f40692

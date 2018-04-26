@@ -24,7 +24,7 @@ namespace Assets.Game.Scripts.Pickups
         public float respawnRange = 1.0f;
         public bool respawn = false;
 
-        public bool IsCountable { get; set; } = false;
+        public bool IsCountable = false;
         public virtual int Count { get; set; } = 1;
 
         /// <summary>

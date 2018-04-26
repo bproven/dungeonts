@@ -295,6 +295,7 @@ public class LooterAgent : Agent
         }
         Debug.Log("Picking up " + name);
         stateReward += item.value;
+        Health = Mathf.Min(HP, Health + item.healthBonus);    // Health was getting set to full each time it picked up a unique item
         ResultsWindow.Score_GatheredLoot(item.value);
         if ( item.IsCountable )
         {
@@ -332,8 +333,9 @@ public class LooterAgent : Agent
     /// </summary>
     private void UpdateStats()
     {
+        // FIXME: Health is getting reset to full on item pickups
+
         float speed = mySpeed;
-        float health = myHealth;
         float damageDeflection = myDamageDeflection;
         float strength = Archer.myStrength;
         float range = Archer.myRange;
@@ -341,14 +343,12 @@ public class LooterAgent : Agent
         {
             // add bonuses
             speed += mySpeed * item.speedFactor;
-            health += myHealth * item.healthBonus;
             strength += Archer.myStrength * item.damageBonus;
             //damageDeflection = myDamageDeflection * item.damageDeflection;
             damageDeflection = myDamageDeflection + item.damageDeflection;
             range = item.rangeBonus != 0 ? item.rangeBonus : Archer.Range;
         }
         Speed = speed;
-        Health = health;
         DamageDeflection = damageDeflection;
         Archer.Strength = strength;
         Archer.Range = range;

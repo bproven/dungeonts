@@ -478,6 +478,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &82178687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,6 +1067,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!114 &163446987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1379,6 +1381,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &174288534
 Prefab:
   m_ObjectHideFlags: 0
@@ -1560,6 +1563,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &183804178
 Prefab:
   m_ObjectHideFlags: 0
@@ -1870,6 +1874,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &197071154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,6 +2350,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &259868805
 Prefab:
   m_ObjectHideFlags: 0
@@ -2536,6 +2542,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &327867797 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -3325,6 +3332,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &508830418
 GameObject:
   m_ObjectHideFlags: 0
@@ -3455,6 +3463,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &512888826
 GameObject:
   m_ObjectHideFlags: 0
@@ -3585,6 +3594,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &517888879 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -3915,6 +3925,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &551054995
 Prefab:
   m_ObjectHideFlags: 0
@@ -4371,6 +4382,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &612257069
 Prefab:
   m_ObjectHideFlags: 0
@@ -4975,6 +4987,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &707564612
 Prefab:
   m_ObjectHideFlags: 0
@@ -5656,6 +5669,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &835314901
 GameObject:
   m_ObjectHideFlags: 0
@@ -5786,6 +5800,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &835912351
 Prefab:
   m_ObjectHideFlags: 0
@@ -6072,6 +6087,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &881707127
 GameObject:
   m_ObjectHideFlags: 0
@@ -6202,6 +6218,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &904884843 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -6337,6 +6354,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &913786377 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -6648,6 +6666,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &967729452
 GameObject:
   m_ObjectHideFlags: 0
@@ -6778,6 +6797,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &971540380 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -7113,6 +7133,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &1020493651
 GameObject:
   m_ObjectHideFlags: 0
@@ -7406,6 +7427,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &1036311564
 GameObject:
   m_ObjectHideFlags: 0
@@ -7674,6 +7696,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &1052813841
 Prefab:
   m_ObjectHideFlags: 0
@@ -7911,6 +7934,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &1087261408 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -8201,6 +8225,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &1125862375 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -8484,6 +8509,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &1182064035
 Prefab:
   m_ObjectHideFlags: 0
@@ -8685,6 +8711,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &1212699116
 Prefab:
   m_ObjectHideFlags: 0
@@ -9019,6 +9046,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &1240848067
 GameObject:
   m_ObjectHideFlags: 0
@@ -9149,6 +9177,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &1253828829
 Prefab:
   m_ObjectHideFlags: 0
@@ -9460,6 +9489,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &1316789043
 Prefab:
   m_ObjectHideFlags: 0
@@ -9641,6 +9671,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &1317709751
 GameObject:
   m_ObjectHideFlags: 0
@@ -9771,6 +9802,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &1319551202 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -9911,6 +9943,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &1358297394
 GameObject:
   m_ObjectHideFlags: 0
@@ -10041,6 +10074,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &1371479566 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -10232,6 +10266,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &1396654267
 GameObject:
   m_ObjectHideFlags: 0
@@ -10419,6 +10454,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &1410892384
 GameObject:
   m_ObjectHideFlags: 0
@@ -10549,6 +10585,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &1420418987
 GameObject:
   m_ObjectHideFlags: 0
@@ -10679,6 +10716,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &1429593104
 Prefab:
   m_ObjectHideFlags: 0
@@ -11187,6 +11225,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &1494863074
 GameObject:
   m_ObjectHideFlags: 0
@@ -11456,6 +11495,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &1582965777
 Prefab:
   m_ObjectHideFlags: 0
@@ -11637,6 +11677,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &1603011348 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -11925,6 +11966,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &1639904436
 Prefab:
   m_ObjectHideFlags: 0
@@ -12782,6 +12824,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &1743771302
 GameObject:
   m_ObjectHideFlags: 0
@@ -12912,6 +12955,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &1757436890 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -13392,6 +13436,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &1841037135
 GameObject:
   m_ObjectHideFlags: 0
@@ -13522,6 +13567,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &1846994951 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -13662,6 +13708,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &1858494022
 GameObject:
   m_ObjectHideFlags: 0
@@ -13792,6 +13839,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &1862368624 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -14090,6 +14138,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &1940986609 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -14665,6 +14714,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1 &1985610826
 GameObject:
   m_ObjectHideFlags: 0
@@ -14795,6 +14845,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &1988367426 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -14986,6 +15037,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &2018591755 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -15126,6 +15178,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!1001 &2044735996
 Prefab:
   m_ObjectHideFlags: 0
@@ -15307,6 +15360,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!114 &2060340508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15473,6 +15527,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1
 --- !u!4 &2064589262 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -15943,3 +15998,4 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 8
   respawn: 0
+  IsCountable: 1

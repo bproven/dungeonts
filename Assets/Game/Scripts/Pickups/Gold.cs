@@ -7,7 +7,7 @@ namespace Assets.Game.Scripts.Pickups
 
     public class Gold : Item
     {
-
+        
         public Gold()
         {
             itemName = "Gold";
