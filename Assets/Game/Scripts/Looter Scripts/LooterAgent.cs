@@ -363,7 +363,7 @@ public class LooterAgent : Agent
         resultsWindow.GetComponent<ResultsWindow>().Show();   
     }
 
-    private void Start()
+    private void Awake()
     {
         resultsWindow = GameObject.Find("ResultsWindow");
         if (!resultsWindow)
