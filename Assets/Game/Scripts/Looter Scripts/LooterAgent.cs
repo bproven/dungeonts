@@ -366,6 +366,8 @@ public class LooterAgent : Agent
     private void Start()
     {
         resultsWindow = GameObject.Find("ResultsWindow");
+        if (!resultsWindow)
+            Debug.Log("Failed to find the ResultsWindow GameObject");
     }
 
 }

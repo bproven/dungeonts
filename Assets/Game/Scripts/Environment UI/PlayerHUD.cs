@@ -38,7 +38,7 @@ public class PlayerHUD : MonoBehaviour {
         HPBarFill.fillAmount = health;
         //Debug.Log(health.ToString());
 
-        if(health < 0.7 && health > 0.4 && health != 0)
+        if (health < 0.7 && health > 0.4 && health != 0)
         {
             HPBarFill.color = Color.yellow;
         }
@@ -46,6 +46,8 @@ public class PlayerHUD : MonoBehaviour {
         {
             HPBarFill.color = Color.red;
         }
+        else
+            HPBarFill.color = Color.green;
     }
 
     // Update the score
