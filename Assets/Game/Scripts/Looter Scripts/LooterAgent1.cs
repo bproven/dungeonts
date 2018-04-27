@@ -37,7 +37,7 @@ public class LooterAgent1 : Agent
     {
         if (Time.time - lastShot < shotDelay)
         {
-            reward -= 0.5f;
+            AddReward(-0.5f);
             return;
         }
         else
@@ -51,19 +51,19 @@ public class LooterAgent1 : Agent
             Debug.DrawLine(gameObject.transform.position, hit.point);
             if (hit.collider.tag == "Enemy")
             {
-                reward += 25;
+                AddReward(25);
                 shuffleTarget(hit.collider.gameObject);
                 //lastKill = Time.time;
 
                 // Feed a reward into the Movement agent for allowing us to kill it
-                reward += 25;
+                AddReward(25);
             }
             else
-                reward -= 0.5f;
+                AddReward(-0.5f);
         }
         else
         {
-            reward -= 0.5f;
+            AddReward(-0.5f);
         }
     }
 
@@ -78,7 +78,7 @@ public class LooterAgent1 : Agent
         if (loot.Length == 0)
         {
             Debug.Log("Looter: Out of loot.");
-            done = true;
+            Done();
             return Vector2.zero;
         }
 
@@ -120,38 +120,38 @@ public class LooterAgent1 : Agent
     /// return a list of length 1 containing the float equivalent of your state.
     /// </summary>
     /// <returns></returns>
-    public override List<float> CollectState()
+    public override void CollectObservations()
     {
-        List<float> state = new List<float>();
+        
 
         // Old implementation, too many manual variables
         /*
         // Current velocity, for force-based implementations
-        state.Add(gameObject.GetComponent<Rigidbody2D>().velocity.x);
-        state.Add(gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        AddVectorObs(gameObject.GetComponent<Rigidbody2D>().velocity.x);
+        AddVectorObs(gameObject.GetComponent<Rigidbody2D>().velocity.y);
 
         // Where are the enemies that we need to avoid on the way to sick loot
         Vector2 diff = enemy.transform.position - gameObject.transform.position;
         // How far is this enemy?
-        state.Add(diff.magnitude / 6);
+        AddVectorObs(diff.magnitude / 6);
         // In what direction is this enemy?
         diff.Normalize();
-        state.Add(diff.x);
-        state.Add(diff.y);
+        AddVectorObs(diff.x);
+        AddVectorObs(diff.y);
         // Combine diffs into one angle
-        //state.Add(Vector2.SignedAngle(Vector2.up, diff) / 180);
+        //AddVectorObs(Vector2.SignedAngle(Vector2.up, diff) / 180);
 
         // Where is the sick loot
         Vector2 bestLoot = bestLootPos();
         Vector2 lootDiff = new Vector3(bestLoot.x, bestLoot.y) - gameObject.transform.position;
         // How far is this enemy?
-        state.Add(lootDiff.magnitude / 6);
+        AddVectorObs(lootDiff.magnitude / 6);
         // In what direction is this enemy?
         lootDiff.Normalize();
-        state.Add(lootDiff.x);
-        state.Add(lootDiff.y);
+        AddVectorObs(lootDiff.x);
+        AddVectorObs(lootDiff.y);
         // Combine diffs into one angle
-        //state.Add(Vector2.SignedAngle(Vector2.up, lootDiff) / 180);
+        //AddVectorObs(Vector2.SignedAngle(Vector2.up, lootDiff) / 180);
         */
 
         // New implementation, raycasts in 8 directions with information on what they hit
@@ -176,62 +176,62 @@ public class LooterAgent1 : Agent
                     continue;
                 // Add the raycast information into the state
                 // Add the distance
-                state.Add(rays[counter].distance / sightDistance);
+                AddVectorObs(rays[counter].distance / sightDistance);
                 // Add information about what was hit
                 if (rays[counter])
                 {
                     if (rays[counter].collider.tag == "Gold")
-                        state.Add(1.0f);
+                        AddVectorObs(1.0f);
                     else
-                        state.Add(0.0f);
+                        AddVectorObs(0.0f);
 
                     if (rays[counter].collider.tag == "Enemy")
-                        state.Add(1.0f);
+                        AddVectorObs(1.0f);
                     else
-                        state.Add(0.0f);
+                        AddVectorObs(0.0f);
 
                     if (rays[counter].collider.tag == "Wall")
-                        state.Add(1.0f);
+                        AddVectorObs(1.0f);
                     else
-                        state.Add(0.0f);
+                        AddVectorObs(0.0f);
                 }
                 else
                 {
                     // No gold
-                    state.Add(0.0f);
+                    AddVectorObs(0.0f);
                     // No enemy
-                    state.Add(0.0f);
+                    AddVectorObs(0.0f);
                     // No wall
-                    state.Add(0.0f);
+                    AddVectorObs(0.0f);
                 }
                 counter++;
             }
         }
         // We should probably know what our cooldowns are when moving around the enemy
         cooldown1 = (transform.GetChild(0).GetComponent<ArcherAgent>().shotDelay - (Time.time - transform.GetChild(0).GetComponent<ArcherAgent>().lastShot)) / transform.GetChild(0).GetComponent<ArcherAgent>().shotDelay;
-        state.Add(cooldown1);
+        AddVectorObs(cooldown1);
 
-        return state;
+        
     }
 
     /// <summary>
     /// This function will be called every frame, you must define what your agent will do given the input actions. 
     /// You must also specify the rewards and whether or not the agent is done. To do so, modify the public fields of the agent reward and done.
     /// </summary>
-    /// <param name="act"></param>
-    public override void AgentStep(float[] act)
+    /// <param name="vectorAction"></param>
+    public override void AgentAction(float[] vectorAction, string textAction)
     {
-        if (brain.brainParameters.actionSpaceType == StateType.discrete)
+        if (brain.brainParameters.vectorActionSpaceType == SpaceType.discrete)
         {
 
         }
-        else if (brain.brainParameters.actionSpaceType == StateType.continuous)
+        else if (brain.brainParameters.vectorActionSpaceType == SpaceType.continuous)
         {
             // Give the AI more indirect control, apply force to the player to move them
             // gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(act[0], act[1]));
 
             // Give the AI more direct control, directly affect the velocity of the player. Allows for more precise movement
-            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude(new Vector2(act[0], act[1]), maxSpeed);
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude(new Vector2(vectorAction[0], vectorAction[1]), maxSpeed);
 
             // Give the AI a constantly moving player, but let them rotate the direction they move each frame
             //Vector3 move = Quaternion.Euler(0, 0, act[0] * 180) * Vector2.up * maxSpeed;
@@ -243,14 +243,14 @@ public class LooterAgent1 : Agent
         if ((Mathf.Abs(gameObject.transform.position.x - transform.parent.position.x) > 2) ||
             (Mathf.Abs(gameObject.transform.position.y - transform.parent.position.y) > 2))
         {
-            done = true;
+            Done();
             Debug.Log("Looter: Out of bounds.");
-            reward -= 1000;
+            AddReward(-1000);
         }
         else if (Time.time - roundStart > roundTime)
         {
             Debug.Log("Looter: Out of time.");
-            done = true;
+            Done();
         }
     }
 
