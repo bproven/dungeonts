@@ -23,7 +23,7 @@ public class AttackPlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // Keep it simple
-        if (player.transform.GetChild(0).GetComponent<Agent>().done)
+        if (player.transform.GetChild(0).GetComponent<Agent>().IsDone())
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             return;
