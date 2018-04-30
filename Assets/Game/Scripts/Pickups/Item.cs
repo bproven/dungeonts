@@ -9,23 +9,24 @@ namespace Assets.Game.Scripts.Pickups
     /// <summary>
     /// Base class for Items
     /// </summary>
-    public class Item : MonoBehaviour
+    public class Item : MonoBehaviour, IItemSettings
     {
 
-        public string itemName = string.Empty;
-        public int value = 1;
-
-        public float speedFactor = 0.0f;    // factor to add speed
-        public float healthBonus = 0.0f;
-        public float damageBonus = 0.0f;
-        public float damageDeflection = 0.0f;
-        public float rangeBonus = 0.0f;
+        public IItemSettings settings { get; set; }
 
         public float respawnRange = 1.0f;
         public bool respawn = false;
 
         public bool IsCountable = false;
         public virtual int Count { get; set; } = 1;
+
+        public string ItemName { get { return tag; } set { tag = value; } }
+        public int Value { get { return settings.Value; } set { settings.Value = value; } }
+        public float SpeedFactor { get { return settings.SpeedFactor; } set { settings.SpeedFactor = value; } }
+        public float HealthBonus { get { return settings.HealthBonus; } set { settings.HealthBonus = value; } }
+        public float DamageBonus { get { return settings.DamageBonus; } set { settings.DamageBonus = value; } }
+        public float DamageDeflection { get { return settings.DamageDeflection; } set { settings.DamageDeflection = value; } }
+        public float RangeBonus { get { return settings.RangeBonus; } set { settings.RangeBonus = value; } }
 
         /// <summary>
         /// Use this for initialization
@@ -49,9 +50,8 @@ namespace Assets.Game.Scripts.Pickups
         {
             GetComponent<Collider2D>().enabled = true;
             GetComponent<SpriteRenderer>().enabled = true;
-            if (RewardSettings.item_values.ContainsKey(tag))
-                value = RewardSettings.item_values[tag];
-            //Randomize();
+            settings = RewardSettings.Get(tag);
+            // Randomize
         }
 
         /// <summary>
