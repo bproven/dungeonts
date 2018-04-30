@@ -7,8 +7,8 @@ public class Animate : MonoBehaviour {
     private Vector2 lastPos;
     private SpriteRenderer mySprite;
     Animator anim;
-	public bool plus;
-	public bool minus;
+	public Vector2 enemy;
+	public bool hit;
 
 
     // Use this for initialization
@@ -17,6 +17,7 @@ public class Animate : MonoBehaviour {
 
         mySprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+		hit = false;
     }
 
 	// Update is called once per frame
@@ -31,15 +32,15 @@ public class Animate : MonoBehaviour {
 			anim.SetFloat("plus", plus);
 			anim.SetFloat("minus", minus);
 
-			/*
-			if (plus > 0) anim.SetBool("plus", true);
-			else anim.SetBool("plus", false);
-			if (minus > 0) anim.SetBool("minus", true);
-			else anim.SetBool("minus", false);
-			anim.GetBool("plus");
-			anim.GetBool("minus");
-			*/
 		}
         lastPos = curPos;
+
+		if (hit) {
+			float enemyPlus = enemy.x + enemy.y; float enemyMinus = enemy.x - enemy.y;
+			anim.SetFloat("enemyPlus", enemyPlus);
+			anim.SetFloat("enemyMinus", enemyMinus);
+			anim.SetTrigger("attack");
+		}
+		hit = false;
     }
 }
