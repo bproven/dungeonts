@@ -11,7 +11,9 @@ public class LooterAgent : Agent
 {
     // UI references
     private GameObject resultsWindow;
-	private AudioSource collectFx;
+	private AudioSource soundFx;
+	private AudioClip coinFx;
+	public AudioClip damageFx;
 
     // PLAYER SETTINGS, used for default values on agent reset
     public static float HP = 3, TIME = 120;    // Max health, level timer
@@ -125,7 +127,7 @@ public class LooterAgent : Agent
     public override void InitializeAgent()
     {
         base.InitializeAgent();
-		collectFx = GetComponent<AudioSource>();
+		soundFx = GetComponent<AudioSource>();
 	}
 
     /// <summary>
@@ -277,6 +279,8 @@ public class LooterAgent : Agent
             if (Health <= 0)
                 die();
             lastDamage = Time.time;
+
+			soundFx.PlayOneShot(damageFx);
         }
     }
 
@@ -331,7 +335,7 @@ public class LooterAgent : Agent
             }
         }
 		//play collection sound effect
-		collectFx.Play();
+		soundFx.Play();
 	}
 
     /// <summary>
