@@ -437,6 +437,7 @@ MonoBehaviour:
   agentStoredAction: []
   memory: []
   id: 0
+  damageFx: {fileID: 8300000, guid: a1817bd813870a249899171d58278a67, type: 3}
   mySpeed: 0
   myHealth: 0
   myDamageDeflection: 0
