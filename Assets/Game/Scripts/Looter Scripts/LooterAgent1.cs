@@ -88,7 +88,7 @@ public class LooterAgent1 : Agent
         {
             if (gold.transform.position != gameObject.transform.position)
             {
-                valPerDistance = gold.GetComponent<Gold>().value /  (gold.transform.position - gameObject.transform.position).magnitude;
+                valPerDistance = gold.GetComponent<Gold>().Value /  (gold.transform.position - gameObject.transform.position).magnitude;
             }
             else
             {
