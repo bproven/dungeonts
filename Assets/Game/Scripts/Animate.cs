@@ -9,7 +9,7 @@ public class Animate : MonoBehaviour {
     Animator anim;
 	public Vector2 enemy;
 	public bool hit;
-
+	private AudioSource aud;
 
     // Use this for initialization
     void Start () {
@@ -17,6 +17,7 @@ public class Animate : MonoBehaviour {
 
         mySprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+		aud = GetComponent<AudioSource>();
 		hit = false;
     }
 
@@ -40,6 +41,7 @@ public class Animate : MonoBehaviour {
 			anim.SetFloat("enemyPlus", enemyPlus);
 			anim.SetFloat("enemyMinus", enemyMinus);
 			anim.SetTrigger("attack");
+			aud.Play();
 		}
 		hit = false;
     }

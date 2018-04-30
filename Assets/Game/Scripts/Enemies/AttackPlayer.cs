@@ -14,13 +14,10 @@ public class AttackPlayer : MonoBehaviour {
 
     private float HealthBar_Length;
 	
-	//private float prevHealth;
-	
 	// Use this for initialization
 	void Start () {
         maxHealth = health;
         HealthBar_Length = transform.GetChild(0).lossyScale.x;
-		//prevHealth = health;
 	}
 	
 	// Update is called once per frame
@@ -47,13 +44,7 @@ public class AttackPlayer : MonoBehaviour {
         }
         gameObject.GetComponent<Rigidbody2D>().velocity = newVelocity;
         transform.GetChild(0).localScale = new Vector3((health / maxHealth) * HealthBar_Length, transform.GetChild(0).localScale.y, transform.GetChild(0).localScale.z);
-		/*
-		if (prevHealth != health) {
-			player.GetComponent<Animate>().hit = true;
-			player.GetComponent<Animate>().enemy = transform.position - player.transform.position;
-		}
-		prevHealth = health;
-		*/
+
         if (health <= 0)
             die();
     }

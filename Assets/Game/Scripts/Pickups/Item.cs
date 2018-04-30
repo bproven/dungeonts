@@ -100,6 +100,7 @@ namespace Assets.Game.Scripts.Pickups
             {
                 Toggle();
             }
+
         }
 
         /// <summary>

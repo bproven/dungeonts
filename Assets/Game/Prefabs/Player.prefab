@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114088617991730016}
   - component: {fileID: 114456818897672764}
   - component: {fileID: 95703565870024624}
+  - component: {fileID: 82562118810196254}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -122,10 +123,10 @@ Camera:
   m_BackGroundColor: {r: 0.72312933, g: 0.7731401, b: 0.9191176, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.6666667
-    y: 0.6666667
-    width: 0.33333334
-    height: 0.33333334
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -188,6 +189,86 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1597926376634802}
   m_Enabled: 1
+--- !u!82 &82562118810196254
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161708171385462}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0eee635e291d3124e95d2701880c5032, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95703565870024624
 Animator:
   serializedVersion: 3
@@ -197,7 +278,7 @@ Animator:
   m_GameObject: {fileID: 1161708171385462}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e6510e9002f1c634d86870cd2f4d45eb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 056a4b2a4e8160241bc97031f4e80874, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -217,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   looter: {fileID: 1937213057610758}
-  punishmentValue: 0.1
+  punishmentValue: 0.6
 --- !u!114 &114280394021713922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,6 +319,7 @@ MonoBehaviour:
   rangeBonus: 0
   respawnRange: 0
   respawn: 0
+  IsCountable: 0
 --- !u!114 &114456818897672764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,6 +331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 669ef323ea4d59a4a83ecd8bcc44b42d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {x: 0, y: 0}
+  hit: 0
 --- !u!114 &114648061138334000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -262,8 +346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 0}
   observations: []
-  maxStep: 0
-  resetOnDone: 1
+  maxStep: 6000
+  resetOnDone: 0
   reward: 0
   done: 0
   value: 0
@@ -275,11 +359,12 @@ MonoBehaviour:
   mySpeed: 0
   myHealth: 0
   myDamageDeflection: 0
+  stateReward: 0
   shooter: {fileID: 1514351459063420}
   levelManager: {fileID: 0}
   sightDistance: 4
   numRays: 72
-  debug: 1
+  debug: 0
   myReward: 0
   x: 0
   y: 0
@@ -296,8 +381,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 0}
   observations: []
-  maxStep: 0
-  resetOnDone: 1
+  maxStep: 6000
+  resetOnDone: 0
   reward: 0
   done: 0
   value: 0
@@ -316,6 +401,7 @@ MonoBehaviour:
   lastShot: 0
   numRays: 72
   shotDelay: 0
+  stateReward: 0
 --- !u!124 &124632661026093008
 Behaviour:
   m_ObjectHideFlags: 1
@@ -357,7 +443,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300018, guid: d500dc78081297343a72f36a9171eabd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 024d75cee2a832f42a1059e8d2c342c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -418,7 +504,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1161708171385462}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.16833512}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4901312503251052}
@@ -429,7 +515,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.6, y: -6.99}
+  m_AnchoredPosition: {x: 10.93, y: -3.69}
   m_SizeDelta: {x: 0.16, y: 0.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224993099417744470
