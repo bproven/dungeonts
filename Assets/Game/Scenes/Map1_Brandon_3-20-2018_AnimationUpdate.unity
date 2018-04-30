@@ -14893,6 +14893,11 @@ Prefab:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 1944579991}
+    - target: {fileID: 114648061138334000, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
+        type: 2}
+      propertyPath: damageFx
+      value: 
+      objectReference: {fileID: 8300000, guid: a1817bd813870a249899171d58278a67, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f260e577054c5b4abd0fcd3ae34ccaf, type: 2}
   m_IsPrefabParent: 0
