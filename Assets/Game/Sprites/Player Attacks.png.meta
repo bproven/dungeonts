@@ -1,0 +1,268 @@
+fileFormatVersion: 2
+guid: ba9705cd09438cf49b5a6d6bdfe7965c
+timeCreated: 1525049442
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Player Attacks_0
+    21300002: Player Attacks_1
+    21300004: Player Attacks_2
+    21300006: Player Attacks_3
+    21300008: Player Attacks_4
+    21300010: Player Attacks_5
+    21300012: Player Attacks_6
+    21300014: Player Attacks_7
+    21300016: Player Attacks_8
+    21300018: Player Attacks_9
+    21300020: Player Attacks_10
+    21300022: Player Attacks_11
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player Attacks_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 113
+        width: 17
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5619295, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Attacks_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 110
+        width: 23
+        height: 30
+      alignment: 9
+      pivot: {x: 0.4542261, y: 0.48}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Attacks_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 110
+        width: 20
+        height: 30
+      alignment: 9
+      pivot: {x: 0.35962638, y: 0.48}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Attacks_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 81
+        width: 17
+        height: 27
+      alignment: 9
+      pivot: {x: 0.43807057, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Attacks_4
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 79
+        width: 23
+        height: 29
+      alignment: 9
+      pivot: {x: 0.57628995, y: 0.48}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Attacks_5
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 79
+        width: 21
+        height: 29
+      alignment: 9
+      pivot: {x: 0.63368917, y: 0.48}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Attacks_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 49
+        width: 21
+        height: 27
+      alignment: 9
+      pivot: {x: 0.63368905, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Attacks_7
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 49
+        width: 31
+        height: 27
+      alignment: 9
+      pivot: {x: 0.7603702, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Attacks_8
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 49
+        width: 21
+        height: 27
+      alignment: 9
+      pivot: {x: 0.63368917, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Attacks_9
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 17
+        width: 26
+        height: 27
+      alignment: 9
+      pivot: {x: 0.28404078, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Attacks_10
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 17
+        width: 38
+        height: 27
+      alignment: 9
+      pivot: {x: 0.19524182, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Attacks_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 17
+        width: 28
+        height: 27
+      alignment: 9
+      pivot: {x: 0.26186672, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

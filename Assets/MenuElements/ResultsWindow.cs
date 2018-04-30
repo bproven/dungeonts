@@ -95,7 +95,7 @@ public class ResultsWindow : MonoBehaviour
         window.SetActive(false);
     }
 
-    public void GoToMenu()
+	public void GoToMenu()
     {
         SceneManager.LoadScene("Menu2");
     }

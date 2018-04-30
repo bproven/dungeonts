@@ -13,7 +13,7 @@ public class AttackPlayer : MonoBehaviour {
     public float strength = 1;
 
     private float HealthBar_Length;
-
+	
 	// Use this for initialization
 	void Start () {
         maxHealth = health;

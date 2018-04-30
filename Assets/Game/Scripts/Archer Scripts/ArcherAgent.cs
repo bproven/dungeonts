@@ -103,7 +103,12 @@ public class ArcherAgent : Agent
         {
             stateReward += RewardSettings.attack_enemy;  // Reward kills
             hit.collider.GetComponent<AttackPlayer>().health -= Strength; // FIXME: Make an enemy TakeDamage(int damage) function, we shouldn't be responsible for this
-            if (looter.GetComponent<LooterAgent>())
+
+			//setting variables for attack animatoins
+			transform.parent.GetComponent<Animate>().hit = true;
+			transform.parent.GetComponent<Animate>().enemy = hit.normal;
+
+			if (looter.GetComponent<LooterAgent>())
                 looter.GetComponent<LooterAgent>().stateReward += RewardSettings.attack_enemy;   // Thanks for moving me into position
 
         }
