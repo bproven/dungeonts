@@ -1333,7 +1333,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 90021198}
-        m_MethodName: AdjustProxWall
+        m_MethodName: set_ProxWall
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7014,7 +7014,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 90021198}
-        m_MethodName: AdjustAttackEnemy
+        m_MethodName: set_AttackEnemy
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9018,7 +9018,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 90021198}
-        m_MethodName: AdjustTakeDamage
+        m_MethodName: set_TakeDamage
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10001,7 +10001,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 90021198}
-        m_MethodName: AdjustGold
+        m_MethodName: set_GoldValue
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
