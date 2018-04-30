@@ -11,6 +11,7 @@ public class LooterAgent : Agent
 {
     // UI references
     private GameObject resultsWindow;
+	private AudioSource collectFx;
 
     // PLAYER SETTINGS, used for default values on agent reset
     public static float HP = 3, TIME = 120;    // Max health, level timer
@@ -100,6 +101,7 @@ public class LooterAgent : Agent
                 {
                     gold = new Gold();
                     Items.Add(gold);
+
                 }
             }
             else
@@ -123,7 +125,8 @@ public class LooterAgent : Agent
     public override void InitializeAgent()
     {
         base.InitializeAgent();
-    }
+		collectFx = GetComponent<AudioSource>();
+	}
 
     /// <summary>
     /// Must return a list of floats corresponding to the state the agent is in. If the state space type is discrete, 
@@ -297,6 +300,7 @@ public class LooterAgent : Agent
         stateReward += item.value;
         Health = Mathf.Min(HP, Health + item.healthBonus);    // Health was getting set to full each time it picked up a unique item
         ResultsWindow.Score_GatheredLoot(item.value);
+
         if ( item.IsCountable )
         {
             Item existingItem = Items.FirstOrDefault(i => i.GetType() == item.GetType());
@@ -326,7 +330,9 @@ public class LooterAgent : Agent
                 Debug.LogWarningFormat("LooterAgent already has a {0}", tag);
             }
         }
-    }
+		//play collection sound effect
+		collectFx.Play();
+	}
 
     /// <summary>
     /// Recalcs stats when an item is added or removed
