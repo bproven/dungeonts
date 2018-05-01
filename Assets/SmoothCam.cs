@@ -14,8 +14,6 @@ public class SmoothCam : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Quaternion a = transform.rotation;
         transform.position = Vector3.Lerp(transform.position, new Vector3(Player.transform.position.x, Player.transform.position.y, transform.position.z), 0.1f);
-        transform.rotation = a;
 	}
 }
