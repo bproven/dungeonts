@@ -12,21 +12,17 @@ public class MainMenuScript : MonoBehaviour
     public int[] mapIndex = new int[3];
     public string[] maps = new string[3];
 
-    private IEnumerator WaitForSceneToLoad( string name, Action loaded )
-    {
-
-        AsyncOperation asyncSceneLoader = SceneManager.LoadSceneAsync(name, LoadSceneMode.Single);
-        while (!asyncSceneLoader.isDone)
-        {
-            yield return new WaitForEndOfFrame();
-        }
-        loaded();
-    }
-
     public void PlayScene(string name)
     {
         Debug.LogFormat("Playing {0}", name);
-        StartCoroutine(WaitForSceneToLoad(name, () => PickupSelectedItem()));
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene(name, LoadSceneMode.Single);
+    }
+
+    private void OnSceneLoaded( Scene scene, LoadSceneMode mode )
+    {
+        PickupSelectedItem();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     public void PickupSelectedItem()
