@@ -21,9 +21,9 @@ public class LooterAgent : Agent
     public static float DEFLECTION = 0;       // without armor
 
     // Base stats
-    public float mySpeed;               // Local Speed Stat
-    public float myHealth;                // Local Health Stat
-    public float myDamageDeflection;
+    protected float mySpeed = DEX;               // Local Speed Stat
+    public float myHealth = HP;                // Local Health Stat
+    public float myDamageDeflection = DEFLECTION;
 
     public float stateReward;
 
@@ -352,6 +352,7 @@ public class LooterAgent : Agent
         foreach ( Item item in Items )
         {
             // add bonuses
+            Debug.LogFormat("speedFactor: {0}", item.SpeedFactor);
             speed += mySpeed * item.SpeedFactor;
             strength += Archer.myStrength * item.DamageBonus;
             damageDeflection = myDamageDeflection + item.DamageDeflection;
