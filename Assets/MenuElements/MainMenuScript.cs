@@ -1,17 +1,42 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using Assets.Game.Scripts.Pickups;
 
 public class MainMenuScript : MonoBehaviour
 {
+
     public int[] mapIndex = new int[3];
     public string[] maps = new string[3];
 
-    public void PlayScene( string name)
+    private IEnumerator WaitForSceneToLoad( string name, Action loaded )
+    {
+
+        AsyncOperation asyncSceneLoader = SceneManager.LoadSceneAsync(name, LoadSceneMode.Single);
+        while (!asyncSceneLoader.isDone)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        loaded();
+    }
+
+    public void PlayScene(string name)
     {
         Debug.LogFormat("Playing {0}", name);
-        SceneManager.LoadScene(name);
+        StartCoroutine(WaitForSceneToLoad(name, () => PickupSelectedItem()));
+    }
+
+    public void PickupSelectedItem()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.MoveGameObjectToScene(SelectedItem.gameObject, currentScene);
+        if ( Looter == null )
+        {
+            Debug.LogFormat("LooterAgent not found in Scene {0}", name);
+        }
         Looter?.Pickup(SelectedItem);
     }
 
@@ -62,6 +87,7 @@ public class MainMenuScript : MonoBehaviour
         if ( item != null )
         {
             SelectedItem = item;
+            DontDestroyOnLoad(SelectedItem);
         }
     }
 

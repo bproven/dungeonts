@@ -352,6 +352,7 @@ public class LooterAgent : Agent
         foreach ( Item item in Items )
         {
             // add bonuses
+            Debug.LogFormat("speedFactor: {0}", item.SpeedFactor);
             speed += mySpeed * item.SpeedFactor;
             strength += Archer.myStrength * item.DamageBonus;
             damageDeflection = myDamageDeflection + item.DamageDeflection;
