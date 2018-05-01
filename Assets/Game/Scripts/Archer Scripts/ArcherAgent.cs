@@ -119,8 +119,31 @@ public class ArcherAgent : Agent
     // to be implemented by the developer
     public override void AgentAction(float[] vectorAction, string textAction)
     {
+        if (looter.GetComponent<LooterAgent>().Health <= 0)
+            return;
+
         if (brain.brainParameters.vectorActionSpaceType == SpaceType.discrete)
         {
+            int act = Mathf.FloorToInt(vectorAction[0]);
+            switch (act)
+            {
+                case 0:
+                    gameObject.transform.Rotate(new Vector3(0, 0, -turnSpeed));
+                    break;
+                case 1:
+                    gameObject.transform.Rotate(new Vector3(0, 0, turnSpeed));
+                    break;
+                case 2:
+                    fireArrow();
+                    break;
+                case 3:
+                    gameObject.transform.Rotate(new Vector3(0, 0, 2 * -turnSpeed));
+                    break;
+                case 4:
+                    gameObject.transform.Rotate(new Vector3(0, 0, 2 * turnSpeed));
+                    break;
+            }
+
         }
         else if (brain.brainParameters.vectorActionSpaceType == SpaceType.continuous)
         {
@@ -158,7 +181,6 @@ public class ArcherAgent : Agent
         startTime = Time.time; lastShot = Time.time - myFireRate;   // Reset cooldowns
 
         turnSpeed = 360 / numRays;
-
     }
 
 }

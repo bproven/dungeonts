@@ -27,6 +27,8 @@ public class LooterAgent : Agent
 
     public float stateReward;
 
+    bool alive;
+
     private static string[] thingsICanSee =
     {
         "Enemy",
@@ -195,9 +197,15 @@ public class LooterAgent : Agent
     /// <param name="vectorAction"></param>
     public override void AgentAction(float[] vectorAction, string textAction)
     {
+        if (!alive)
+            return;
         if (brain.brainParameters.vectorActionSpaceType == SpaceType.discrete)
         {
-
+            int move = Mathf.FloorToInt(vectorAction[0]);
+            if (move != 72)
+                gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Quaternion.AngleAxis((360f / numRays) * move, Vector3.forward) * transform.up * Speed;
+            else
+                gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
         // Move
         else if (brain.brainParameters.vectorActionSpaceType == SpaceType.continuous)
@@ -206,13 +214,14 @@ public class LooterAgent : Agent
         if (Time.time - roundStart > TIME)
         {
             Debug.Log("Looter: Out of time.");
-            Done();
+            die();
         }
         AddReward(stateReward);
         stateReward = 0;
         // Debug
         myReward = GetCumulativeReward();
         SendHUDUpdate();
+        Debug.Log("My health is " + Health);
     }
 
     private void SendHUDUpdate()
@@ -227,12 +236,14 @@ public class LooterAgent : Agent
     /// </summary>
     public override void AgentReset()
     {
+        alive = true;
         stateReward = 0;
         roundStart = Time.time;
         gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GoldValue = 0;
         transform.up = Vector2.up;
         levelManager.GetComponent<LevelSpawner>().resetLevel();
+        ResultsWindow.ResetScore();
         lastDamage = Time.time - 0.5f;
 
         // PLAYER SETTINGS
@@ -254,7 +265,8 @@ public class LooterAgent : Agent
 
     void die()
     {
-        Done();
+        resultsWindow.GetComponent<ResultsWindow>().Show();
+        alive = false;
         shooter.GetComponent<ArcherAgent>().Done();
         transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         SendHUDUpdate();
@@ -370,7 +382,7 @@ public class LooterAgent : Agent
     /// </summary>
     public override void AgentOnDone()
     {
-        resultsWindow.GetComponent<ResultsWindow>().Show();   
+        
     }
 
     private void Awake()

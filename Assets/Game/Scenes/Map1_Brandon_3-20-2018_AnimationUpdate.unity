@@ -469,13 +469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -507,22 +500,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainParameters:
-    stateSize: 145
-    actionSize: 2
-    memorySize: 0
+    vectorObservationSize: 145
+    numStackedVectorObservations: 1
+    vectorActionSize: 5
     cameraResolutions: []
-    actionDescriptions:
-    - Rotate
-    - Shoot
-    actionSpaceType: 1
-    stateSpaceType: 1
+    vectorActionDescriptions:
+    - L
+    - R
+    - Fire
+    - LL
+    - RR
+    vectorActionSpaceType: 0
+    vectorObservationSpaceType: 1
   brainType: 3
   CoreBrains:
-  - {fileID: 987842682}
-  - {fileID: 163446987}
-  - {fileID: 666328618}
-  - {fileID: 1700509519}
-  instanceID: 545632
+  - {fileID: 1077673474}
+  - {fileID: 713098666}
+  - {fileID: 1466201493}
+  - {fileID: 1698641652}
+  instanceID: 87754
 --- !u!4 &82178689
 Transform:
   m_ObjectHideFlags: 0
@@ -1058,29 +1054,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
---- !u!114 &163446987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  brain: {fileID: 0}
 --- !u!1001 &165421372
 Prefab:
   m_ObjectHideFlags: 0
@@ -1372,13 +1348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -1554,13 +1523,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -1615,33 +1577,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 790656b9f9ecea345858151394b13f61, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &191328722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 0
-  graphModel: {fileID: 4900000, guid: df2e981ce59a0e240bf637fe44753ba8, type: 3}
-  graphScope: 
-  graphPlaceholders:
-  - name: epsilon
-    valueType: 1
-    minValue: 0
-    maxValue: 0
-  BatchSizePlaceholderName: batch_size
-  StatePlacholderName: state
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  ObservationPlaceholderName:
-  - observation
-  ActionPlaceholderName: action
-  brain: {fileID: 1396654269}
 --- !u!1001 &191895237
 Prefab:
   m_ObjectHideFlags: 0
@@ -1865,13 +1800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -1970,6 +1898,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &202085146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 0
+  graphModel: {fileID: 4900000, guid: 440dcd39a6bcf3548ada428e2188299d, type: 3}
+  graphScope: MoveBrain
+  graphPlaceholders: []
+  BatchSizePlaceholderName: batch_size
+  VectorObservationPlacholderName: vector_observation
+  RecurrentInPlaceholderName: recurrent_in
+  RecurrentOutPlaceholderName: recurrent_out
+  VisualObservationPlaceholderName: []
+  ActionPlaceholderName: action
+  PreviousActionPlaceholderName: prev_action
+  brain: {fileID: 1396654269}
 --- !u!1001 &203132509
 Prefab:
   m_ObjectHideFlags: 0
@@ -2341,13 +2292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -2533,13 +2477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -2766,18 +2703,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 790656b9f9ecea345858151394b13f61, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &432394310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 1396654269}
 --- !u!4 &435896875 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -3365,13 +3290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -3496,13 +3414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -3627,13 +3538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -4000,13 +3904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -4566,13 +4463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -4698,19 +4588,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
     type: 2}
   m_PrefabInternal: {fileID: 695516143}
---- !u!114 &650090422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  brain: {fileID: 0}
 --- !u!1001 &657879864
 Prefab:
   m_ObjectHideFlags: 0
@@ -4762,18 +4639,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 790656b9f9ecea345858151394b13f61, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &666328618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
 --- !u!1001 &681448300
 Prefab:
   m_ObjectHideFlags: 0
@@ -5050,6 +4915,37 @@ Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
     type: 2}
   m_PrefabInternal: {fileID: 420135848}
+--- !u!114 &699254160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  continuousPlayerActions:
+  - key: 97
+    index: 0
+    value: 1
+  - key: 100
+    index: 0
+    value: -1
+  - key: 32
+    index: 1
+    value: 1
+  discretePlayerActions:
+  - key: 97
+    value: 1
+  - key: 100
+    value: 2
+  - key: 32
+    value: 3
+  defaultAction: 0
+  brain: {fileID: 0}
 --- !u!1 &701509561
 GameObject:
   m_ObjectHideFlags: 0
@@ -5171,13 +5067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -5281,6 +5170,19 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dc258110e7990a4783484ca3189182f, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &713098666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  brain: {fileID: 0}
 --- !u!4 &716604739 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -5853,13 +5755,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -5984,13 +5879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -6271,13 +6159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -6434,13 +6315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -6570,13 +6444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -6636,6 +6503,19 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 790656b9f9ecea345858151394b13f61, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &942917863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  brain: {fileID: 0}
 --- !u!1001 &946703730
 Prefab:
   m_ObjectHideFlags: 0
@@ -6882,13 +6762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -7013,13 +6886,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -7079,37 +6945,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 790656b9f9ecea345858151394b13f61, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &987842682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  continuousPlayerActions:
-  - key: 97
-    index: 1
-    value: 1
-  - key: 100
-    index: 1
-    value: -1
-  - key: 32
-    index: 2
-    value: 1
-  discretePlayerActions:
-  - key: 97
-    value: 1
-  - key: 100
-    value: 2
-  - key: 32
-    value: 3
-  defaultAction: 0
-  brain: {fileID: 0}
 --- !u!4 &991363462 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -7158,9 +6993,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSteps: 0
-  frameToSkip: 0
-  waitTime: 0
-  isInference: 1
   trainingConfiguration:
     width: 1280
     height: 720
@@ -7173,10 +7005,8 @@ MonoBehaviour:
     qualityLevel: 5
     timeScale: 1
     targetFrameRate: 60
-  defaultResetParameters: []
-  done: 0
-  episodeCount: 1
-  currentStep: 0
+  resetParameters:
+    resetParameters: []
 --- !u!1001 &1015925496
 Prefab:
   m_ObjectHideFlags: 0
@@ -7349,13 +7179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -7643,13 +7466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -7912,13 +7728,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -8029,6 +7838,37 @@ Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
     type: 2}
   m_PrefabInternal: {fileID: 1214543634}
+--- !u!114 &1077673474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  continuousPlayerActions:
+  - key: 97
+    index: 1
+    value: 1
+  - key: 100
+    index: 1
+    value: -1
+  - key: 32
+    index: 2
+    value: 1
+  discretePlayerActions:
+  - key: 97
+    value: 1
+  - key: 100
+    value: 2
+  - key: 32
+    value: 3
+  defaultAction: 0
+  brain: {fileID: 82178688}
 --- !u!1 &1082314304
 GameObject:
   m_ObjectHideFlags: 0
@@ -8150,13 +7990,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -8441,13 +8274,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -8834,13 +8660,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -9036,13 +8855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -9371,13 +9183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -9502,13 +9307,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -9814,13 +9612,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -9996,13 +9787,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -10127,13 +9911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -10268,13 +10045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -10399,13 +10169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -10591,13 +10354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -10642,22 +10398,93 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainParameters:
-    stateSize: 583
-    actionSize: 2
-    memorySize: 0
+    vectorObservationSize: 583
+    numStackedVectorObservations: 1
+    vectorActionSize: 73
     cameraResolutions: []
-    actionDescriptions:
-    - X
-    - Y
-    actionSpaceType: 1
-    stateSpaceType: 1
+    vectorActionDescriptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    vectorActionSpaceType: 0
+    vectorObservationSpaceType: 1
   brainType: 3
   CoreBrains:
-  - {fileID: 2060340508}
-  - {fileID: 650090422}
-  - {fileID: 432394310}
-  - {fileID: 191328722}
-  instanceID: 625876
+  - {fileID: 699254160}
+  - {fileID: 942917863}
+  - {fileID: 1668990703}
+  - {fileID: 202085146}
+  instanceID: 14294
 --- !u!1 &1407936646
 GameObject:
   m_ObjectHideFlags: 0
@@ -10779,13 +10606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -10910,13 +10730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -11041,13 +10854,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -11378,6 +11184,18 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 790656b9f9ecea345858151394b13f61, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1466201493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  brain: {fileID: 82178688}
 --- !u!1001 &1468176468
 Prefab:
   m_ObjectHideFlags: 0
@@ -11550,13 +11368,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -11820,13 +11631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -12111,13 +11915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -12400,13 +12197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -12637,6 +12427,18 @@ RectTransform:
   m_AnchoredPosition: {x: 14.799988, y: 46.9}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1668990703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1396654269}
 --- !u!1 &1669098010
 GameObject:
   m_ObjectHideFlags: 0
@@ -12820,7 +12622,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 790656b9f9ecea345858151394b13f61, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1700509519
+--- !u!114 &1698641652
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -12829,22 +12631,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   broadcast: 0
-  graphModel: {fileID: 4900000, guid: b7f0645465221974091422038a7762a0, type: 3}
-  graphScope: 
-  graphPlaceholders:
-  - name: epsilon
-    valueType: 1
-    minValue: 0
-    maxValue: 0
+  graphModel: {fileID: 4900000, guid: 440dcd39a6bcf3548ada428e2188299d, type: 3}
+  graphScope: ShootBrain
+  graphPlaceholders: []
   BatchSizePlaceholderName: batch_size
-  StatePlacholderName: state
+  VectorObservationPlacholderName: vector_observation
   RecurrentInPlaceholderName: recurrent_in
   RecurrentOutPlaceholderName: recurrent_out
-  ObservationPlaceholderName: []
+  VisualObservationPlaceholderName: []
   ActionPlaceholderName: action
+  PreviousActionPlaceholderName: prev_action
   brain: {fileID: 82178688}
 --- !u!1 &1702170225
 GameObject:
@@ -13035,7 +12834,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4899529081774688, guid: 6005df00405d2bf40a233ecdcbb5ef33, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4183558210912540, guid: 6005df00405d2bf40a233ecdcbb5ef33, type: 2}
       propertyPath: m_RootOrder
@@ -13055,7 +12854,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4555695390133012, guid: 6005df00405d2bf40a233ecdcbb5ef33, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1136553903338770, guid: 6005df00405d2bf40a233ecdcbb5ef33, type: 2}
       propertyPath: m_TagString
@@ -13258,13 +13057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -13389,13 +13181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -13870,13 +13655,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -14001,13 +13779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -14142,13 +13913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -14273,13 +14037,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -14572,13 +14329,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -14893,11 +14643,6 @@ Prefab:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 1944579991}
-    - target: {fileID: 114648061138334000, guid: 4f260e577054c5b4abd0fcd3ae34ccaf,
-        type: 2}
-      propertyPath: damageFx
-      value: 
-      objectReference: {fileID: 8300000, guid: a1817bd813870a249899171d58278a67, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f260e577054c5b4abd0fcd3ae34ccaf, type: 2}
   m_IsPrefabParent: 0
@@ -15078,13 +14823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -15209,13 +14947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -15510,13 +15241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -15651,13 +15375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -15833,47 +15550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
---- !u!114 &2060340508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  continuousPlayerActions:
-  - key: 97
-    index: 0
-    value: 1
-  - key: 100
-    index: 0
-    value: -1
-  - key: 32
-    index: 1
-    value: 1
-  discretePlayerActions:
-  - key: 97
-    value: 1
-  - key: 100
-    value: 2
-  - key: 32
-    value: 3
-  defaultAction: 0
-  brain: {fileID: 0}
 --- !u!4 &2060895881 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601113875577868, guid: 790656b9f9ecea345858151394b13f61,
@@ -16000,13 +15679,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1
@@ -16156,15 +15828,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 142
       objectReference: {fileID: 0}
-    - target: {fileID: 1189430617306322, guid: 790656b9f9ecea345858151394b13f61, type: 2}
-      propertyPath: m_Name
-      value: Target (80)
-      objectReference: {fileID: 0}
     - target: {fileID: 114775387253268366, guid: 790656b9f9ecea345858151394b13f61,
         type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 1202853879}
+    - target: {fileID: 1189430617306322, guid: 790656b9f9ecea345858151394b13f61, type: 2}
+      propertyPath: m_Name
+      value: Target (80)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 790656b9f9ecea345858151394b13f61, type: 2}
   m_IsPrefabParent: 0
@@ -16471,13 +16143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 5
-  speedFactor: 0
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 8
   respawn: 0
   IsCountable: 1

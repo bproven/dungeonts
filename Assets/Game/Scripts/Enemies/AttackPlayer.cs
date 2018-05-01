@@ -23,7 +23,7 @@ public class AttackPlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // Keep it simple
-        if (player.transform.GetChild(0).GetComponent<Agent>().IsDone())
+        if (player.transform.GetChild(1).GetComponent<LooterAgent>().Health <= 0)
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             return;
@@ -77,6 +77,10 @@ public class AttackPlayer : MonoBehaviour {
     // Kill the player who we collided with
     void killPlayer(Collision2D coll)
     {
+        if (player.transform.GetChild(1).GetComponent<LooterAgent>().Health <= 0)
+        {
+            return;
+        }
         for (int i = 0; i < coll.transform.childCount; i++)
         {
             // Punish the looter brains involved in this disaster

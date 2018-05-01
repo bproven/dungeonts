@@ -391,13 +391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb34f4ea6aae4eab8fab33ffc5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gold
-  value: 0
-  speedFactor: 1
-  healthBonus: 0
-  damageBonus: 0
-  damageDeflection: 0
-  rangeBonus: 0
   respawnRange: 0
   respawn: 0
   IsCountable: 0
@@ -426,19 +419,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brain: {fileID: 0}
-  observations: []
-  maxStep: 6000
-  resetOnDone: 0
-  reward: 0
-  done: 0
-  value: 0
-  CumulativeReward: 0
-  stepCounter: 0
-  agentStoredAction: []
-  memory: []
-  id: 0
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 1
   damageFx: {fileID: 8300000, guid: a1817bd813870a249899171d58278a67, type: 3}
-  mySpeed: 0
   myHealth: 0
   myDamageDeflection: 0
   stateReward: 0
@@ -462,17 +449,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brain: {fileID: 0}
-  observations: []
-  maxStep: 6000
-  resetOnDone: 0
-  reward: 0
-  done: 0
-  value: 0
-  CumulativeReward: 0
-  stepCounter: 0
-  agentStoredAction: []
-  memory: []
-  id: 0
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 1
   myFireRate: 0
   myRange: 0
   myStrength: 0
