@@ -10,7 +10,7 @@ namespace Assets.Game.Scripts.Pickups
         
         public Gold()
         {
-            itemName = "Gold";
+            // ignore itemName and always use tag [BP]
         }
 
         // Update is called once per frame
@@ -23,7 +23,7 @@ namespace Assets.Game.Scripts.Pickups
             base.Randomize();
             // I know this is deterministic, but I'm dialing in the reward values.
             // In the future, the loot drops might scale differently
-            value = Random.Range(1, 1);
+            //Value = Random.Range(1, 1); // for now let RewardSettings (Getting Treasure Slider) also indicate the value of a Gold drop. [BP]
         }
 
     }

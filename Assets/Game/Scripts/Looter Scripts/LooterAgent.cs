@@ -92,7 +92,7 @@ public class LooterAgent : Agent
     {
         get
         {
-            return Gold?.value ?? 0;
+            return Gold?.Value ?? 0;
         }
         set
         {
@@ -114,7 +114,7 @@ public class LooterAgent : Agent
                 }
                 else
                 {
-                    gold.value = value;
+                    gold.Value = value;
                 }
             }
         }
@@ -301,9 +301,9 @@ public class LooterAgent : Agent
             name = tag;
         }
         Debug.Log("Picking up " + name);
-        stateReward += item.value;
-        Health = Mathf.Min(HP, Health + item.healthBonus);    // Health was getting set to full each time it picked up a unique item
-        ResultsWindow.Score_GatheredLoot(item.value);
+        stateReward += item.Value;
+        Health = Mathf.Min(HP, Health + item.HealthBonus);    // Health was getting set to full each time it picked up a unique item
+        ResultsWindow.Score_GatheredLoot(item.Value);
 
         if ( item.IsCountable )
         {
@@ -352,11 +352,10 @@ public class LooterAgent : Agent
         foreach ( Item item in Items )
         {
             // add bonuses
-            speed += mySpeed * item.speedFactor;
-            strength += Archer.myStrength * item.damageBonus;
-            //damageDeflection = myDamageDeflection * item.damageDeflection;
-            damageDeflection = myDamageDeflection + item.damageDeflection;
-            range = item.rangeBonus != 0 ? item.rangeBonus : Archer.Range;
+            speed += mySpeed * item.SpeedFactor;
+            strength += Archer.myStrength * item.DamageBonus;
+            damageDeflection = myDamageDeflection + item.DamageDeflection;
+            range = item.RangeBonus != 0 ? item.RangeBonus : Archer.Range;
         }
         Speed = speed;
         DamageDeflection = damageDeflection;
