@@ -13,11 +13,15 @@ public class AttackPlayer : MonoBehaviour {
     public float strength = 1;
 
     private float HealthBar_Length;
-	
+	private Animator anim;
+	private SpriteRenderer mySprite;
+
 	// Use this for initialization
 	void Start () {
         maxHealth = health;
         HealthBar_Length = transform.GetChild(0).lossyScale.x;
+		anim = GetComponent<Animator>();
+		mySprite = GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -42,6 +46,14 @@ public class AttackPlayer : MonoBehaviour {
                 newVelocity.Scale(new Vector2(moveSpeed, moveSpeed));
             }
         }
+		float speed = newVelocity.magnitude;
+		if (speed == 0) speed -= 1;
+		anim.SetFloat("speed", speed);
+		if (newVelocity.x < 0)
+			mySprite.flipX = true;
+		else
+			mySprite.flipX = false;
+
         gameObject.GetComponent<Rigidbody2D>().velocity = newVelocity;
         transform.GetChild(0).localScale = new Vector3((health / maxHealth) * HealthBar_Length, transform.GetChild(0).localScale.y, transform.GetChild(0).localScale.z);
 
