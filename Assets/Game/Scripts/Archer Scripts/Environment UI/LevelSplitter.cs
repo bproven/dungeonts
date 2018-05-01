@@ -10,7 +10,7 @@ public class LevelSplitter : MonoBehaviour {
     void splitLevel(int count)
     {
         GameObject level = transform.GetChild(0).gameObject;
-        screenSplitter.GetComponent<SplitScreenGenerator>().cams[0] = level.transform.GetChild(0).GetChild(2).GetComponent<Camera>();
+        screenSplitter.GetComponent<SplitScreenGenerator>().cams[0] = Camera.main;
         for (int i = 1; i < count; i++)
         {
             GameObject newLevel = GameObject.Instantiate(level);

@@ -5,10 +5,11 @@ using UnityEngine;
 public class MonsterClicker : MonoBehaviour {
 
     public GameObject monster;
+    private GameObject player;
 
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+        player = GameObject.Find("Player");
 	}
 	
 	// Update is called once per frame
@@ -18,7 +19,7 @@ public class MonsterClicker : MonoBehaviour {
             GameObject newMonster = GameObject.Instantiate(monster);
             Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1);
             newMonster.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
-            newMonster.GetComponent<AttackPlayer>().player = Camera.main.transform.parent.gameObject;
+            newMonster.GetComponent<AttackPlayer>().player = player;
             newMonster.transform.SetParent(transform);
         }
     }
