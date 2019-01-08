@@ -13,19 +13,24 @@ public class AttackPlayer : MonoBehaviour {
     public float strength = 1;
 
     private float HealthBar_Length;
-	
+	private Animator anim;
+	private SpriteRenderer mySprite;
+
 	// Use this for initialization
 	void Start () {
         maxHealth = health;
         HealthBar_Length = transform.GetChild(0).lossyScale.x;
+		anim = GetComponent<Animator>();
+		mySprite = GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         // Keep it simple
-        if (player.transform.GetChild(0).GetComponent<Agent>().done)
+        if (player.transform.GetChild(1).GetComponent<LooterAgent>().Health <= 0)
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            anim.SetFloat("speed", -1);
             return;
         }
         Vector2 newVelocity = (player.transform.position - gameObject.transform.position);
@@ -42,6 +47,14 @@ public class AttackPlayer : MonoBehaviour {
                 newVelocity.Scale(new Vector2(moveSpeed, moveSpeed));
             }
         }
+		float speed = newVelocity.magnitude;
+		if (speed == 0) speed -= 1;
+		anim.SetFloat("speed", speed);
+		if (newVelocity.x < 0)
+			mySprite.flipX = true;
+		else
+			mySprite.flipX = false;
+
         gameObject.GetComponent<Rigidbody2D>().velocity = newVelocity;
         transform.GetChild(0).localScale = new Vector3((health / maxHealth) * HealthBar_Length, transform.GetChild(0).localScale.y, transform.GetChild(0).localScale.z);
 
@@ -77,6 +90,10 @@ public class AttackPlayer : MonoBehaviour {
     // Kill the player who we collided with
     void killPlayer(Collision2D coll)
     {
+        if (player.transform.GetChild(1).GetComponent<LooterAgent>().Health <= 0)
+        {
+            return;
+        }
         for (int i = 0; i < coll.transform.childCount; i++)
         {
             // Punish the looter brains involved in this disaster

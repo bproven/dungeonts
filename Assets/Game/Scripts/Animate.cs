@@ -5,7 +5,6 @@ using UnityEngine;
 public class Animate : MonoBehaviour {
 
     private Vector2 lastPos;
-    private SpriteRenderer mySprite;
     Animator anim;
 	public Vector2 enemy;
 	public bool hit;
@@ -15,7 +14,6 @@ public class Animate : MonoBehaviour {
     void Start () {
         lastPos = gameObject.transform.position;
 
-        mySprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 		aud = GetComponent<AudioSource>();
 		hit = false;
@@ -23,26 +21,28 @@ public class Animate : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        Vector2 curPos = gameObject.transform.position;
-		if (curPos == lastPos) {
-			anim.SetTrigger("idle");
-		}
-		else {
-			Vector2 direction = (curPos - lastPos);
-			float plus = direction.x + direction.y; float minus = direction.x - direction.y;
-			anim.SetFloat("plus", plus);
-			anim.SetFloat("minus", minus);
+		if (tag == "Player") {
+			Vector2 curPos = gameObject.transform.position;
+			if (curPos == lastPos) {
+				anim.SetTrigger("idle");
+			}
+			else {
+				Vector2 direction = (curPos - lastPos);
+				float plus = direction.x + direction.y; float minus = direction.x - direction.y;
+				anim.SetFloat("plus", plus);
+				anim.SetFloat("minus", minus);
 
-		}
-        lastPos = curPos;
+			}
+			lastPos = curPos;
 
-		if (hit) {
-			float enemyPlus = enemy.x + enemy.y; float enemyMinus = enemy.x - enemy.y;
-			anim.SetFloat("enemyPlus", enemyPlus);
-			anim.SetFloat("enemyMinus", enemyMinus);
-			anim.SetTrigger("attack");
-			aud.Play();
+			if (hit) {
+				float enemyPlus = enemy.x + enemy.y; float enemyMinus = enemy.x - enemy.y;
+				anim.SetFloat("enemyPlus", enemyPlus);
+				anim.SetFloat("enemyMinus", enemyMinus);
+				anim.SetTrigger("attack");
+				aud.Play();
+			}
+			hit = false;
 		}
-		hit = false;
     }
 }

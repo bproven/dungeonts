@@ -48,11 +48,11 @@ public class ArcherAgent : Agent
 
     public float stateReward;
 
-    public override List<float> CollectState()
+    public override void CollectObservations()
     {
-        List<float> state = new List<float>();
+        
         // Keep the cooldown binary
-        state.Add(((Time.time - lastShot) / myFireRate >= 1 ? 1 : 0));
+        AddVectorObs(((Time.time - lastShot) / myFireRate >= 1 ? 1 : 0));
         
         for (int i = 0; i < numRays; i++)
         {
@@ -66,8 +66,8 @@ public class ArcherAgent : Agent
             // Encode state data
             if (hit && hit.collider.tag == "Enemy")
             {
-                state.Add(hit.distance / Range);  // It's this far away
-                state.Add(1.0f);                        // It's an enemy
+                AddVectorObs(hit.distance / Range);  // It's this far away
+                AddVectorObs(1.0f);                        // It's an enemy
                 // Reward aiming at nearby enemies
                 stateReward += RewardSettings.aim * (1.0f - hit.distance / Range)
                     * (Mathf.Pow(0.5f - (float)i / numRays, 2))
@@ -75,11 +75,11 @@ public class ArcherAgent : Agent
             }
             else
             {
-                state.Add(0.0f);    // Clean up non-enemy distances
-                state.Add(0.0f);    // There's no enemy there
+                AddVectorObs(0.0f);    // Clean up non-enemy distances
+                AddVectorObs(0.0f);    // There's no enemy there
             }
         }
-        return state;
+        
     }
 
     private void punishMiss()
@@ -117,18 +117,41 @@ public class ArcherAgent : Agent
     }
 
     // to be implemented by the developer
-    public override void AgentStep(float[] act)
+    public override void AgentAction(float[] vectorAction, string textAction)
     {
-        if (brain.brainParameters.actionSpaceType == StateType.discrete)
+        if (looter.GetComponent<LooterAgent>().Health <= 0)
+            return;
+
+        if (brain.brainParameters.vectorActionSpaceType == SpaceType.discrete)
         {
+            int act = Mathf.FloorToInt(vectorAction[0]);
+            switch (act)
+            {
+                case 0:
+                    gameObject.transform.Rotate(new Vector3(0, 0, -turnSpeed));
+                    break;
+                case 1:
+                    gameObject.transform.Rotate(new Vector3(0, 0, turnSpeed));
+                    break;
+                case 2:
+                    fireArrow();
+                    break;
+                case 3:
+                    gameObject.transform.Rotate(new Vector3(0, 0, 2 * -turnSpeed));
+                    break;
+                case 4:
+                    gameObject.transform.Rotate(new Vector3(0, 0, 2 * turnSpeed));
+                    break;
+            }
+
         }
-        else if (brain.brainParameters.actionSpaceType == StateType.continuous)
+        else if (brain.brainParameters.vectorActionSpaceType == SpaceType.continuous)
         {
-            if (act[1] > 0)
+            if (vectorAction[1] > 0)
                 fireArrow();    // Attack
-            gameObject.transform.Rotate(new Vector3(0, 0, (Mathf.Round(act[0] * 2) * turnSpeed)));  // Turn
+            gameObject.transform.Rotate(new Vector3(0, 0, (Mathf.Round(vectorAction[0] * 2) * turnSpeed)));  // Turn
         }
-        reward += stateReward;
+        AddReward(stateReward);
         stateReward = 0;
 
         // Reset the round if necessary
@@ -158,7 +181,6 @@ public class ArcherAgent : Agent
         startTime = Time.time; lastShot = Time.time - myFireRate;   // Reset cooldowns
 
         turnSpeed = 360 / numRays;
-
     }
 
 }

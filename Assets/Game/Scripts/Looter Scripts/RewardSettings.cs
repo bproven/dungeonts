@@ -38,7 +38,7 @@ public class RewardSettings : MonoBehaviour
     // initializers for default item settings, by key
     private static Dictionary<string, Action<IItemSettings>> initializers = new Dictionary<string, Action<IItemSettings>>
     {
-        { ArmorName, armor => { armor.Value = 1; armor.DamageDeflection = 1.0f; } },
+        { ArmorName, armor => { armor.Value = 1; armor.DamageDeflection = 0.5f; } },
         { BootsName, boots => { boots.Value = 1; boots.SpeedFactor = 1.0f; } },
         { BowName, bow => { bow.Value = 3; bow.RangeBonus = 1.5f; bow.DamageBonus = 1.5f; } },
         { GoldName, gold => { gold.Value = 1; } },

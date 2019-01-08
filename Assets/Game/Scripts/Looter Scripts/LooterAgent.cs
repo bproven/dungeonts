@@ -27,6 +27,8 @@ public class LooterAgent : Agent
 
     public float stateReward;
 
+    bool alive;
+
     private static string[] thingsICanSee =
     {
         "Enemy",
@@ -135,20 +137,20 @@ public class LooterAgent : Agent
     /// return a list of length 1 containing the float equivalent of your state.
     /// </summary>
     /// <returns></returns>
-    public override List<float> CollectState()
+    public override void CollectObservations()
     {
-        List<float> state = new List<float>();
+        
         // New input, trying to add some kind of memory for confusing situations
         // Hey, past me, where did you want to go again?
         Vector2 dir = transform.parent.GetComponent<Rigidbody2D>().velocity;
-        state.Add(Speed != 0 ? dir.x / Speed : 0.0f);
-        state.Add(Speed != 0 ? dir.y / Speed : 0.0f);
+        AddVectorObs(Speed != 0 ? dir.x / Speed : 0.0f);
+        AddVectorObs(Speed != 0 ? dir.y / Speed : 0.0f);
 
         // Stats states
-        state.Add(Health / HP);   // Health stat
-        state.Add(Speed / 5.0f);  // Realistically our max speed shouldn't be over 5, though this could change in time
-        state.Add(DamageDeflection);  //  Armor stat, should be 0f-1f
-        state.Add(Archer.Range / sightDistance);    // How far can we kill things
+        AddVectorObs(Health / HP);   // Health stat
+        AddVectorObs(Speed / 5.0f);  // Realistically our max speed shouldn't be over 5, though this could change in time
+        AddVectorObs(DamageDeflection);  //  Armor stat, should be 0f-1f
+        AddVectorObs(Archer.Range / sightDistance);    // How far can we kill things
 
         // New loop
         for (int i = 0; i < numRays; i++)
@@ -177,42 +179,49 @@ public class LooterAgent : Agent
             }
             else if (debug)
                 Debug.DrawLine(gameObject.transform.position, (gameObject.transform.position + (Quaternion.AngleAxis((360f / numRays) * i, Vector3.forward) * transform.up).normalized * sightDistance), collisionColor);
-            state.Add(sightDistance != 0 ? hit.distance / sightDistance : 0.0f);
+            AddVectorObs(sightDistance != 0 ? hit.distance / sightDistance : 0.0f);
             // Add information about what was hit
             foreach (string tag in thingsICanSee)
-                state.Add(hit && hit.collider.tag == tag ? 1.0f : 0.0f);
+                AddVectorObs(hit && hit.collider.tag == tag ? 1.0f : 0.0f);
         }
         // Could we attack if we needed to?
         float cd = (Time.time - shooter.GetComponent<ArcherAgent>().lastShot) / shooter.GetComponent<ArcherAgent>().myFireRate;
-        state.Add(cd >= 1 ? 1 : 0);
-        return state;
+        AddVectorObs(cd >= 1 ? 1 : 0);
+        
     }
     
     /// <summary>
     /// This function will be called every frame, you must define what your agent will do given the input actions. 
     /// You must also specify the rewards and whether or not the agent is done. To do so, modify the public fields of the agent reward and done.
     /// </summary>
-    /// <param name="act"></param>
-    public override void AgentStep(float[] act)
+    /// <param name="vectorAction"></param>
+    public override void AgentAction(float[] vectorAction, string textAction)
     {
-        if (brain.brainParameters.actionSpaceType == StateType.discrete)
+        if (!alive)
+            return;
+        if (brain.brainParameters.vectorActionSpaceType == SpaceType.discrete)
         {
-
+            int move = Mathf.FloorToInt(vectorAction[0]);
+            if (move != 72)
+                gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Quaternion.AngleAxis((360f / numRays) * move, Vector3.forward) * transform.up * Speed;
+            else
+                gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
         // Move
-        else if (brain.brainParameters.actionSpaceType == StateType.continuous)
-            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(act[0], -1, 1), Mathf.Clamp(act[1], -1, 1)) * Speed;
+        else if (brain.brainParameters.vectorActionSpaceType == SpaceType.continuous)
+            gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(vectorAction[0], -1, 1), Mathf.Clamp(vectorAction[1], -1, 1)) * Speed;
         
         if (Time.time - roundStart > TIME)
         {
             Debug.Log("Looter: Out of time.");
-            done = true;
+            die();
         }
-        reward += stateReward;
+        AddReward(stateReward);
         stateReward = 0;
         // Debug
-        myReward = CumulativeReward;
+        myReward = GetCumulativeReward();
         SendHUDUpdate();
+        Debug.Log("My health is " + Health);
     }
 
     private void SendHUDUpdate()
@@ -227,12 +236,14 @@ public class LooterAgent : Agent
     /// </summary>
     public override void AgentReset()
     {
+        alive = true;
         stateReward = 0;
         roundStart = Time.time;
         gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GoldValue = 0;
         transform.up = Vector2.up;
         levelManager.GetComponent<LevelSpawner>().resetLevel();
+        ResultsWindow.ResetScore();
         lastDamage = Time.time - 0.5f;
 
         // PLAYER SETTINGS
@@ -246,7 +257,7 @@ public class LooterAgent : Agent
 
         Items.Clear();  // TODO: what about starting items?
 
-        Archer.Reset();
+        Archer.AgentReset();
 
         transform.parent.position = levelManager.transform.GetChild(0).position;
 
@@ -254,8 +265,9 @@ public class LooterAgent : Agent
 
     void die()
     {
-        done = true;
-        shooter.GetComponent<ArcherAgent>().done = true;
+        resultsWindow.GetComponent<ResultsWindow>().Show();
+        alive = false;
+        shooter.GetComponent<ArcherAgent>().Done();
         transform.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         SendHUDUpdate();
     }
@@ -370,7 +382,7 @@ public class LooterAgent : Agent
     /// </summary>
     public override void AgentOnDone()
     {
-        resultsWindow.GetComponent<ResultsWindow>().Show();   
+        
     }
 
     private void Awake()
