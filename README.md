@@ -1,10 +1,10 @@
-# cs491-magents
-NJIT CS491 e-Team Magents
-Unity-ML (Machine Learning) Monster-Agents
+# dungeonts
+Dungeon Agents
+Unity-ML (Machine Learning) Dungeon-Agents
 
 ## Getting Started
 
-1. Clone this project from https://github.com/bproven/cs491-magents.git
+1. Clone this project from https://github.com/bproven/dungeonts.git
 2. Clone the ml-agents repo at the same level from https://github.com/Unity-Technologies/ml-agents.git
 3. Follow the instructions here https://unity3d.college/2017/10/25/machine-learning-in-unity3d-setting-up-the-environment-tensorflow-for-agentml-on-windows-10/
     1. Install CUDA 9.0 from https://developer.nvidia.com/cuda-toolkit.
